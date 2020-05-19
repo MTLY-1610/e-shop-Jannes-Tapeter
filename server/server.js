@@ -3,7 +3,7 @@ const cookieSession = require("cookie-session");
 const mongoose = require("mongoose");
 const app = express();
 
-const customersRoute = require("./routes/customers");
+const customersRoute = require("./routes/customerRoute");
 
 //Cookie
 app.use(
