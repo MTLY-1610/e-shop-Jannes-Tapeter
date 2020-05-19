@@ -33,7 +33,7 @@ app.use("/customer", customersRoute);
 //Connecting to database
 const options = { useUnifiedTopology: true, useNewUrlParser: true };
 mongoose.connect(
-  "mongodb+srv://JanneKemi:12345@jannestapeter-8qfg8.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://JanneKemi:12345@jannestapeter-8qfg8.mongodb.net/jannestapeter?retryWrites=true&w=majority",
   options,
   () => {
     console.log("Connected to database");
