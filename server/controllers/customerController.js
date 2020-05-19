@@ -1,24 +1,7 @@
-const express = require("express");
-const router = express.Router();
+const Customer = require("../models/customerModel");
 const bcrypt = require("bcrypt");
 
-const Customer = require("../models/customer");
-
-router.use(express.json());
-
-//Get all users
-router.get("/", async (req, res) => {
-  try {
-    console.log(Customer);
-    const customers = await Customer.find();
-    res.status(200).json(customers);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-//Register new user
-router.post("/register", async (req, res) => {
+const registerCustomer = async (req, res, next) => {
   try {
     const password = await bcrypt.hash(req.body.password, 10);
 
@@ -39,12 +22,22 @@ router.post("/register", async (req, res) => {
     if (!sameUserName) {
       const newCustomer = await customer.save();
       res.status(200).json(newCustomer);
+      next();
     } else {
       res.status(403).send("Customer with that username already exist");
     }
   } catch (err) {
     res.json(err);
   }
-});
+};
 
-module.exports = router;
+const getAllCustomers = async (req, res, next) => {
+  try {
+    const customers = await Customer.find();
+    res.status(200).json(customers);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
+
+module.exports = { registerCustomer, getAllCustomers };
