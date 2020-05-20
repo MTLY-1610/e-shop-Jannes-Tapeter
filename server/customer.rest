@@ -1,12 +1,15 @@
 GET http://localhost:5000/customer
 
 ###
+GET http://localhost:5000/customer/5ec3cafe6a944408985d7c25
+
+###
 
 POST http://localhost:5000/customer/register
 Content-Type: application/json
 
 {
-"username": "Fippe3",
+"username": "Fippe5",
 "password": "12345",
 "firstName": "Fredrik",
 "lastName": "Thelin",
@@ -16,5 +19,19 @@ Content-Type: application/json
 "phone": "0734340604",
 "email": "fredrikthelin82@gmail.com"
 }
+
+###
+
+POST http://localhost:5000/customer/login
+Content-Type: application/json
+
+{
+"username": "Fippe3",
+"password": "12345"
+}
+
+###
+
+POST http://localhost:5000/customer/logout
 
 ###
