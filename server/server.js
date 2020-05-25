@@ -40,6 +40,24 @@ mongoose.connect(
   }
 );
 
+//404 -Error handler
+app.use(function (req, res) {
+  res.status(404).json({ message: "Sidan kunde inte hittas" })
+})
+
+//Global Error handler
+app.use(function (err, req, res, next) {
+  console.error(err)
+  if( !error.statusCode) {
+    err.statusCode = 500
+  }
+  res.status(err.statusCode).json ({message: err.message})
+})
+
+
+
 app.listen(5000, () => console.log("Server is up and running om port 5000"));
 
 module.exports = app;
+
+
