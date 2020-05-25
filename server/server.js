@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const customersRoute = require("./routes/customerRoute");
+const productsRoute = require("./routes/productRoute");
 
 //Cookie
 app.use(
@@ -29,6 +30,7 @@ app.use(function (req, res, next) {
 
 //Routes
 app.use("/customer", customersRoute);
+app.use("/product", productsRoute);
 
 //Connecting to database
 const options = { useUnifiedTopology: true, useNewUrlParser: true };

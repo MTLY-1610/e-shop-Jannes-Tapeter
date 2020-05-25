@@ -12,7 +12,7 @@ POST http://localhost:5000/customer/register
 Content-Type: application/json
 
 {
-"username": "FredrikAdmin",
+"username": "Fippe",
 "password": "12345",
 "firstName": "Fredrik",
 "lastName": "Thelin",
