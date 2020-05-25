@@ -1,26 +1,50 @@
 const Customer = require("../models/customerModel");
+const Adress = require("../models/adressModel");
 const bcrypt = require("bcrypt");
 
 //Register
 const registerCustomer = async (req, res) => {
   try {
+    //Kryptera lösenord
     const password = await bcrypt.hash(req.body.password, 10);
 
-    const customer = new Customer({
-      username: req.body.username,
-      password: password,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      street: req.body.street,
-      zip: req.body.zip,
-      phone: req.body.phone,
-      email: req.body.email,
-    });
-
+    //Kolla om användarnamn redan finns
     const sameUserName = await Customer.findOne({
       username: req.body.username,
     });
+
+    //Kolla om adress redan finns
+    const sameAdress = await Adress.findOne({
+      street: req.body.street,
+      city: req.body.city,
+      zip: req.body.zip,
+    });
+
+    //Om adress redan finns, referera till befintligt adress-object i databasen.
+    if (!sameAdress) {
+      let adress;
+      adress = new Adress({
+        street: req.body.street,
+        city: req.body.city,
+        zip: req.body.zip,
+      });
+      await adress.save();
+    } else {
+      adress = sameAdress;
+    }
+
+    //Så länge inte användarnamn redan finns, registrera och lagra ny kund i databasen.
     if (!sameUserName) {
+      const customer = new Customer({
+        username: req.body.username,
+        password: password,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        adress: adress,
+        phone: req.body.phone,
+        email: req.body.email,
+        role: req.body.role,
+      });
       const newCustomer = await customer.save();
       res.status(200).json(newCustomer);
     } else {
