@@ -72,7 +72,7 @@ const getCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
     res.status(200).json(customer);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError('User does not exist..', 400)
   }
 };
 
