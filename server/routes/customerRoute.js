@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+
+const adminCheck = require("../controllers/adminCheck");
+
 const {
   getCustomer,
   getAllCustomers,
@@ -14,7 +17,7 @@ router.use(express.json());
 router.get("/:id", getCustomer);
 
 //Get all customers
-router.get("/", getAllCustomers);
+router.get("/", adminCheck, getAllCustomers);
 
 //Register new customer
 router.post("/register", registerCustomer);
