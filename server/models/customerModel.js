@@ -11,11 +11,13 @@ const CustomerSchema = mongoose.Schema({
   },
   firstName: String,
   lastName: String,
-  street: String,
-  city: String,
-  zip: String,
+  adress: {
+    type: mongoose.Types.ObjectId,
+    ref: "adress",
+  },
   phone: String,
   email: String,
+  role: String,
 });
 
 module.exports = mongoose.model("customer", CustomerSchema);
