@@ -85,7 +85,7 @@ const loginCustomer = async (req, res) => {
       !customer ||
       !(await bcrypt.compare(req.body.password, customer.password))
     ) {
-      return res.status(401).json("Wrong username or password");
+      throw new ServerError('Wrong username or password', 401)
     }
 
     req.session.username = customer.username;
@@ -97,7 +97,7 @@ const loginCustomer = async (req, res) => {
 
     res.status(200).json(customer);
   } catch (err) {
-    res.status(400).json(err);
+    throw err
   }
 };
 
@@ -107,7 +107,7 @@ const logoutCustomer = async (req, res) => {
     req.session = null;
     res.status(200).send("Successfully logged out user");
   } catch {
-    res.status(418).send("Could not log out user");
+    throw new ServerError('Could not logout user..', 418)
   }
 };
 
