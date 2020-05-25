@@ -52,10 +52,10 @@ app.use(function (req, res) {
 //Global Error handler
 app.use(function (err, req, res, next) {
   console.error(err)
-  if( !error.statusCode) {
+  if (!err.statusCode) {
     err.statusCode = 500
   }
-  res.status(err.statusCode).json ({message: err.message})
+  res.status(err.statusCode).json({ message: err.message })
 })
 
 
