@@ -49,10 +49,10 @@ const registerCustomer = async (req, res) => {
       const newCustomer = await customer.save();
       res.status(200).json(newCustomer);
     } else {
-      res.status(403).send("Customer with that username already exist");
+      throw new ServerError("Customer with that username already exist", 403);
     }
   } catch (err) {
-    res.json(err);
+    throw err;
   }
 };
 
@@ -62,7 +62,7 @@ const getAllCustomers = async (req, res) => {
     const customers = await Customer.find();
     res.status(200).json(customers);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError('Could not get all costumers...', 400);
   }
 };
 
@@ -72,7 +72,7 @@ const getCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
     res.status(200).json(customer);
   } catch (err) {
-    throw new ServerError('User does not exist..', 400)
+    throw new ServerError('User does not exist...', 400)
   }
 };
 

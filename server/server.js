@@ -48,7 +48,7 @@ mongoose.connect(
 
 //404 -Error handler
 app.use(function (req, res) {
-  res.status(404).json({ message: "Sidan kunde inte hittas" })
+  res.status(404).json({ message: "Page does not exist" })
 })
 
 //Global Error handler
