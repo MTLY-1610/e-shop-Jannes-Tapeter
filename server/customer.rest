@@ -1,15 +1,18 @@
 GET http://localhost:5000/customer
 
 ###
-GET http://localhost:5000/customer/5ec3cafe6a944408985d7c25
+GET http://localhost:5000/customer/5ecb84c77fe48c1ecc19c70b
 
 ###
 
+
+//Klient skickar "customer" eller "wantsToBeAdmin" som role.
+//Klienten kan sen lista alla "WantsToBeAdmin" och en Admin kan ändra roll. 
 POST http://localhost:5000/customer/register
 Content-Type: application/json
 
 {
-"username": "Fippe5",
+"username": "FredrikAdmin",
 "password": "12345",
 "firstName": "Fredrik",
 "lastName": "Thelin",
@@ -17,8 +20,10 @@ Content-Type: application/json
 "city": "Älvängen",
 "zip": "44634",
 "phone": "0734340604",
-"email": "fredrikthelin82@gmail.com"
+"email": "fredrikthelin82@gmail.com",
+"role": "admin"
 }
+
 
 ###
 
@@ -26,7 +31,7 @@ POST http://localhost:5000/customer/login
 Content-Type: application/json
 
 {
-"username": "Fippe3",
+"username": "FredrikAdmin",
 "password": "12345"
 }
 
