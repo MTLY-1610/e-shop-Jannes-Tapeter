@@ -1,6 +1,7 @@
 const Customer = require("../models/customerModel");
 const Adress = require("../models/adressModel");
 const bcrypt = require("bcrypt");
+const ServerError = require("../serverError")
 
 //Register
 const registerCustomer = async (req, res) => {
