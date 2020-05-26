@@ -11,7 +11,7 @@ Content-Type: application/json
 
 {
     "customer": "5ecb902504d98c4334411190",
-    "products": ["5ecbc325f1c6f52fe81cd477"],
+    "products": ["5ecd1497da31fb3b54c7b0fd", "5ecd380e897d2748d47147f9"],
     "shippingMethod": "5ecd07aad83c36113c1754b0",
     "paymentMethod": {
         "type": "Swish",
