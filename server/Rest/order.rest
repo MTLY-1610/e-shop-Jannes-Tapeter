@@ -1,0 +1,22 @@
+GET http://localhost:5000/order
+
+###
+
+GET http://localhost:5000/order/5ecd0b6b74e0e732e0c32bcf
+
+###
+
+POST http://localhost:5000/order
+Content-Type: application/json
+
+{
+    "customer": "5ecb902504d98c4334411190",
+    "products": ["5ecbc325f1c6f52fe81cd477"],
+    "shippingMethod": "5ecd07aad83c36113c1754b0",
+    "paymentMethod": {
+        "type": "Swish",
+        "phoneNumber": "0734340604"
+    },
+    "adress": "5ecb8fce1c32ce0e54ad187b",
+    "totalPrice": 500
+}

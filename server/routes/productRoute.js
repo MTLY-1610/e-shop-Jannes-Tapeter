@@ -20,12 +20,12 @@ router.get("/:id", getProduct);
 router.get("/", getAllProducts);
 
 //Register new customer
-router.post("/", addProduct);
+router.post("/", adminCheck, addProduct);
 
 //Edit product
-router.put("/:id", editProduct);
+router.put("/:id", adminCheck, editProduct);
 
 //Delete product
-router.delete("/:id", deleteProduct);
+router.delete("/:id", adminCheck, deleteProduct);
 
 module.exports = router;

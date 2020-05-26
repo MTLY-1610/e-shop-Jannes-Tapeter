@@ -1,0 +1,14 @@
+GET http://localhost:5000/shippingMethod
+
+###
+
+POST http://localhost:5000/shippingMethod
+Content-Type: application/json
+
+{
+    "company": "DHL",
+    "deliveryTime": 36,
+    "price": 115
+}
+
+###
