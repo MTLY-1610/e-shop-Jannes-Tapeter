@@ -12,13 +12,13 @@ Content-Type: application/json
 
 {
   "category": ["pattern"],
-  "quantity": 50,
-  "url": "https://smhttp-ssl-80710.nexcesscdn.net/images/made/images/uploads/Schloss-fullmural-lores_780_520_s.jpg",
-  "price": 1299,
-  "description": "The halls of grand Germanic castles mix together plaster and stone to stunning effect. We’ve captured this in the Schloss stone wall mural, where a warm cream coloured stone texture meets azure blue.",
-  "brand": "SCHLOSS",
-  "designer": "WabiSabi",
-  "ref": "SLS",
+  "quantity": 10,
+  "url": "https://az666937.vo.msecnd.net/64/df80d819-f84e-4619-bfd1-1ba4e6bfad48?w=740&h=740&mode=crop&scale=both",
+  "price": 999,
+  "description": "Familj II är en tapetkollektion för hela familjen, både drömmaren och den som gillar struktur. Härliga färger, lekfullt och grafiskt, för det moderna skandinaviska hemmet.",
+  "brand": "AVA DARK BLUE",
+  "designer": "Sandberg",
+  "ref": "AVA.D.B",
   "dimensions": "60cm x 270cm"
 }
 

@@ -1,5 +1,4 @@
 const Order = require("../models/orderModel");
-const Product = require("../models/productModel");
 
 //Get all Orders
 const getAllOrders = async (req, res) => {
@@ -42,16 +41,6 @@ const placeOrder = async (req, res) => {
     });
 
     await order.save();
-
-    //Decrease quantity on the products ordered
-    for (const product of req.body.products) {
-      let productToDecrease = await Product.findOne({ _id: product });
-      if (productToDecrease) {
-        productToDecrease.quantity--;
-        await productToDecrease.save();
-      }
-    }
-
     res.status(200).json(order);
   } catch (err) {
     res.status(400).json(err);
