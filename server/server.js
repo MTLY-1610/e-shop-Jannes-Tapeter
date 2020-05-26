@@ -5,6 +5,8 @@ const app = express();
 
 const customersRoute = require("./routes/customerRoute");
 const productsRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
+const shippingMethodRoute = require("./routes/shippingMethodRoute");
 
 //Cookie
 app.use(
@@ -31,6 +33,8 @@ app.use(function (req, res, next) {
 //Routes
 app.use("/customer", customersRoute);
 app.use("/product", productsRoute);
+app.use("/order", orderRoute);
+app.use("/shippingMethod", shippingMethodRoute);
 
 //Connecting to database
 const options = { useUnifiedTopology: true, useNewUrlParser: true };
