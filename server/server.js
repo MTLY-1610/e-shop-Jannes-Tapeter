@@ -43,12 +43,10 @@ mongoose.connect(
   }
 )
 
-/*  Global error handler */
-
 
 //404 -Error handler
 app.use(function (req, res) {
-  res.status(404).json({ message: "Page does not exist" })
+  res.status(404).json({ message: "Resource could not be found" })
 })
 
 //Global Error handler
