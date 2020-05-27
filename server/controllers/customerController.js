@@ -5,7 +5,7 @@ const ServerError = require("../serverError");
 
 //Register
 const registerCustomer = async (req, res, next) => {
-  
+  try {
     //Kryptera lösenord
     const password = await bcrypt.hash(req.body.password, 10);
 
@@ -51,6 +51,9 @@ const registerCustomer = async (req, res, next) => {
     } else {
       throw new ServerError("Customer with that username already exist", 403);
     }
+  } catch (err){
+    next(err)
+  }
 };
 
 //Get all
@@ -94,7 +97,7 @@ const loginCustomer = async (req, res) => {
 
     res.status(200).json(customer);
   } catch (err) {
-    throw err;
+    next (err);
   }
 };
 
