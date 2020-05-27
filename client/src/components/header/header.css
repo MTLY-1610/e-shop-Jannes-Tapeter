@@ -1,57 +1,48 @@
 
 * {
-    margin: 0;
-    padding: 0;
     font-family: titling-gothic-fb, sans-serif;
     font-weight: 300;
     font-style: normal;
     
 }
-
-
-header {
+#container-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin: 0 4rem;
-    padding: 1rem 0;
+    margin-top: 3rem;
+    width: 85vw;
+    height: 10vh;
+    margin-bottom: .5rem;
+
 
 }
-
-header>h1 {
+#logo {
+    display: flex;
     font-size: 1.5rem;
-}
 
-ul {
+}
+#container-right {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     
-    margin-right: 4rem;
-    padding: 1rem 0;
-
+      
 }
-
-#navbar>h5 {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#navbar>h5>span {
-    margin-left: 1rem;
-}
-
-ul>li {
-    text-decoration: none;
-    list-style: none;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-}
-
-#navbar {
+#menu{
     display: flex;
     width: 30vw;
-    height: 13vh;
+    margin-right: 7rem;
+    justify-content: space-evenly;
+    
+}
+#loggin {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
     justify-content: space-between;
-    flex-direction: column;
-    font-size: 0.8rem;
-    ;
+    font-size: 1rem;
+    width: 20vw;
+    margin-bottom: 2.5rem;
+    font-size: smaller;
+
 }
