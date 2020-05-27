@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const ServerError = require("../serverError")
 
 //Register
-const registerCustomer = async (req, res) => {
+const registerCustomer = async (req, res, next) => {
   try {
     //Kryptera lösenord
     const password = await bcrypt.hash(req.body.password, 10);
@@ -52,7 +52,7 @@ const registerCustomer = async (req, res) => {
       throw new ServerError("Customer with that username already exist", 403);
     }
   } catch (err) {
-    throw err;
+    next (err);
   }
 };
 
