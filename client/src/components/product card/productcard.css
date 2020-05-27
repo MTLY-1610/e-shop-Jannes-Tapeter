@@ -1,0 +1,30 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#img{
+    display: flex;
+    width: 20vw;
+}
+#description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#description-line1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#description-line2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#right{
+    display: flex;
+}
+#left{
+    display: flex;
+}
