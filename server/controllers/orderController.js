@@ -27,7 +27,7 @@ const getOrder = async (req, res) => {
 };
 
 const placeOrder = async (req, res) => {
-  const orderNumber = Math.floor(Math.random() * 10000);
+  const orderNumber = Math.floor(Math.random() * 1000000);
 
   try {
     const order = new Order({

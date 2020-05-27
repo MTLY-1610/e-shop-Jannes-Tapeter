@@ -14,6 +14,6 @@ router.use(express.json());
 router.get("/", getAllShippingMethods);
 
 //Add ShippingMethod
-router.post("/", addShippingMethod);
+router.post("/", adminCheck, addShippingMethod);
 
 module.exports = router;

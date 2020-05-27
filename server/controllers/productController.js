@@ -48,15 +48,12 @@ const editProduct = async (req, res) => {
   try {
     const product = await Product.findOne({ _id: req.params.id });
 
-    product.category = req.body.category;
-    product.quantity = req.body.quantity;
-    product.url = req.body.url;
-    product.price = req.body.price;
-    product.description = req.body.description;
-    product.brand = req.body.brand;
-    product.designer = req.body.designer;
-    product.ref = req.body.ref;
-    product.dimensions = req.body.dimensions;
+    if (req.body.category) {
+      product.category = req.body.category;
+    }
+    if (req.body.quantity) {
+      product.quantity = req.body.quantity;
+    }
 
     await product.save();
 
