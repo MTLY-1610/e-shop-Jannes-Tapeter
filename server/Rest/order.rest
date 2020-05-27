@@ -1,0 +1,32 @@
+GET http://localhost:5000/order
+
+###
+
+GET http://localhost:5000/order/5ecd0b6b74e0e732e0c32bcf
+
+###
+
+POST http://localhost:5000/order
+Content-Type: application/json
+
+{
+    "customer": "5ecb902504d98c4334411190",
+    "products": [{
+        "_id": "5ece164fa78b54346877496d",
+        "category": ["pattern"],
+        "url": "https://smhttp-ssl-80710.nexcesscdn.net/images/made/images/uploads/Schloss-fullmural-lores_780_520_s.jpg",
+        "price": 1299,
+        "description": "The halls of grand Germanic castles mix together plaster and stone to stunning effect. We’ve captured this in the Schloss stone wall mural, where a warm cream coloured stone texture meets azure blue.",
+        "brand": "SCHLOSS",
+        "designer": "WabiSabi",
+        "ref": "SLS",
+        "dimensions": "60cm x 270cm"
+}],
+    "shippingMethod": "5ecd07aad83c36113c1754b0",
+    "paymentMethod": {
+        "type": "Swish",
+        "phoneNumber": "0734340604"
+    },
+    "adress": "5ecb8fce1c32ce0e54ad187b",
+    "totalPrice": 500
+}
