@@ -11,7 +11,7 @@ const {
 
 router.use(express.json());
 
-//et one order
+//Get one order
 router.get("/:id", getOrder);
 
 //Get all orders

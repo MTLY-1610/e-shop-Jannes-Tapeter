@@ -1,4 +1,5 @@
 const ShippingMethod = require("../models/shippingMethod");
+const ServerError = require("../serverError");
 
 //Add Shipping Method
 const addShippingMethod = async (req, res) => {
@@ -12,7 +13,7 @@ const addShippingMethod = async (req, res) => {
     await shippingMethod.save();
     res.status(200).json(shippingMethod);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not add shipping method", 400)
   }
 };
 
@@ -22,7 +23,7 @@ const getAllShippingMethods = async (req, res) => {
     const shippingMethods = await ShippingMethod.find();
     res.status(200).json(shippingMethods);
   } catch (err) {
-    res.status(400).send("Could not find any shipping methods");
+    throw new ServerError("Could not find any shipping methods", 400);
   }
 };
 
