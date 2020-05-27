@@ -1,7 +1,15 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 #grid-latest {
+
     display: grid;
+    width: 75vw;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    column-gap: 2rem;
 }
 h1 {
     font-size: 1.2rem;
