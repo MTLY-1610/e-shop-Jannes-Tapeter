@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import Link from "react-router-dom";
-import {ReactComponent as Icon} from './shopping-basket-light.svg';
+import icon from './shopping-basket-light.png';
 
 class Header extends React.Component {
   state = {};
@@ -15,7 +15,7 @@ class Header extends React.Component {
           <div id="container-right">
             <div id="loggin"> 
               
-            <span >Registrera</span><span > Logga in </span><span id=""><img className="basket" src={Icon} alt="product" /></span>
+            <span >Registrera</span><span > Logga in </span><span id=""><img className="basket" src={icon} alt="product" /></span>
               
             </div>
             <div id="menu"> 

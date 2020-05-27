@@ -13,8 +13,10 @@ body {
 
 header{
     width: 85vw;
+    margin-bottom: .5rem;
    
 }
+
 
 
 .hero{
@@ -22,10 +24,25 @@ header{
     margin-left: auto;
     margin-right: auto;
     width: 80vw;
+    margin-bottom: 2.5rem;
 }
 .LatestProducts{
-    
-    margin-left: auto;
-    margin-right: auto;
     width: 85vw;
+    margin-bottom: 2.5rem;
+
+}
+.LatestProducts{
+    width: 85vw;
+    margin-bottom: 2.5rem;
+
+}
+.LatestProducts{
+    width: 85vw;
+    margin-bottom: 2.5rem;
+
+}
+.footer{
+    width: 85vw;
+    margin-bottom: 2.5rem;
+
 }

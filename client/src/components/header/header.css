@@ -41,8 +41,11 @@
     align-items: right;
     justify-content: space-between;
     font-size: 1rem;
-    width: 20vw;
+    width: 15vw;
     margin-bottom: 2.5rem;
     font-size: smaller;
 
+}
+.basket{
+    width: 1.2rem;
 }
