@@ -6,8 +6,12 @@ class LatestProducts extends React.Component {
   render() {
     return (
       <section>
-        <h3>Senaste produkter</h3>
+        <h1>Senaste produkter</h1>
         <div id="grid-latest">
+          <h1>J</h1>
+          <h1>A</h1>
+          <h1>M</h1>
+          <h1>N</h1>
           <h1>J</h1>
           <h1>A</h1>
           <h1>M</h1>
