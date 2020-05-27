@@ -7,9 +7,17 @@ class LatestProducts extends React.Component {
   render() {
     return (
       <section>
-        <div id="container">
+        
         <h1>Senaste produkter</h1>
+      <div id="container">
         <div id="grid-latest">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
           <ProductCard />
         </div>
         </div>
