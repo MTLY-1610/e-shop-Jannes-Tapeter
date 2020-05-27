@@ -15,7 +15,7 @@ router.use(express.json());
 router.get("/:id", getOrder);
 
 //Get all orders
-router.get("/", getAllOrders);
+router.get("/", adminCheck, getAllOrders);
 
 //Place order
 router.post("/", placeOrder);
