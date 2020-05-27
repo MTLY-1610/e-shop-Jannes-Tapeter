@@ -12,14 +12,14 @@ class Homepage extends React.Component {
   state = {};
   render() {
     return (
-      <h1>
+      <div id="content">
         <Header />
         <img className="hero" src={Hero} alt="hero" />
         <LatestProducts />
         <ChildrenProducts />
         <BrandRow />
         <Footer />
-      </h1>
+      </div>
     );
   }
 }
