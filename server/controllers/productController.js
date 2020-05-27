@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const ServerError = require("../serverError");
 
 //Get one product
 const getProduct = async (req, res) => {
@@ -8,7 +9,7 @@ const getProduct = async (req, res) => {
     });
     res.status(200).json(product);
   } catch (err) {
-    res.status(400).send("Could not find product");
+    throw new ServerError("Could not find product", 400);
   }
 };
 
@@ -18,7 +19,7 @@ const getAllProducts = async (req, res) => {
     const products = await Product.find();
     res.status(200).json(products);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not get all products", 400);
   }
 };
 
@@ -40,7 +41,7 @@ const addProduct = async (req, res) => {
     await product.save();
     res.status(200).json(product);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not add a new product", 400);
   }
 };
 
@@ -59,7 +60,7 @@ const editProduct = async (req, res) => {
 
     res.status(200).json(product);
   } catch (err) {
-    res.status(400).send("Could not update product");
+    throw new ServerError("Could not update product", 400);
   }
 };
 
@@ -68,7 +69,7 @@ const deleteProduct = async (req, res) => {
     await Product.deleteOne({ _id: req.params.id });
     res.status(200).send("Product deleted");
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not delete product", 400)
   }
 };
 
