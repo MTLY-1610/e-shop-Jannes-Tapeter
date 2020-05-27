@@ -5,6 +5,7 @@ import ChildrenProducts from "../childroomrow/childrenRow";
 import BrandRow from "../brandrow/brandRow";
 import Footer from "../footer/footer";
 import Hero from "./hero.jpeg"
+import ProductCard from "../product card/productCard"
 import "./homepage.css";
 
 class Homepage extends React.Component {

@@ -7,11 +7,11 @@
     align-items: center;
     font-size: small;
     color: dimgray;
-    width:20vw;
+    width:17vw;
 }
 
 img{
-    width: 20vw;
+    width: 17vw;
 }
 #sample{
     display: flex;
@@ -22,7 +22,7 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 18vw;
+    width: 16vw;
     
     
 }
@@ -30,23 +30,12 @@ img{
     display: flex;
     
     
-    width:10vw;
+    width:8vw;
     
     
 }
 #description-col2{
     display: flex;
-    
-    width:10vw;
+    width:8vw;
 }
-#right{
- 
-    
-    
-    
-}
-#left{
-   
-    
-   
-}
+

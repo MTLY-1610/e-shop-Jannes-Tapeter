@@ -6,7 +6,7 @@ class LatestProducts extends React.Component {
   state = {};
   render() {
     return (
-      <section>
+      <div id="component-container">
         
         <h1>Senaste produkter</h1>
       <div id="container">
@@ -21,7 +21,7 @@ class LatestProducts extends React.Component {
           <ProductCard />
         </div>
         </div>
-      </section>
+     </div>
     );
   }
 }
