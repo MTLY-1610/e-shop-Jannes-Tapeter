@@ -1,3 +1,7 @@
+*:focus {
+  outline: 0 !important;
+}
+
 .registerLogin-main {
   display: flex;
   width: 100%;
@@ -52,7 +56,82 @@
   flex-direction: column;
 }
 
-#outlined-basic {
-  width: 14rem;
+.MuiInputBase-formControl {
   border: 1px solid black;
+  border-radius: 0;
+  width: 14rem;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+
+#formularButton {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 1050px) {
+  .MuiInputBase-formControl {
+    width: 13rem;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .MuiInputBase-formControl {
+    width: 12rem;
+  }
+}
+@media only screen and (max-width: 870px) {
+  .MuiInputBase-formControl {
+    width: 14rem;
+  }
+
+  .registerLogin-main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 4rem 0;
+    /* flex-direction: column; */
+  }
+  .two-textfields-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .register-div {
+    justify-content: center;
+  }
+
+  .one-textfield-wrapper {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 516px) {
+  .registerLogin-main {
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .two-textfields-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .register-div {
+    justify-content: center;
+  }
+
+  .one-textfield-wrapper {
+    justify-content: center;
+  }
+
+  .register-wrapper {
+    width: 90%;
+  }
+
+  .login-wrapper {
+    width: 90%;
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+  }
 }
