@@ -15,7 +15,7 @@ body {
   margin-bottom: 2.5rem;
 }
 
-#content {
+#root {
   display: flex;
   justify-content: center;
   align-items: center;
