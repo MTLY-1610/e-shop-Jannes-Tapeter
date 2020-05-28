@@ -1,0 +1,37 @@
+.shoppingcart-wrapper {
+  display: flex;
+  width: 85vw;
+  margin-top: 2rem;
+}
+
+.cartrow-div {
+  width: 60%;
+}
+
+.delivery-payment-div {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.deliveryDiv {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shoppingcart-wrapper > section > h4 {
+  margin-bottom: 1rem;
+}
+
+.flexing-delivery-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexing-delivery-div > h4 {
+  align-self: flex-start;
+}
