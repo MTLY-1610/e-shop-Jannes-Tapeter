@@ -1,5 +1,6 @@
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
+const ServerError = require("../serverError");
 
 //Get all Orders
 const getAllOrders = async (req, res) => {
@@ -10,7 +11,7 @@ const getAllOrders = async (req, res) => {
       .populate("adress");
     res.status(200).json(orders);
   } catch (err) {
-    res.status(400).send("No orders found");
+    throw new ServerError('No orders found', 400)
   }
 };
 
@@ -22,12 +23,12 @@ const getOrder = async (req, res) => {
     });
     res.status(200).json(order);
   } catch (err) {
-    res.status(400).send("Could not find order");
+    throw new ServerError("Could not find order", 400);
   }
 };
 
 const placeOrder = async (req, res) => {
-  const orderNumber = Math.floor(Math.random() * 10000);
+  const orderNumber = Math.floor(Math.random() * 1000000);
 
   try {
     const order = new Order({
@@ -54,7 +55,7 @@ const placeOrder = async (req, res) => {
 
     res.status(200).json(order);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not place order", 400);
   }
 };
 
