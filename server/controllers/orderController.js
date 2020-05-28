@@ -4,15 +4,15 @@ const ServerError = require("../serverError");
 
 //Get all Orders
 const getAllOrders = async (req, res) => {
-  try {
     const orders = await Order.find()
       .populate("customer")
       .populate("shippingMethod")
       .populate("adress");
-    res.status(200).json(orders);
-  } catch (err) {
+    
+  if (orders.length === 0) {
     throw new ServerError('No orders found', 400)
   }
+  res.status(200).json(orders);
 };
 
 //Get one Order

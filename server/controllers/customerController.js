@@ -5,7 +5,7 @@ const ServerError = require("../serverError");
 
 //Register
 const registerCustomer = async (req, res, next) => {
-  try {
+
     //Kryptera lösenord
     const password = await bcrypt.hash(req.body.password, 10);
 
@@ -51,34 +51,28 @@ const registerCustomer = async (req, res, next) => {
     } else {
       throw new ServerError("Customer with that username already exist", 403);
     }
-  } catch (err){
-    next(err)
-  }
 };
 
 //Get all
 const getAllCustomers = async (req, res) => {
-  try {
     const customers = await Customer.find();
-    res.status(200).json(customers);
-  } catch (err) {
-    throw new ServerError("Could not get all costumers...", 400);
+  if (!customers) {
+    throw new ServerError("Could not get all costumers", 400);
   }
+  res.status(200).json(customers);
 };
 
 //Get one customer
 const getCustomer = async (req, res) => {
-  try {
-    const customer = await Customer.findOne({ _id: req.params.id });
-    res.status(200).json(customer);
-  } catch (err) {
-    throw new ServerError("User does not exist...", 400);
+  const customer = await Customer.findOne({ _id: req.params.id });
+  if (!customer) {
+    throw new ServerError("User does not exist", 400);
   }
+  res.status(200).json(customer);
 };
 
 //Log in
 const loginCustomer = async (req, res) => {
-  try {
     const customer = await Customer.findOne({ username: req.body.username });
 
     if (
@@ -94,13 +88,10 @@ const loginCustomer = async (req, res) => {
     } else {
       req.session.role = "customer";
     }
-
     res.status(200).json(customer);
-  } catch (err) {
-    next (err);
-  }
 };
 
+//TODO change errorhandling?
 //Logout customer
 const logoutCustomer = async (req, res) => {
   try {
