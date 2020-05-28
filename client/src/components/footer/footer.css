@@ -1,28 +1,26 @@
 footer {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: titling-gothic-fb, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    
+  margin: 0;
+  padding: 0;
+  font-family: titling-gothic-fb, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
-
 
 footer {
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 4rem;
-    padding: 1rem 0;
-
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 4rem;
+  padding: 1rem 0;
+  width: 85vw;
 }
 
-footer>h1 {
-    font-size: 1.5rem;
-    margin-left: 2vw;
+footer > h1 {
+  font-size: 1.5rem;
+  margin-left: 2vw;
 }

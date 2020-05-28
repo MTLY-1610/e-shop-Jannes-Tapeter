@@ -1,48 +1,23 @@
 @import url("https://use.typekit.net/mdy6uuo.css");
 
 body {
-    font-family: titling-gothic-fb, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-   
-  }
-
-header{
-    width: 85vw;
-    margin-bottom: .5rem;
-   
+  font-family: titling-gothic-fb, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-
-.hero{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80vw;
-    margin-bottom: 2.5rem;
+.hero {
+  display: block;
+  width: 80vw;
+  margin-bottom: 2.5rem;
 }
-.LatestProducts{
-    width: 85vw;
-    margin-bottom: 2.5rem;
 
-}
-.LatestProducts{
-    width: 85vw;
-    margin-bottom: 2.5rem;
-
-}
-.LatestProducts{
-    width: 85vw;
-    margin-bottom: 2.5rem;
-
-}
-.footer{
-    width: 85vw;
-    margin-bottom: 2.5rem;
-
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

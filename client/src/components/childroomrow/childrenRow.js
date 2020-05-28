@@ -1,26 +1,22 @@
 import React from "react";
 import "./childrenRow.css";
-import ProductCard from "../product card/productCard"
+import ProductCard from "../product card/productCard";
 
 class ChildrenProducts extends React.Component {
   state = {};
   render() {
     return (
-<div id="component-container">
-        
+      <div id="component-container">
         <h1>Barnrum</h1>
-      <div id="container">
-        <div id="grid-children">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-          
+        <div id="children-container">
+          <div id="grid-children">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
         </div>
-        </div>
-        </div>
-        
-       
+      </div>
     );
   }
 }
