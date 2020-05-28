@@ -2,7 +2,7 @@
 #dhl,
 #db {
   width: 7rem;
-  height: 6rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,13 +10,16 @@
 #postnord > img,
 #dhl > img,
 #db > img {
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
 }
 
 #radioGroup {
-  height: 18rem;
+  height: 12rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+@media only screen and (max-width: 870px) {
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductInCart.css";
-import DB from "./db.png";
+import Test from "./test.png";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -11,7 +11,7 @@ class ProductInCart extends React.Component {
     return (
       <div className="cart-row">
         <div className="cartimg-div">
-          <img id="product-image-cart" src={DB}></img>
+          <img id="product-image-cart" src={Test}></img>
         </div>
         <div>
           <div>

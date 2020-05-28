@@ -12,13 +12,13 @@ class DeliveryMethods extends React.Component {
       <React.Fragment>
         <div className="delivery-flex">
           <div id="postnord">
-            <img src={Postnord} alt="swish"></img>
+            <img src={Postnord} alt="postnord"></img>
           </div>
           <div id="db">
-            <img src={DB} alt="swish"></img>
+            <img src={DB} alt="db"></img>
           </div>
           <div id="dhl">
-            <img src={DHL} alt="swish"></img>
+            <img src={DHL} alt="dhl"></img>
           </div>
         </div>
         <div>

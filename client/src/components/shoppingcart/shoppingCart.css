@@ -1,7 +1,8 @@
 .shoppingcart-wrapper {
   display: flex;
   width: 85vw;
-  margin-top: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .cartrow-div {
@@ -14,9 +15,9 @@
   flex-direction: column;
 }
 
-.deliveryDiv {
+.divForRadioAndImg {
   display: flex;
-  width: 80%;
+  width: 85%;
   align-items: center;
   justify-content: space-between;
 }
@@ -34,4 +35,82 @@
 
 .flexing-delivery-div > h4 {
   align-self: flex-start;
+}
+
+.totalDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.8px solid black;
+  padding-top: 2rem;
+}
+
+.totalDiv > p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 2rem;
+}
+
+#paymentBtn {
+  align-self: center;
+  margin-top: 1.3rem;
+  padding: 10px 15px;
+  background-color: white;
+  border: none;
+  border: 1px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#paymentBtn:hover {
+  background: black;
+  color: white;
+}
+
+@media only screen and (max-width: 870px) {
+  .shoppingcart-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .totalDiv {
+    border-top: 0.8px solid black;
+    border-bottom: 0.8px solid black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .delivery-payment-div {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .flexing-delivery-div > h4 {
+    align-self: center;
+    margin: 1rem 0rem;
+  }
+
+  .cartrow-div {
+    width: 95%;
+  }
+  .cartrow-div > h4 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .delivery-payment-div {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cartrow-div {
+    width: 100%;
+  }
 }
