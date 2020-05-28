@@ -11,11 +11,11 @@ const {
 
 router.use(express.json());
 
-//et one order
+//Get one order
 router.get("/:id", getOrder);
 
 //Get all orders
-router.get("/", getAllOrders);
+router.get("/", adminCheck, getAllOrders);
 
 //Place order
 router.post("/", placeOrder);

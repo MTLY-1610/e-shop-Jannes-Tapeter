@@ -1,47 +1,52 @@
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
+    font-family: titling-gothic-fb, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    
 }
-
-header {
+#container-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin: 0 4rem;
-    padding: 1rem 0;
-}
+    margin-top: 3rem;
+    width: 85vw;
+    height: 10vh;
+    margin-bottom: .1em;
 
-header>h1 {
+
+}
+#logo {
+    display: flex;
     font-size: 1.5rem;
-}
 
-ul {
+}
+#container-right {
     display: flex;
-    padding: 1rem 0;
-}
-
-#navbar>h5 {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#navbar>h5>span {
-    margin-left: 1rem;
-}
-
-ul>li {
-    text-decoration: none;
-    list-style: none;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-}
-
-#navbar {
-    display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    align-items: flex-end;
+    
+      
+}
+#menu{
+    display: flex;
+    width: 30vw;
+    margin-right: 7rem;
+    justify-content: space-evenly;
+    font-size: .8em;
+    
+}
+#loggin {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    justify-content: space-between;
     font-size: 1rem;
-    ;
+    width: 15vw;
+    margin-bottom: 2.5rem;
+    font-size: smaller;
+
+}
+.basket{
+    width: 1.2rem;
 }

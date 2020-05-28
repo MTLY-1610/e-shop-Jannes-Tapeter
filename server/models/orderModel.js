@@ -5,10 +5,7 @@ const OrderModel = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "customer",
   },
-  products: {
-    type: [mongoose.Types.ObjectId],
-    ref: "product",
-  },
+  products: [Object],
   orderNumber: Number,
   shipped: Boolean,
   shippingMethod: {

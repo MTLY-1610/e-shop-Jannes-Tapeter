@@ -1,9 +1,10 @@
 const Customer = require("../models/customerModel");
 const Adress = require("../models/adressModel");
 const bcrypt = require("bcrypt");
+const ServerError = require("../serverError");
 
 //Register
-const registerCustomer = async (req, res) => {
+const registerCustomer = async (req, res, next) => {
   try {
     //Kryptera lösenord
     const password = await bcrypt.hash(req.body.password, 10);
@@ -48,10 +49,10 @@ const registerCustomer = async (req, res) => {
       const newCustomer = await customer.save();
       res.status(200).json(newCustomer);
     } else {
-      res.status(403).send("Customer with that username already exist");
+      throw new ServerError("Customer with that username already exist", 403);
     }
-  } catch (err) {
-    res.json(err);
+  } catch (err){
+    next(err)
   }
 };
 
@@ -61,7 +62,7 @@ const getAllCustomers = async (req, res) => {
     const customers = await Customer.find();
     res.status(200).json(customers);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("Could not get all costumers...", 400);
   }
 };
 
@@ -71,7 +72,7 @@ const getCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
     res.status(200).json(customer);
   } catch (err) {
-    res.status(400).json(err);
+    throw new ServerError("User does not exist...", 400);
   }
 };
 
@@ -84,7 +85,7 @@ const loginCustomer = async (req, res) => {
       !customer ||
       !(await bcrypt.compare(req.body.password, customer.password))
     ) {
-      return res.status(401).json("Wrong username or password");
+      throw new ServerError("Wrong username or password", 401);
     }
 
     req.session.username = customer.username;
@@ -96,7 +97,7 @@ const loginCustomer = async (req, res) => {
 
     res.status(200).json(customer);
   } catch (err) {
-    res.status(400).json(err);
+    next (err);
   }
 };
 
@@ -106,7 +107,7 @@ const logoutCustomer = async (req, res) => {
     req.session = null;
     res.status(200).send("Successfully logged out user");
   } catch {
-    res.status(418).send("Could not log out user");
+    throw new ServerError("Could not logout user..", 418);
   }
 };
 
