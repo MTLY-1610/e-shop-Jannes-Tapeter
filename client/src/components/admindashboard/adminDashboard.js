@@ -1,9 +1,17 @@
 import React from "react";
+import Header from "../header/header";
+import Footer from "../footer/footer";
 
-class admindashboard extends React.Component {
+class AdminDashboard extends React.Component {
+    state = {};
     render() {
-        return <h3>Admin Dashboard</h3>
+        return (
+            <React.Fragment>
+                <Header />
+                <Footer />
+            </React.Fragment>
+        );
     }
 }
 
-export default regularProducts;
+export default AdminDashboard;
