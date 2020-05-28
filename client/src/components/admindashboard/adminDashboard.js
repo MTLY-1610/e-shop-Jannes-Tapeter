@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import "./adminDashboard.css";
 
 class AdminDashboard extends React.Component {
     state = {};
@@ -8,6 +9,7 @@ class AdminDashboard extends React.Component {
         return (
             <React.Fragment>
                 <Header />
+                <h2>Admin sida</h2>
                 <Footer />
             </React.Fragment>
         );
