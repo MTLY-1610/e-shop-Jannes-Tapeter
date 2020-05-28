@@ -49,9 +49,9 @@ const registerCustomer = async (req, res, next) => {
       const newCustomer = await customer.save();
       res.status(200).json(newCustomer);
     } else {
-      throw new ServerError("Customer with that username already exist", 403);
+      throw new ServerError("A Customer with that username already exists", 403);
     }
-  } catch (err){
+  } catch (err) {
     next(err)
   }
 };
@@ -62,7 +62,7 @@ const getAllCustomers = async (req, res) => {
     const customers = await Customer.find();
     res.status(200).json(customers);
   } catch (err) {
-    throw new ServerError("Could not get all costumers...", 400);
+    throw new ServerError("Could not get all costumers", 400);
   }
 };
 
@@ -72,7 +72,7 @@ const getCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
     res.status(200).json(customer);
   } catch (err) {
-    throw new ServerError("User does not exist...", 400);
+    throw new ServerError("The user does not exist", 400);
   }
 };
 
@@ -97,18 +97,16 @@ const loginCustomer = async (req, res) => {
 
     res.status(200).json(customer);
   } catch (err) {
-    next (err);
+    next(err);
   }
 };
 
 //Logout customer
 const logoutCustomer = async (req, res) => {
-  try {
-    req.session = null;
-    res.status(200).send("Successfully logged out user");
-  } catch {
-    throw new ServerError("Could not logout user..", 418);
-  }
+  req.session = null;
+  res.status(200).send("Successfully logged out user");
+
+  throw new ServerError("Could not logout", 418);
 };
 
 module.exports = {
