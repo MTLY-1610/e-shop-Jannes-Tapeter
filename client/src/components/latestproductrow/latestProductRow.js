@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../product card/productCard"
+import ProductCard from "../product card/productCard";
 import "./latestProductRow.css";
 
 class LatestProducts extends React.Component {
@@ -7,21 +7,20 @@ class LatestProducts extends React.Component {
   render() {
     return (
       <div id="component-container">
-        
         <h1>Senaste produkter</h1>
-      <div id="container">
-        <div id="grid-latest">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+        <div id="latest-container">
+          <div id="grid-latest">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
         </div>
-        </div>
-     </div>
+      </div>
     );
   }
 }
