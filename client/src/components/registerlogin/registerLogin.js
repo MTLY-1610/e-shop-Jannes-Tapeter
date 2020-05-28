@@ -121,6 +121,7 @@ class RegisterLogin extends React.Component {
                       variant="outlined"
                       size="small"
                       margin="dense"
+                      type="password"
                     />
                   </div>
                   <div>
@@ -130,6 +131,7 @@ class RegisterLogin extends React.Component {
                       variant="outlined"
                       size="small"
                       margin="dense"
+                      type="password"
                     />
                   </div>
                 </div>
@@ -168,6 +170,7 @@ class RegisterLogin extends React.Component {
                       variant="outlined"
                       size="small"
                       margin="dense"
+                      type="password"
                     />
                   </div>
                 </div>
