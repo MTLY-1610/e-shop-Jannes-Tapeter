@@ -1,0 +1,20 @@
+#container-sidebar {
+border: .1rem solid green;
+
+height: 100%;
+width: 15rem;
+position: fixed;
+left: 0rem;
+top: 10rem;
+display: flex;
+flex-direction: column;
+}
+
+#container-sidebar > div {
+    margin: 1.5rem;
+}
+#container-sidebar-admin {
+display: flex;
+flex-direction: column;
+color: gray;
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import Sidebar from "./sidebar/sidebar"
+import Sidebar from "./sidebar/sidebar";
+import Content from "./content/content";
 import "./adminDashboard.css";
 
 //Get all costumers
@@ -18,6 +19,7 @@ class AdminDashboard extends React.Component {
             <React.Fragment>
                 <Header />
                 <Sidebar />
+                <Content />
                 <Footer />
             </React.Fragment>
         );
@@ -36,7 +38,7 @@ export default AdminDashboard;
     </div>
     <div>
         <h2>Handle Product quantity</h2>
-        <p>update qunatity</p>
+        <p>update quantity</p>
         <p>Delete product</p>
         <p>Add product</p>
         <p>Change category for product</p>
