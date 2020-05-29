@@ -17,11 +17,6 @@ function App() {
         <Route path="/products" component={RegularProducts} />
         <Route path="/payment" component={PaymentInfo} />
         <Route path="/cart" component={ShoppingCart} />
-<<<<<<< HEAD
-
-=======
-        <Route path="/test" component={Test} />
->>>>>>> master
         {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
       </Switch>
     </Router>
