@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
             </div>
             <div>Produkter</div>
             <div>Beställningar</div>
-            <div>Admin</div>
+            <div>Nya Administratörer</div>
         </div>
       );
     }
