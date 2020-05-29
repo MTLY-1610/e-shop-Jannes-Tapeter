@@ -16,11 +16,11 @@ router.use(express.json());
 // //Get one product
 router.get("/:id", getProduct);
 
-// //Get all products
+// Get all products
 router.get("/", getAllProducts);
 
-//Register new product
-router.post("/", adminCheck, addProduct);
+//Add new product
+router.post("/", addProduct);
 
 //Edit product
 router.put("/:id", adminCheck, editProduct);

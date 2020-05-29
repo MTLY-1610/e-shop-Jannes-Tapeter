@@ -4,6 +4,7 @@ import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
 import RegularProducts from "./components/allproducts/allProducts";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
+import Test from "./components/test";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 // import ChildrenProducts from "./components/productpage/regularProducts";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products" component={RegularProducts} />
         <Route path="/payment" component={PaymentInfo} />
         <Route path="/cart" component={ShoppingCart} />
+        <Route path="/test" component={Test} />
         {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
       </Switch>
     </Router>
