@@ -21,7 +21,7 @@ class RegisterLogin extends React.Component {
       <React.Fragment>
         <Header />
         <StylesProvider injectFirst>
-          <main className="registerLogin-main">
+          <div className="registerLogin-main">
             <div
               onClick={() => {
                 document.querySelector(".login-wrapper").style.opacity = "0.3";
@@ -179,7 +179,7 @@ class RegisterLogin extends React.Component {
                 </Button>
               </div>
             </div>
-          </main>
+          </div>
         </StylesProvider>
         <Footer />
       </React.Fragment>
