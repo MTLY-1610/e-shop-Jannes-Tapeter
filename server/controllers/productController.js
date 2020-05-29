@@ -25,6 +25,7 @@ const getAllProducts = async (req, res) => {
 
 //Add new product
 const addProduct = async (req, res) => {
+  console.log(req.file);
   try {
     const product = new Product({
       category: req.body.category,
@@ -69,7 +70,7 @@ const deleteProduct = async (req, res) => {
     await Product.deleteOne({ _id: req.params.id });
     res.status(200).send("Product deleted");
   } catch (err) {
-    throw new ServerError("Could not delete product", 400)
+    throw new ServerError("Could not delete product", 400);
   }
 };
 
