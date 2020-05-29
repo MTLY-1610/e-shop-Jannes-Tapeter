@@ -23,6 +23,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 2rem;
 }
 .login-div {
   display: flex;
@@ -119,7 +120,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .two-textfields-div {
     display: flex;
