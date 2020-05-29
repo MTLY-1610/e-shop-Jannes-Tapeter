@@ -15,7 +15,6 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 4rem;
   padding: 1rem 0;
   width: 85vw;
 }
