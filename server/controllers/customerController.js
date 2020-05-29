@@ -61,6 +61,7 @@ const getAllCustomers = async (req, res) => {
   res.status(200).json(customers);
 };
 
+//TODO -error for 500(ids length is not correct)
 //Get one customer
 const getCustomer = async (req, res) => {
   const customer = await Customer.findOne({ _id: req.params.id });
