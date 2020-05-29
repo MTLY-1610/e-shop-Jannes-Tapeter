@@ -4,7 +4,7 @@ import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
 import RegularProducts from "./components/allproducts/allProducts";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
-import AdminDashboard from "./components/admindashboard";
+import AdminDashboard from "./components/admindashboard/adminDashboard";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 // import ChildrenProducts from "./components/productpage/regularProducts";
 
