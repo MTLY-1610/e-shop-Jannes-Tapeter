@@ -17,7 +17,6 @@ function App() {
         <Route path="/products" component={RegularProducts} />
         <Route path="/payment" component={PaymentInfo} />
         <Route path="/cart" component={ShoppingCart} />
-        <Route path="/test" component={Test} />
         {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
       </Switch>
     </Router>
