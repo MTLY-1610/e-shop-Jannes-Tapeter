@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Hero from "../homepage/hero.jpeg";
+import AllProductsCat from "../allProductsCat/allProductsCat";
 import "./allProducts.css";
 
 class regularProducts extends React.Component {
@@ -11,7 +12,7 @@ class regularProducts extends React.Component {
     <React.Fragment> 
     <Header />
     <img className="hero" src={Hero} alt="hero" />
-    
+    <AllProductsCat />
     <Footer />
   </React.Fragment>
     )
