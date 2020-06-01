@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
+const product = require("./productModel"),
+  ProductSchema = mongoose.model("product").schema;
 
 const OrderModel = mongoose.Schema({
   customer: {
     type: mongoose.Types.ObjectId,
     ref: "customer",
   },
-  products: [Object],
+  products: [ProductSchema],
   orderNumber: Number,
   shipped: Boolean,
   shippingMethod: {

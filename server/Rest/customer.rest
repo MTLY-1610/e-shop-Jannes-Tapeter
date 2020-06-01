@@ -12,15 +12,15 @@ POST http://localhost:5000/customer/register
 Content-Type: application/json
 
 {
-"username": "Fippe",
 "password": "12345",
-"firstName": "Fredrik",
+"firstName": "Kalle",
 "lastName": "Thelin",
 "street": "Älvornas Väg 2",
 "city": "Älvängen",
 "zip": "44634",
+"country": "Sverige",
 "phone": "0734340604",
-"email": "fredrikthelin82@gmail.com",
+"email": "fredrikthelind82@gmail.com",
 "role": "admin"
 }
 

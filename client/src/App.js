@@ -7,22 +7,25 @@ import ShoppingCart from "./components/shoppingcart/shoppingCart";
 import AdminDashboard from "./components/admindashboard/adminDashboard";
 import Test from "./components/test";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
+import CustomerProvider from "../src/context/customerContext";
 // import ChildrenProducts from "./components/productpage/regularProducts";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/register" component={RegisterLogin} />
-        <Route path="/products" component={RegularProducts} />
-        <Route path="/payment" component={PaymentInfo} />
-        <Route path="/cart" component={ShoppingCart} />
-        <Route path="/admin" component={AdminDashboard} />
-        <Route path="/test" component={Test} />
-        {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
-      </Switch>
-    </Router>
+    <CustomerProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/register" component={RegisterLogin} />
+          <Route path="/products" component={RegularProducts} />
+          <Route path="/payment" component={PaymentInfo} />
+          <Route path="/cart" component={ShoppingCart} />
+          <Route path="/admin" component={AdminDashboard} />
+          <Route path="/test" component={Test} />
+          {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
+        </Switch>
+      </Router>
+    </CustomerProvider>
   );
 }
 
