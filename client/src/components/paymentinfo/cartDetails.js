@@ -1,9 +1,72 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
+import { StylesProvider } from "@material-ui/styles";
 
 class CardDetails extends React.Component {
-  state = {};
+  state = {
+    fullname: "",
+    cardnumber: "",
+    mm: "",
+    yy: "",
+    ccv: "",
+    fullnameError: "",
+    mmError: "",
+    cardnumberError: "",
+    yyError: "",
+    ccvError: "",
+  };
+
+  inputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  validation = () => {
+    let isError = false;
+
+    if (this.state.fullname.length < 2) {
+      this.setState({
+        fullnameError: "Minimum 2 characters",
+      });
+      isError = true;
+    }
+    if (this.state.cardnumber.length !== 16) {
+      this.setState({
+        cardnumberError: "Min/max 16 characters",
+      });
+      isError = true;
+    }
+
+    if (this.state.ccv.length !== 3) {
+      this.setState({
+        ccvError: "Min/max 3 characters",
+      });
+      isError = true;
+    }
+
+    return isError;
+  };
+
+  goToPayment = () => {
+    this.setState({
+      fullname: "",
+      cardnumber: "",
+      mm: "",
+      yy: "",
+      ccv: "",
+      fullnameError: "",
+      mmError: "",
+      cardnumberError: "",
+      yyError: "",
+      ccvError: "",
+    });
+    const errors = this.validation();
+
+    if (!errors) {
+      console.log("Validation of payment approved");
+    }
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -17,6 +80,10 @@ class CardDetails extends React.Component {
                 variant="outlined"
                 size="small"
                 margin="dense"
+                value={this.state.fullname}
+                name="fullname"
+                onChange={this.inputChange}
+                helperText={this.state.fullnameError}
               />
             </div>
             <div>
@@ -26,6 +93,10 @@ class CardDetails extends React.Component {
                 variant="outlined"
                 size="small"
                 margin="dense"
+                value={this.state.cardnumber}
+                name="cardnumber"
+                onChange={this.inputChange}
+                helperText={this.state.cardnumberError}
               />
             </div>
           </div>
@@ -34,16 +105,24 @@ class CardDetails extends React.Component {
               <p>MM / ÅÅ</p>
               <div className="ccv-div">
                 <TextField
-                  id="monthmonth"
+                  id="mm"
                   variant="outlined"
                   size="small"
                   margin="dense"
+                  value={this.state.mm}
+                  name="mm"
+                  onChange={this.inputChange}
+                  helperText={this.state.mmError}
                 />
                 <TextField
-                  id="yearyear"
+                  id="yy"
                   variant="outlined"
                   size="small"
                   margin="dense"
+                  value={this.state.yy}
+                  name="yy"
+                  onChange={this.inputChange}
+                  helperText={this.state.yyError}
                 />
               </div>
             </div>
@@ -54,10 +133,19 @@ class CardDetails extends React.Component {
                 variant="outlined"
                 size="small"
                 margin="dense"
+                value={this.state.ccv}
+                name="ccv"
+                onChange={this.inputChange}
+                helperText={this.state.ccvError}
               />
             </div>
           </div>
-          <Button id="formularButton" size="small" variant="contained">
+          <Button
+            onClick={this.goToPayment}
+            id="formularButton"
+            size="small"
+            variant="contained"
+          >
             BETALA
           </Button>
         </div>

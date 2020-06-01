@@ -1,5 +1,9 @@
 @import url("https://use.typekit.net/mdy6uuo.css");
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: titling-gothic-fb, sans-serif;
   font-weight: 300;
@@ -20,4 +24,5 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
