@@ -64,6 +64,7 @@ class ChangeAdress extends React.Component {
               document.querySelector(".register-wrapper").style.opacity = "1";
               document.querySelector(".register-wrapper").style.pointerEvents =
                 "auto";
+              document.querySelector(".register-div").scrollIntoView();
             }}
             id="Ändra-adress"
             size="small"

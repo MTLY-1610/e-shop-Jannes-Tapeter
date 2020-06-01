@@ -71,9 +71,19 @@ class RegisterLogin extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="one-textfield-wrapper">
-                  <div className="one-textfield-div">
+
+                <div className="two-textfields-div">
+                  <div>
                     <p>Adress</p>
+                    <TextField
+                      size="small"
+                      id="outlined-basic"
+                      variant="outlined"
+                      margin="dense"
+                    />
+                  </div>
+                  <div id="display-hide">
+                    <p>Stad</p>
                     <TextField
                       id="outlined-basic"
                       size="small"
@@ -102,9 +112,18 @@ class RegisterLogin extends React.Component {
                     />
                   </div>
                 </div>
-                <div className="one-textfield-wrapper">
-                  <div className="one-textfield-div">
+                <div className="two-textfields-div">
+                  <div>
                     <p>Land</p>
+                    <TextField
+                      size="small"
+                      id="outlined-basic"
+                      variant="outlined"
+                      margin="dense"
+                    />
+                  </div>
+                  <div id="display-hide">
+                    <p>Stad</p>
                     <TextField
                       id="outlined-basic"
                       size="small"

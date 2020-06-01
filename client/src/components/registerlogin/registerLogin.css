@@ -17,6 +17,10 @@
   width: 30%;
 }
 
+#display-hide {
+  visibility: hidden;
+}
+
 .register-div {
   display: flex;
   justify-content: space-evenly;
@@ -36,11 +40,12 @@
 .two-textfields-div {
   width: 75%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .one-textfield-wrapper {
   width: 75%;
   display: flex;
+  justify-content: space-around;
 }
 .one-textfield-wrapper-login {
   display: flex;
@@ -92,6 +97,10 @@
   }
   .MuiInputBase-formControl {
     width: 10rem;
+  }
+
+  #display-hide {
+    display: none;
   }
 
   .registerLogin-main {
