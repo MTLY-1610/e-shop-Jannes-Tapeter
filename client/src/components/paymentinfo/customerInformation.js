@@ -82,6 +82,7 @@ class CustomerInformation extends React.Component {
                   document.querySelector(
                     ".register-wrapper"
                   ).style.pointerEvents = "none";
+                  document.querySelector(".login-div").scrollIntoView();
                 }}
               >
                 Jag vill ändra adress

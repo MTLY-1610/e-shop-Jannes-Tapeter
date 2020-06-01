@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
+import { StylesProvider } from "@material-ui/styles";
 
 class CardDetails extends React.Component {
   state = {};
@@ -34,13 +35,13 @@ class CardDetails extends React.Component {
               <p>MM / ÅÅ</p>
               <div className="ccv-div">
                 <TextField
-                  id="monthmonth"
+                  id="mm"
                   variant="outlined"
                   size="small"
                   margin="dense"
                 />
                 <TextField
-                  id="yearyear"
+                  id="yy"
                   variant="outlined"
                   size="small"
                   margin="dense"
