@@ -5,20 +5,23 @@ import "./productCategory.css"
 
 class ProductCategory extends React.Component {
   constructor(props) {
-    super(props)
-
+    super(props);
     this.state = {
-      product: [{
-        category: [],
-        quantity: 0,
-        url: "",
-        price: 0,
-        description: "",
-        brand: "",
-        designer: "",
-        ref: "",
-        dimensions: ""
-      }]
+      product: []
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/product"
+      );
+      const data = await response.json();
+      this.setState(() => ({
+        product: data[0]
+      }));
+    } catch (error) {
+      console.log("Error in fetching data");
     }
   }
 
