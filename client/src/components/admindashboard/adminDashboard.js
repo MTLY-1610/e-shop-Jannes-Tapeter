@@ -1,16 +1,15 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./adminDashboard.css";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import Sidebar from "./sidebar/sidebar";
-import Content from "./content/content";
-import "./adminDashboard.css";
+import ProductStockBalance from "./productStockBalance/productStockBalance";
+import ProductCategory from "./productCategory/productCategory";
+import ProductAddAndDelete from "./productAddAndDelete/productAddAndDelete";
+import OrderExport from "./orderExport/orderExport";
+import AdminRequest from "./adminRequest/adminRequest";
 
-//Get all costumers
-//*Get a list of all orders
-//Register a new product
-//*Edit a product -update quantity of product in stock
-//Delete a product
-//Add ShippingMethod
 
 class AdminDashboard extends React.Component {
     state = {};
@@ -19,7 +18,15 @@ class AdminDashboard extends React.Component {
             <React.Fragment>
                 <Header />
                 <Sidebar />
-                <Content />
+                <Router>
+                <Switch>
+                    <Route path="/productStockBalance" component={ProductStockBalance} />
+                    <Route path="/productCategory" component={ProductCategory} />
+                    <Route path="/productAddAndDelete" component={ProductAddAndDelete} />
+                    <Route path="/orderExport" component={OrderExport} />
+                    <Route path="/adminRequest" component={AdminRequest} />
+                </Switch>
+                </Router>
                 <Footer />
             </React.Fragment>
         );
@@ -27,25 +34,3 @@ class AdminDashboard extends React.Component {
 }
 
 export default AdminDashboard;
-
-/* 
-<h2>Admin sida</h2>
-<div>
-    <div>
-        <h2>Handle Users</h2>
-        <p>Accept as admin user</p>
-        <p>Denie admin access</p>              
-    </div>
-    <div>
-        <h2>Handle Product quantity</h2>
-        <p>update quantity</p>
-        <p>Delete product</p>
-        <p>Add product</p>
-        <p>Change category for product</p>
-    </div>
-    <div>
-        <h2>All orders</h2>
-        <p>mark order as sent</p>
-        <p>All orders that have been made</p>
-    </div>
-</div> */
