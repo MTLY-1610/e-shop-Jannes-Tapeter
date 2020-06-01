@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const AdressSchema = mongoose.Schema({
   street: String,
   city: String,
-  zip: Number,
+  zip: String,
+  country: String,
 });
 
 module.exports = mongoose.model("adress", AdressSchema);

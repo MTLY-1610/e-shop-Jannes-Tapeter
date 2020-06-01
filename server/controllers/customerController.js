@@ -9,8 +9,8 @@ const registerCustomer = async (req, res, next) => {
   const password = await bcrypt.hash(req.body.password, 10);
 
   //Kolla om användarnamn redan finns
-  const sameUserName = await Customer.findOne({
-    username: req.body.username,
+  const sameEmail = await Customer.findOne({
+    email: req.body.email,
   });
 
   //Kolla om adress redan finns
@@ -18,6 +18,7 @@ const registerCustomer = async (req, res, next) => {
     street: req.body.street,
     city: req.body.city,
     zip: req.body.zip,
+    country: req.body.country,
   });
 
   //Om adress redan finns, referera till befintligt adress-object i databasen.
@@ -27,6 +28,7 @@ const registerCustomer = async (req, res, next) => {
       street: req.body.street,
       city: req.body.city,
       zip: req.body.zip,
+      country: req.body.country,
     });
     await adress.save();
   } else {
@@ -34,9 +36,8 @@ const registerCustomer = async (req, res, next) => {
   }
 
   //Så länge inte användarnamn redan finns, registrera och lagra ny kund i databasen.
-  if (!sameUserName) {
+  if (!sameEmail) {
     const customer = new Customer({
-      username: req.body.username,
       password: password,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -48,7 +49,7 @@ const registerCustomer = async (req, res, next) => {
     const newCustomer = await customer.save();
     res.status(200).json(newCustomer);
   } else {
-    throw new ServerError("A Customer with that username already exists", 403);
+    throw new ServerError("A Customer with that email already exists", 403);
   }
 };
 
