@@ -33,7 +33,7 @@ function App() {
           <Route path="/admin/productCategory" component={ProductCategory} />
           <Route path="/admin/productEdit" component={ProductAddAndDelete} />
           <Route path="/admin/orderExport" component={OrderExport} />
-          <Route exact path="admin/adminRequest" component={AdminRequest} />
+          <Route path="admin/adminRequest" component={AdminRequest} />
           <Route path="/test" component={Test} />
           {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
         </Switch>
