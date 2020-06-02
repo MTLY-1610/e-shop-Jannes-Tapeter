@@ -25,7 +25,8 @@ const getAllProducts = async (req, res) => {
 
 //Add new product
 const addProduct = async (req, res) => {
-  console.log(req.file);
+  const date = Date.now();
+
   try {
     const product = new Product({
       category: req.body.category,
@@ -37,6 +38,7 @@ const addProduct = async (req, res) => {
       designer: req.body.designer,
       ref: req.body.ref,
       dimensions: req.body.dimensions,
+      date: date,
     });
 
     await product.save();
