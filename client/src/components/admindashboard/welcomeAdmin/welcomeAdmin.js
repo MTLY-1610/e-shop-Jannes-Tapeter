@@ -1,19 +1,17 @@
 import React from "react";
-import "./productStockBalance.css";
+import "./welcomeAdmin.css";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 
-//Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
-
-class ProductStockBalance extends React.Component {
+class WelcomeAdmin extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Header />
         <Sidebar />
         <div id="content-container">
-          <h3>Här ska man kunna uppdatera antalet produkter i lager</h3>
+          <h3>Välkommen Admin</h3>
         </div>
         <Footer />
       </React.Fragment>
@@ -21,4 +19,4 @@ class ProductStockBalance extends React.Component {
   }
 }
 
-export default ProductStockBalance;
+export default WelcomeAdmin;
