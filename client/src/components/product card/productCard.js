@@ -4,12 +4,19 @@ import Link from "react-router-dom";
 import sample from "./product-sample.png";
 
 class ProductCard extends React.Component {
-  state = {};
+  serverUrl = "http://localhost:5000/";
+
   render() {
     return (
       <div id="container-1">
         <div id="img">
-          <img className="sample" src={this.props.image} alt="product" />
+          {this.props.img && (
+            <img
+              className="sample"
+              src={`${this.serverUrl}${this.props.img}`}
+              alt="product"
+            />
+          )}
         </div>
 
         <div id="description">
