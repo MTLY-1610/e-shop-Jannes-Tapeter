@@ -26,7 +26,7 @@ class ProductCard extends React.Component {
           </div>
           <div id="description-col2">
             <div id="left">{this.props.designer}</div>
-            <div id="left">{this.props.price}</div>
+            <div id="left">{`${this.props.price} kr`}</div>
           </div>
         </div>
       </div>
