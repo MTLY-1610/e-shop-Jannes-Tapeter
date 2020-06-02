@@ -1,21 +1,17 @@
 import React from "react";
-import "./productCategory.css";
+import "./welcomeAdmin.css";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 
-//Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
-
-class ProductCategory extends React.Component {
+class WelcomeAdmin extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Header />
         <Sidebar />
         <div id="content-container">
-          <h3>
-            Här ska man kunna redigera vilka kategorier en produkt tillhör
-          </h3>
+          <h3>Välkommen Admin</h3>
         </div>
         <Footer />
       </React.Fragment>
@@ -23,4 +19,4 @@ class ProductCategory extends React.Component {
   }
 }
 
-export default ProductCategory;
+export default WelcomeAdmin;
