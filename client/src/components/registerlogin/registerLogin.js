@@ -2,9 +2,10 @@ import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import "./registerLogin.css";
-import { TextField } from "@material-ui/core";
+import { TextField, Checkbox } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
+import { CustomerConsumer } from "../../context/customerContext";
 
 class RegisterLogin extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class RegisterLogin extends React.Component {
       adress: "",
       country: "",
       postnr: "",
+      role: "regular",
       firstNameError: "",
       lastNameError: "",
       emailError: "",
@@ -125,7 +127,32 @@ class RegisterLogin extends React.Component {
     const checkErrors = this.validation();
 
     if (!checkErrors) {
-      console.log("Validation approved");
+      return true;
+    }
+
+    return false;
+  };
+
+  getCustomerData = () => {
+    return {
+      password: this.state.password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      street: this.state.adress,
+      city: this.state.city,
+      zip: this.state.postnr,
+      country: this.state.country,
+      phone: this.state.phoneNumber,
+      email: this.state.email,
+      role: this.state.role,
+    };
+  };
+
+  adminChecked = (e) => {
+    if (e.target.checked) {
+      this.setState({ role: "wantsToBeAdmin" });
+    } else {
+      this.setState({ role: "regular" });
     }
   };
 
@@ -134,236 +161,265 @@ class RegisterLogin extends React.Component {
       <React.Fragment>
         <Header />
         <StylesProvider injectFirst>
-          <div className="registerLogin-main">
-            <div
-              onClick={() => {
-                document.querySelector(".login-wrapper").style.opacity = "0.3";
-                document.querySelector(".register-wrapper").style.opacity = "1";
-              }}
-              className="register-wrapper"
-            >
-              <h4>Registrera</h4>
-              <div className="register-div">
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Förnamn</p>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      margin="dense"
-                      value={this.state.firstName}
-                      name="firstName"
-                      onChange={this.inputChange}
-                      helperText={this.state.firstNameError}
-                    />
-                  </div>
-                  <div>
-                    <p>Efternamn</p>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      margin="dense"
-                      value={this.state.lastName}
-                      name="lastName"
-                      onChange={this.inputChange}
-                      helperText={this.state.lastNameError}
-                    />
-                  </div>
-                </div>
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Epost</p>
-                    <TextField
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.email}
-                      name="email"
-                      onChange={this.inputChange}
-                      helperText={this.state.emailError}
-                    />
-                  </div>
-                  <div>
-                    <p>Telefon</p>
-                    <TextField
-                      type="tel"
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.phoneNumber}
-                      name="phoneNumber"
-                      helperText={this.state.phoneNrError}
-                      onChange={this.inputChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Adress</p>
-                    <TextField
-                      size="small"
-                      id="outlined-basic"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.adress}
-                      name="adress"
-                      onChange={this.inputChange}
-                      helperText={this.state.adressError}
-                    />
-                  </div>
-                  <div id="display-hide">
-                    <p>Stad</p>
-                    <TextField
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                    />
-                  </div>
-                </div>
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Postnummer</p>
-                    <TextField
-                      type="tel"
-                      size="small"
-                      id="outlined-basic"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.postnr}
-                      name="postnr"
-                      helperText={this.state.postnrError}
-                      onChange={this.inputChange}
-                    />
-                  </div>
-                  <div>
-                    <p>Stad</p>
-                    <TextField
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.city}
-                      name="city"
-                      helperText={this.state.cityError}
-                      onChange={this.inputChange}
-                    />
-                  </div>
-                </div>
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Land</p>
-                    <TextField
-                      size="small"
-                      id="outlined-basic"
-                      variant="outlined"
-                      margin="dense"
-                      value={this.state.country}
-                      name="country"
-                      helperText={this.state.countryError}
-                      onChange={this.inputChange}
-                    />
-                  </div>
-                  <div id="display-hide">
-                    <p>Stad</p>
-                    <TextField
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                    />
-                  </div>
-                </div>
-                <div className="two-textfields-div">
-                  <div>
-                    <p>Lösenord</p>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      margin="dense"
-                      type="password"
-                      value={this.state.password}
-                      name="password"
-                      helperText={this.state.passError}
-                      onChange={this.inputChange}
-                    />
-                  </div>
-                  <div>
-                    <p>Upprepa lösenord</p>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
-                      size="small"
-                      margin="dense"
-                      type="password"
-                      value={this.state.cPassword}
-                      name="cPassword"
-                      onChange={this.inputChange}
-                      helperText={this.state.passError}
-                    />
-                  </div>
-                </div>
-                <Button
-                  onClick={this.register}
-                  id="formularButton"
-                  size="small"
-                  variant="contained"
+          <CustomerConsumer>
+            {(customer) => (
+              <div className="registerLogin-main">
+                <div
+                  onClick={() => {
+                    document.querySelector(".login-wrapper").style.opacity =
+                      "0.3";
+                    document.querySelector(".register-wrapper").style.opacity =
+                      "1";
+                  }}
+                  className="register-wrapper"
                 >
-                  Registrera
-                </Button>
-              </div>
-            </div>
-            <div
-              className="login-wrapper"
-              onClick={() => {
-                document.querySelector(".register-wrapper").style.opacity =
-                  "0.3";
-                document.querySelector(".login-wrapper").style.opacity = "1";
-              }}
-            >
-              <h4>Logga in</h4>
-              <div className="login-div">
-                <div className="one-textfield-wrapper-login">
-                  <div className="one-textfield-div">
-                    <p>Epost</p>
-                    <TextField
-                      id="outlined-basic"
-                      size="small"
-                      variant="outlined"
-                      margin="dense"
-                    />
-                  </div>
-                </div>
+                  <h4>Registrera</h4>
+                  <div className="register-div">
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Förnamn</p>
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          size="small"
+                          margin="dense"
+                          value={this.state.firstName}
+                          name="firstName"
+                          onChange={this.inputChange}
+                          helperText={this.state.firstNameError}
+                        />
+                      </div>
+                      <div>
+                        <p>Efternamn</p>
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          size="small"
+                          margin="dense"
+                          value={this.state.lastName}
+                          name="lastName"
+                          onChange={this.inputChange}
+                          helperText={this.state.lastNameError}
+                        />
+                      </div>
+                    </div>
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Epost</p>
+                        <TextField
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.email}
+                          name="email"
+                          onChange={this.inputChange}
+                          helperText={this.state.emailError}
+                        />
+                      </div>
+                      <div>
+                        <p>Telefon</p>
+                        <TextField
+                          type="tel"
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.phoneNumber}
+                          name="phoneNumber"
+                          helperText={this.state.phoneNrError}
+                          onChange={this.inputChange}
+                        />
+                      </div>
+                    </div>
 
-                <div className="one-textfield-wrapper-login">
-                  <div className="one-textfield-div">
-                    <p>Lösenord</p>
-                    <TextField
-                      id="outlined-basic"
-                      variant="outlined"
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Adress</p>
+                        <TextField
+                          size="small"
+                          id="outlined-basic"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.adress}
+                          name="adress"
+                          onChange={this.inputChange}
+                          helperText={this.state.adressError}
+                        />
+                      </div>
+                      <div id="display-hide">
+                        <p>Stad</p>
+                        <TextField
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                        />
+                      </div>
+                    </div>
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Postnummer</p>
+                        <TextField
+                          type="tel"
+                          size="small"
+                          id="outlined-basic"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.postnr}
+                          name="postnr"
+                          helperText={this.state.postnrError}
+                          onChange={this.inputChange}
+                        />
+                      </div>
+                      <div>
+                        <p>Stad</p>
+                        <TextField
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.city}
+                          name="city"
+                          helperText={this.state.cityError}
+                          onChange={this.inputChange}
+                        />
+                      </div>
+                    </div>
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Land</p>
+                        <TextField
+                          size="small"
+                          id="outlined-basic"
+                          variant="outlined"
+                          margin="dense"
+                          value={this.state.country}
+                          name="country"
+                          helperText={this.state.countryError}
+                          onChange={this.inputChange}
+                        />
+                      </div>
+                      <div id="display-hide">
+                        <p>Stad</p>
+                        <TextField
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                        />
+                      </div>
+                    </div>
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Lösenord</p>
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          size="small"
+                          margin="dense"
+                          type="password"
+                          value={this.state.password}
+                          name="password"
+                          helperText={this.state.passError}
+                          onChange={this.inputChange}
+                        />
+                      </div>
+                      <div>
+                        <p>Upprepa lösenord</p>
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          size="small"
+                          margin="dense"
+                          type="password"
+                          value={this.state.cPassword}
+                          name="cPassword"
+                          onChange={this.inputChange}
+                          helperText={this.state.passError}
+                        />
+                      </div>
+                    </div>
+                    <div className="two-textfields-div">
+                      <div>
+                        <p>Jag vill vara admin</p>
+                        <Checkbox
+                          onChange={this.adminChecked}
+                          className="checkBox"
+                          value="wantsToBeAdmin"
+                          inputProps={{ "aria-label": "role" }}
+                        />
+                      </div>
+                    </div>
+                    <Button
+                      onClick={
+                        this.register
+                          ? () =>
+                              customer.registerCustomer(this.getCustomerData())
+                          : null
+                      }
+                      id="formularButton"
                       size="small"
-                      margin="dense"
-                      type="password"
-                    />
+                      variant="contained"
+                    >
+                      Registrera
+                    </Button>
+                    {customer.state.emailExists && (
+                      <p
+                        style={{ color: "red" }}
+                      >{`Användare med ${this.state.email} finns redan registrerad`}</p>
+                    )}
                   </div>
                 </div>
-                <Button
-                  onClick={this.logIn}
-                  id="formularButton"
-                  size="small"
-                  variant="contained"
+                <div
+                  className="login-wrapper"
+                  onClick={() => {
+                    document.querySelector(".register-wrapper").style.opacity =
+                      "0.3";
+                    document.querySelector(".login-wrapper").style.opacity =
+                      "1";
+                  }}
                 >
-                  Logga in
-                </Button>
+                  <h4>Logga in</h4>
+                  <div className="login-div">
+                    <div className="one-textfield-wrapper-login">
+                      <div className="one-textfield-div">
+                        <p>Epost</p>
+                        <TextField
+                          value={customer.state.customerEmail}
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          margin="dense"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="one-textfield-wrapper-login">
+                      <div className="one-textfield-div">
+                        <p>Lösenord</p>
+                        <TextField
+                          id="outlined-basic"
+                          variant="outlined"
+                          size="small"
+                          margin="dense"
+                          type="password"
+                        />
+                      </div>
+                    </div>
+                    <Button
+                      onClick={this.logIn}
+                      id="formularButton"
+                      size="small"
+                      variant="contained"
+                    >
+                      Logga in
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )}
+          </CustomerConsumer>
         </StylesProvider>
         <Footer />
       </React.Fragment>

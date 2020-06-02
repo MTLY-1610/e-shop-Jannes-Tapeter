@@ -12,27 +12,30 @@ import OrderExport from "./components/adminDashboard/orderExport/orderExport";
 import AdminRequest from "./components/adminDashboard/adminRequest/adminRequest";
 import Test from "./components/test";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
+import CustomerProvider from "../src/context/customerContext";
 // import ChildrenProducts from "./components/productpage/regularProducts";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/register" component={RegisterLogin} />
-        <Route path="/products" component={RegularProducts} />
-        <Route path="/payment" component={PaymentInfo} />
-        <Route path="/cart" component={ShoppingCart} />
-        <Route path="/admin" component={WelcomeAdmin} />
-        <Route path="/admin/productStockBalance" component={ProductStockBalance} />
-        <Route path="/admin/productCategory" component={ProductCategory} />
-        <Route path="/admin/productAddAndDelete" component={ProductAddAndDelete} />
-        <Route path="/admin/orderExport" component={OrderExport} />
-        <Route exact path="/adminRequest" component={AdminRequest} />
-        <Route path="/test" component={Test} />
-        {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
-      </Switch>
-    </Router>
+    <CustomerProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/register" component={RegisterLogin} />
+          <Route path="/products" component={RegularProducts} />
+          <Route path="/payment" component={PaymentInfo} />
+          <Route path="/cart" component={ShoppingCart} />
+          <Route path="/admin" component={WelcomeAdmin} />
+          <Route path="/admin/productStockBalance" component={ProductStockBalance} />
+          <Route path="/admin/productCategory" component={ProductCategory} />
+          <Route path="/admin/productAddAndDelete" component={ProductAddAndDelete} />
+          <Route path="/admin/orderExport" component={OrderExport} />
+          <Route exact path="/adminRequest" component={AdminRequest} />
+          <Route path="/test" component={Test} />
+          {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
+        </Switch>
+      </Router>
+    </CustomerProvider>
   );
 }
 
