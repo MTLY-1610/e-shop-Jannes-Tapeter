@@ -25,12 +25,12 @@ function App() {
           <Route path="/products" component={RegularProducts} />
           <Route path="/payment" component={PaymentInfo} />
           <Route path="/cart" component={ShoppingCart} />
-          <Route path="/admin" component={WelcomeAdmin} />
-          <Route path="/admin/productStockBalance" component={ProductStockBalance} />
+          <Route path="/admin/welcome" component={WelcomeAdmin} />
+          <Route path="/admin/productStockbalance" component={ProductStockBalance} />
           <Route path="/admin/productCategory" component={ProductCategory} />
-          <Route path="/admin/productAddAndDelete" component={ProductAddAndDelete} />
+          <Route path="/admin/productEdit" component={ProductAddAndDelete} />
           <Route path="/admin/orderExport" component={OrderExport} />
-          <Route exact path="/adminRequest" component={AdminRequest} />
+          <Route exact path="admin/adminRequest" component={AdminRequest} />
           <Route path="/test" component={Test} />
           {/* <Route path="/forchildren" component={ChildrenProducts} /> */}
         </Switch>
