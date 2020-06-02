@@ -6,22 +6,26 @@ import { TextField, Checkbox } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import { CustomerConsumer } from "../../context/customerContext";
+import { Redirect } from "react-router-dom";
 
 class RegisterLogin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: null,
       cPassword: "",
       password: "",
       city: "",
       firstName: "",
       lastName: "",
-      phoneNumber: "",
+      phone: "",
       email: "",
-      adress: "",
+      street: "",
       country: "",
-      postnr: "",
+      zip: "",
       role: "regular",
+      loginEmail: "",
+      loginPassword: "",
       firstNameError: "",
       lastNameError: "",
       emailError: "",
@@ -35,12 +39,6 @@ class RegisterLogin extends React.Component {
 
   inputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  };
-
-  logIn = () => {
-    // check if user and password is correct
-    // if correct go to payment tunnel
-    // if not correct, render 'wrond username or pass.. try again'
   };
 
   validation = () => {
@@ -58,13 +56,13 @@ class RegisterLogin extends React.Component {
       });
       isError = true;
     }
-    if (this.state.phoneNumber.length !== 10) {
+    if (this.state.phone.length !== 10) {
       this.setState({
         phoneNrError: "Max/min 10 characters",
       });
       isError = true;
     }
-    if (this.state.adress.length < 1) {
+    if (this.state.street.length < 1) {
       this.setState({
         adressError: "Adress is required",
       });
@@ -82,9 +80,9 @@ class RegisterLogin extends React.Component {
       });
       isError = true;
     }
-    if (this.state.postnr.length > 6) {
+    if (this.state.zip.length > 6) {
       this.setState({
-        postnrError: "Minimum 5 characters ",
+        zipError: "Minimum 5 characters ",
       });
       isError = true;
     }
@@ -138,11 +136,11 @@ class RegisterLogin extends React.Component {
       password: this.state.password,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      street: this.state.adress,
+      street: this.state.street,
       city: this.state.city,
-      zip: this.state.postnr,
+      zip: this.state.zip,
       country: this.state.country,
-      phone: this.state.phoneNumber,
+      phone: this.state.phone,
       email: this.state.email,
       role: this.state.role,
     };
@@ -156,7 +154,28 @@ class RegisterLogin extends React.Component {
     }
   };
 
+  clearForm = () => {
+    this.setState({
+      cPassword: "",
+      password: "",
+      city: "",
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      street: "",
+      country: "",
+      zip: "",
+      role: "regular",
+      loginEmail: "",
+      loginPassword: "",
+    });
+  };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return (
       <React.Fragment>
         <Header />
@@ -179,7 +198,6 @@ class RegisterLogin extends React.Component {
                       <div>
                         <p>Förnamn</p>
                         <TextField
-                          id="outlined-basic"
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -192,7 +210,6 @@ class RegisterLogin extends React.Component {
                       <div>
                         <p>Efternamn</p>
                         <TextField
-                          id="outlined-basic"
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -207,7 +224,6 @@ class RegisterLogin extends React.Component {
                       <div>
                         <p>Epost</p>
                         <TextField
-                          id="outlined-basic"
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -221,12 +237,11 @@ class RegisterLogin extends React.Component {
                         <p>Telefon</p>
                         <TextField
                           type="tel"
-                          id="outlined-basic"
                           size="small"
                           variant="outlined"
                           margin="dense"
-                          value={this.state.phoneNumber}
-                          name="phoneNumber"
+                          value={this.state.phone}
+                          name="phone"
                           helperText={this.state.phoneNrError}
                           onChange={this.inputChange}
                         />
@@ -238,11 +253,10 @@ class RegisterLogin extends React.Component {
                         <p>Adress</p>
                         <TextField
                           size="small"
-                          id="outlined-basic"
                           variant="outlined"
                           margin="dense"
-                          value={this.state.adress}
-                          name="adress"
+                          value={this.state.street}
+                          name="street"
                           onChange={this.inputChange}
                           helperText={this.state.adressError}
                         />
@@ -250,7 +264,6 @@ class RegisterLogin extends React.Component {
                       <div id="display-hide">
                         <p>Stad</p>
                         <TextField
-                          id="outlined-basic"
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -263,19 +276,17 @@ class RegisterLogin extends React.Component {
                         <TextField
                           type="tel"
                           size="small"
-                          id="outlined-basic"
                           variant="outlined"
                           margin="dense"
-                          value={this.state.postnr}
-                          name="postnr"
-                          helperText={this.state.postnrError}
+                          value={this.state.zip}
+                          name="zip"
+                          helperText={this.state.zipError}
                           onChange={this.inputChange}
                         />
                       </div>
                       <div>
                         <p>Stad</p>
                         <TextField
-                          id="outlined-basic"
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -291,7 +302,6 @@ class RegisterLogin extends React.Component {
                         <p>Land</p>
                         <TextField
                           size="small"
-                          id="outlined-basic"
                           variant="outlined"
                           margin="dense"
                           value={this.state.country}
@@ -303,7 +313,6 @@ class RegisterLogin extends React.Component {
                       <div id="display-hide">
                         <p>Stad</p>
                         <TextField
-                          id="outlined-basic"
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -314,7 +323,6 @@ class RegisterLogin extends React.Component {
                       <div>
                         <p>Lösenord</p>
                         <TextField
-                          id="outlined-basic"
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -328,7 +336,6 @@ class RegisterLogin extends React.Component {
                       <div>
                         <p>Upprepa lösenord</p>
                         <TextField
-                          id="outlined-basic"
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -351,19 +358,31 @@ class RegisterLogin extends React.Component {
                         />
                       </div>
                     </div>
-                    <Button
-                      onClick={
-                        this.register
-                          ? () =>
-                              customer.registerCustomer(this.getCustomerData())
-                          : null
-                      }
-                      id="formularButton"
-                      size="small"
-                      variant="contained"
-                    >
-                      Registrera
-                    </Button>
+                    {!customer.state.successfulRegister && (
+                      <Button
+                        onClick={
+                          this.register
+                            ? () => (
+                                customer.registerCustomer(
+                                  this.getCustomerData()
+                                ),
+                                this.clearForm()
+                              )
+                            : null
+                        }
+                        id="formularButton"
+                        size="small"
+                        variant="contained"
+                      >
+                        Registrera
+                      </Button>
+                    )}
+
+                    {customer.state.successfulRegister && (
+                      <p
+                        style={{ color: "green" }}
+                      >{`Användare skapad. Du kan nu logga in med ${this.state.email}`}</p>
+                    )}
                     {customer.state.emailExists && (
                       <p
                         style={{ color: "red" }}
@@ -386,8 +405,9 @@ class RegisterLogin extends React.Component {
                       <div className="one-textfield-div">
                         <p>Epost</p>
                         <TextField
-                          value={customer.state.customerEmail}
-                          id="outlined-basic"
+                          name="loginEmail"
+                          onChange={this.inputChange}
+                          value={this.state.loginEmail}
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -399,7 +419,9 @@ class RegisterLogin extends React.Component {
                       <div className="one-textfield-div">
                         <p>Lösenord</p>
                         <TextField
-                          id="outlined-basic"
+                          name="loginPassword"
+                          onChange={this.inputChange}
+                          value={this.state.loginPassword}
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -408,7 +430,14 @@ class RegisterLogin extends React.Component {
                       </div>
                     </div>
                     <Button
-                      onClick={this.logIn}
+                      onClick={() => (
+                        customer.loginCustomer({
+                          email: this.state.loginEmail,
+                          password: this.state.loginPassword,
+                        }),
+                        this.clearForm(),
+                        this.setState({ redirect: "/" })
+                      )}
                       id="formularButton"
                       size="small"
                       variant="contained"

@@ -4,12 +4,12 @@ import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
 import RegularProducts from "./components/allproducts/allProducts";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
-import WelcomeAdmin from "./components/adminDashboard/welcomeAdmin/welcomeAdmin";
-import ProductStockBalance from "./components/adminDashboard/productStockBalance/productStockBalance";
-import ProductCategory from "./components/adminDashboard/productCategory/productCategory";
-import ProductAddAndDelete from "./components/adminDashboard/productAddAndDelete/productAddAndDelete";
-import OrderExport from "./components/adminDashboard/orderExport/orderExport";
-import AdminRequest from "./components/adminDashboard/adminRequest/adminRequest";
+import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin";
+import ProductStockBalance from "./components/admindashboard/productStockBalance/productStockBalance";
+import ProductCategory from "./components/admindashboard/productCategory/productCategory";
+import ProductAddAndDelete from "./components/admindashboard/productAddAndDelete/productAddAndDelete";
+import OrderExport from "./components/admindashboard/orderExport/orderExport";
+import AdminRequest from "./components/admindashboard/adminRequest/adminRequest";
 import Test from "./components/test";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 import CustomerProvider from "../src/context/customerContext";
@@ -26,7 +26,10 @@ function App() {
           <Route path="/payment" component={PaymentInfo} />
           <Route path="/cart" component={ShoppingCart} />
           <Route path="/admin/welcome" component={WelcomeAdmin} />
-          <Route path="/admin/productStockbalance" component={ProductStockBalance} />
+          <Route
+            path="/admin/productStockbalance"
+            component={ProductStockBalance}
+          />
           <Route path="/admin/productCategory" component={ProductCategory} />
           <Route path="/admin/productEdit" component={ProductAddAndDelete} />
           <Route path="/admin/orderExport" component={OrderExport} />

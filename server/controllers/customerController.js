@@ -22,8 +22,8 @@ const registerCustomer = async (req, res, next) => {
   });
 
   //Om adress redan finns, referera till befintligt adress-object i databasen.
+  let adress;
   if (!sameAdress) {
-    let adress;
     adress = new Adress({
       street: req.body.street,
       city: req.body.city,
@@ -74,7 +74,7 @@ const getCustomer = async (req, res) => {
 
 //Log in
 const loginCustomer = async (req, res) => {
-  const customer = await Customer.findOne({ username: req.body.username });
+  const customer = await Customer.findOne({ email: req.body.email });
 
   if (
     !customer ||
@@ -95,10 +95,12 @@ const loginCustomer = async (req, res) => {
 //TODO change errorhandling?
 //Logout customer
 const logoutCustomer = async (req, res) => {
-  req.session = null;
-  res.status(200).send("Successfully logged out user");
-
-  throw new ServerError("Could not logout", 418);
+  try {
+    req.session = null;
+    res.status(200).send("Successfully logged out user");
+  } catch {
+    throw new ServerError("Could not logout", 418);
+  }
 };
 
 module.exports = {
