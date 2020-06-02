@@ -1,0 +1,28 @@
+#container-sidebar {
+  border: 0.1rem solid green;
+
+  height: 100%;
+  width: 15rem;
+  position: fixed;
+  left: 0rem;
+  top: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#container-sidebar > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+
+#container-sidebar > div > h5 {
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+
+#container-sidebar-admin {
+    color: gray;
+  }
+

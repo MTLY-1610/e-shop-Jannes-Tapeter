@@ -1,0 +1,16 @@
+#swish,
+#creditcard,
+#klarna {
+  width: 7rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#swish > img,
+#creditcard > img,
+#klarna > img {
+  width: 60%;
+  height: 60%;
+}

@@ -1,0 +1,20 @@
+#component-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #latest-container {
+    display: flex;
+    justify-content: center;
+    width: 85vw;
+    margin-bottom: 2.5rem;
+  }
+  #grid-latest {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1.5vw;
+    row-gap: 1.5vw;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
