@@ -8,6 +8,8 @@ export default class CustomerProvider extends React.Component {
     this.state = {
       customerEmail: "",
       emailExists: false,
+      successfulRegister: false,
+      successfulLogin: false,
     };
     this.registerCustomer = this.registerCustomer.bind(this);
   }
@@ -22,10 +24,16 @@ export default class CustomerProvider extends React.Component {
         body: JSON.stringify(data),
       });
       const responseData = await response.json();
-      this.setState({ customerEmail: responseData.email });
-      this.setState({ emailExists: false });
+      if (response.status === 200) {
+        this.setState({
+          customerEmail: responseData.email,
+          emailExists: false,
+          successfulRegister: true,
+        });
+      }
       if (response.status === 403) {
         this.setState({ emailExists: true });
+        this.setState({ successfulRegister: false });
       }
     } catch (error) {
       console.log(error);

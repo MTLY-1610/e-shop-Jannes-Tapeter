@@ -22,8 +22,8 @@ const registerCustomer = async (req, res, next) => {
   });
 
   //Om adress redan finns, referera till befintligt adress-object i databasen.
+  let adress;
   if (!sameAdress) {
-    let adress;
     adress = new Adress({
       street: req.body.street,
       city: req.body.city,
