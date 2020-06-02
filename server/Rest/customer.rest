@@ -31,8 +31,8 @@ POST http://localhost:5000/customer/login
 Content-Type: application/json
 
 {
-"username": "FredrikAdmin",
-"password": "12345"
+"email": "fredrikthelin82@gmail.com",
+"password": "123456"
 }
 
 ###

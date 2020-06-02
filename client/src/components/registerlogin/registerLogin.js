@@ -6,11 +6,13 @@ import { TextField, Checkbox } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import { CustomerConsumer } from "../../context/customerContext";
+import { Redirect } from "react-router-dom";
 
 class RegisterLogin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: null,
       cPassword: "",
       password: "",
       city: "",
@@ -22,6 +24,8 @@ class RegisterLogin extends React.Component {
       country: "",
       zip: "",
       role: "regular",
+      loginEmail: "",
+      loginPassword: "",
       firstNameError: "",
       lastNameError: "",
       emailError: "",
@@ -35,12 +39,6 @@ class RegisterLogin extends React.Component {
 
   inputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  };
-
-  logIn = () => {
-    // check if user and password is correct
-    // if correct go to payment tunnel
-    // if not correct, render 'wrond username or pass.. try again'
   };
 
   validation = () => {
@@ -169,10 +167,15 @@ class RegisterLogin extends React.Component {
       country: "",
       zip: "",
       role: "regular",
+      loginEmail: "",
+      loginPassword: "",
     });
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return (
       <React.Fragment>
         <Header />
@@ -402,7 +405,9 @@ class RegisterLogin extends React.Component {
                       <div className="one-textfield-div">
                         <p>Epost</p>
                         <TextField
-                          value={customer.state.customerEmail}
+                          name="loginEmail"
+                          onChange={this.inputChange}
+                          value={this.state.loginEmail}
                           size="small"
                           variant="outlined"
                           margin="dense"
@@ -414,6 +419,9 @@ class RegisterLogin extends React.Component {
                       <div className="one-textfield-div">
                         <p>Lösenord</p>
                         <TextField
+                          name="loginPassword"
+                          onChange={this.inputChange}
+                          value={this.state.loginPassword}
                           variant="outlined"
                           size="small"
                           margin="dense"
@@ -422,7 +430,14 @@ class RegisterLogin extends React.Component {
                       </div>
                     </div>
                     <Button
-                      onClick={this.logIn}
+                      onClick={() => (
+                        customer.loginCustomer({
+                          email: this.state.loginEmail,
+                          password: this.state.loginPassword,
+                        }),
+                        this.clearForm(),
+                        this.setState({ redirect: "/" })
+                      )}
                       id="formularButton"
                       size="small"
                       variant="contained"
