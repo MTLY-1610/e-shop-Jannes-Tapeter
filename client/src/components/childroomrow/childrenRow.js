@@ -1,22 +1,33 @@
 import React from "react";
 import "./childrenRow.css";
 import ProductCard from "../product card/productCard";
+import { ProductConsumer } from "../../context/productContext";
 
 class ChildrenProducts extends React.Component {
   state = {};
   render() {
     return (
-      <div id="component-container">
-        <h1>Barnrum</h1>
-        <div id="children-container">
-          <div id="grid-children">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+      <ProductConsumer>
+        {(product) => (
+          <div id="component-container">
+            <h1>Barnrum</h1>
+            <div id="children-container">
+              <div id="grid-children">
+                {product.state.childrenProducts.map((item) => (
+                  <ProductCard
+                    key={item._id}
+                    img={item.url}
+                    brand={item.brand}
+                    dimensions={item.dimensions}
+                    designer={item.designer}
+                    price={item.price}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )}
+      </ProductConsumer>
     );
   }
 }

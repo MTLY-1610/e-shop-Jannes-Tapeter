@@ -1,19 +1,18 @@
 import React from "react";
 import ProductCard from "../product card/productCard";
 import "./latestProductRow.css";
-
 import { ProductConsumer } from "../../context/productContext";
 
 class LatestProducts extends React.Component {
   render() {
     return (
-      <div id="component-container">
-        <h1>Senaste produkter</h1>
-        <ProductConsumer>
-          {(product) => (
+      <ProductConsumer>
+        {(product) => (
+          <div id="component-container">
+            <h1>Senaste produkter</h1>
             <div id="latest-container">
               <div id="grid-latest">
-                {product.state.allProducts.map((item) => (
+                {product.state.latestProducts.map((item) => (
                   <ProductCard
                     key={item._id}
                     img={item.url}
@@ -25,9 +24,9 @@ class LatestProducts extends React.Component {
                 ))}
               </div>
             </div>
-          )}
-        </ProductConsumer>
-      </div>
+          </div>
+        )}
+      </ProductConsumer>
     );
   }
 }
