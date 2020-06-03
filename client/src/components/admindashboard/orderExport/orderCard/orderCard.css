@@ -1,0 +1,12 @@
+#order-card {
+    width: 20rem;
+    margin: .5rem;
+    padding: .5rem;
+    background-color: rgb(245, 245, 245);
+   
+}
+
+#order-card > div {
+    white-space: nowrap;
+}
+
