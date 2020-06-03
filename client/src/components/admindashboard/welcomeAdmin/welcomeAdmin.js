@@ -12,6 +12,9 @@ class WelcomeAdmin extends React.Component {
         <Sidebar />
         <div id="content-container">
           <h3>Välkommen Admin</h3>
+          <div>Nya Orders</div>
+          <div>Senaste admin förfrågan</div>
+          <div>Produkter med låg in stock</div>
         </div>
         <Footer />
       </React.Fragment>
