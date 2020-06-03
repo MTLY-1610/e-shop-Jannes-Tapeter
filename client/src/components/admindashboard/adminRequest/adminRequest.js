@@ -22,8 +22,9 @@ class AdminRequest extends React.Component {
         <div id="content-container">
           <h3>Förfrågningar om att bli administratör:</h3>
           <div id="row-container">
-            <h4>Ny admin</h4>
-            <h4>epost</h4>
+            <h4>firstName</h4>
+            <h4>lastName</h4>
+            <h4>email</h4>
             <RadioGroup row id="radioGroup">
               <FormControlLabel
                 control={<Radio color="default" size="small" />}
