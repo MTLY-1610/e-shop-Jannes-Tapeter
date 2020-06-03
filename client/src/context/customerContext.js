@@ -13,14 +13,17 @@ export default class CustomerProvider extends React.Component {
       loggedInCustomer: "",
       loggedInCustomerId: "",
       customerRole: "",
+      allCustomers: [],
     };
     this.registerCustomer = this.registerCustomer.bind(this);
     this.loginCustomer = this.loginCustomer.bind(this);
+    this.logoutCustomer = this.logoutCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
   }
 
   componentDidMount() {
     this.getLoggedInUser();
+    this.getAllCustomers();
   }
 
   getLoggedInUser() {
@@ -111,6 +114,23 @@ export default class CustomerProvider extends React.Component {
         customerRole: "",
       });
       localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getAllCustomers() {
+    try {
+      const response = await fetch("http://localhost:5000/customer", {
+        credentials: "include",
+      });
+      const responseData = await response.json();
+
+      if (response.status === 200) {
+        this.setState({
+          allCustomers: responseData,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
