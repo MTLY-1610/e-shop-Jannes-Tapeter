@@ -4,17 +4,19 @@ import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
 import RegularProducts from "./components/allproducts/allProducts";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
-import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin";
-import ProductStockBalance from "./components/admindashboard/productStockBalance/productStockBalance";
-import ProductCategory from "./components/admindashboard/productCategory/productCategory";
-import ProductAddAndDelete from "./components/admindashboard/productAddAndDelete/productAddAndDelete";
-import OrderExport from "./components/admindashboard/orderExport/orderExport";
-import AdminRequest from "./components/admindashboard/adminRequest/adminRequest";
 import Test from "./components/test";
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 import CustomerProvider from "../src/context/customerContext";
 import ProductProvider from "../src/context/productContext";
+import AdminRequest from './components/admindashboard/adminRequest/adminRequest'
+import OrderExport from './components/admindashboard/orderExport/orderExport'
+import ProductAddAndDelete from './components/admindashboard/productAddAndDelete/productAddAndDelete'
+import ProductCategory from './components/admindashboard/productCategory/productCategory'
+import ProductStockBalance from './components/admindashboard/productStockBalance/productStockBalance'
+import WelcomeAdmin from './components/admindashboard/welcomeAdmin/welcomeAdmin'
 // import ChildrenProducts from "./components/productpage/regularProducts";
+
+
 
 function App() {
   return (
