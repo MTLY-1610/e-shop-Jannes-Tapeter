@@ -35,9 +35,9 @@ class Header extends React.Component {
                 )}
 
                 <div id="menu">
-                  <span>Tapeter</span>
+                  <span>Mönster</span>
+                  <span>Foto</span>
                   <span>Barnrum</span>
-                  <span>Tillbehör</span>
                 </div>
               </div>
             </div>
