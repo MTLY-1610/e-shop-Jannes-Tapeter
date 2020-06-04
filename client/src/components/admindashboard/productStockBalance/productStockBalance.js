@@ -28,8 +28,9 @@ class ProductStockBalance extends React.Component {
                         src={`${this.serverUrl}${product.url}`}
                         alt="product"
                       />
-                      <h4>Namn: {product.ref}</h4>
-                      <h5>Antal: {product.quantity}</h5>
+                      <span class="quantity">Namn: {product.ref}</span>
+                      <span class="quantity">Pris: {product.price}kr/st</span>
+                      <span class="quantity">Antal: {product.quantity}</span>
                     </div>
                   )
               )}
