@@ -82,28 +82,8 @@ const AddProduct = () => {
       </Button>
 
       {product.url && <img src={`http://localhost:5000/${product.url}`} />}
-      <TextField id="outlined-basic" label="Pris" variant="outlined" 
-        name="price"
-        type="number"
-        onChange={(event) =>
-          setProduct({ ...product, price: event.target.value })
-        }
-      />
-     
-     <TextField id="outlined-basic" label="Antal" variant="outlined" 
-        name="quantity"
-        type="number"
-        onChange={(event) =>
-          setProduct({ ...product, quantity: event.target.value })}
-      />
+      
 
-      <TextField id="outlined-basic" label="Beskrivning" variant="outlined"
-        name="description"
-        type="text"
-        onChange={(event) =>
-          setProduct({ ...product, description: event.target.value })
-        }
-      />
       <TextField id="outlined-basic" label="Märke" variant="outlined"
         name="brand"
         type="text"
@@ -132,6 +112,31 @@ const AddProduct = () => {
         onChange={(event) =>
           setProduct({ ...product, dimensions: event.target.value })
         }
+      />
+
+<TextField id="outlined-multiline-flexible" label="Beskrivning" variant="outlined"
+        name="description"
+        type="text"
+          multiline
+          rowsMax={10}
+          variant="outlined"
+        onChange={(event) =>
+          setProduct({ ...product, description: event.target.value })
+        }
+      />
+      <TextField id="outlined-basic" label="Pris" variant="outlined" 
+        name="price"
+        type="number"
+        onChange={(event) =>
+          setProduct({ ...product, price: event.target.value })
+        }
+      />
+     
+     <TextField id="outlined-basic" label="Antal" variant="outlined" 
+        name="quantity"
+        type="number"
+        onChange={(event) =>
+          setProduct({ ...product, quantity: event.target.value })}
       />
 
       <FormControlLabel
