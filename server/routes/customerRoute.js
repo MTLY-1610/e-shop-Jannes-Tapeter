@@ -17,7 +17,7 @@ router.use(express.json());
 router.get("/:id", getCustomer);
 
 //Get all customers
-router.get("/", adminCheck, getAllCustomers);
+router.get("/", getAllCustomers);
 
 //Register new customer
 router.post("/register", registerCustomer);
