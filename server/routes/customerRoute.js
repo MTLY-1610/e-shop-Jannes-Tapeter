@@ -8,6 +8,7 @@ const {
   registerCustomer,
   loginCustomer,
   logoutCustomer,
+  editCustomer,
 } = require("../controllers/customerController");
 
 router.use(express.json());
@@ -26,5 +27,8 @@ router.post("/login", loginCustomer);
 
 //Logout customer
 router.post("/logout", logoutCustomer);
+
+//Edit customer role
+router.put("/:id", adminCheck, editCustomer);
 
 module.exports = router;

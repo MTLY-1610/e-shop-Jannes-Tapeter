@@ -19,6 +19,7 @@ export default class CustomerProvider extends React.Component {
     this.loginCustomer = this.loginCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
+    this.editCustomer = this.editCustomer.bind(this);
   }
 
   componentDidMount() {
@@ -136,6 +137,23 @@ export default class CustomerProvider extends React.Component {
     }
   }
 
+  async editCustomer(data) {
+    try {
+      await fetch(`http://localhost:5000/customer/${data.id}`, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role: data.role }),
+      });
+
+      this.getAllCustomers();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <CustomerContext.Provider
@@ -144,6 +162,7 @@ export default class CustomerProvider extends React.Component {
           registerCustomer: this.registerCustomer,
           loginCustomer: this.loginCustomer,
           logoutCustomer: this.logoutCustomer,
+          editCustomer: this.editCustomer,
         }}
       >
         {this.props.children}
