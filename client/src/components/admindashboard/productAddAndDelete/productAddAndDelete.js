@@ -5,7 +5,7 @@ import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import AddProduct from "./addProduct/addProduct";
-import DeleteProductCard from "./deleteProductCard/deleteProductCard";
+//import DeleteProductCard from "./deleteProductCard/deleteProductCard";
 import { ProductConsumer } from "../../../context/productContext";
 
 //Administratörer ska kunna lägga till och ta bort produkter (VG)
@@ -59,9 +59,10 @@ class ProductAddAndDelete extends React.Component {
                     <span>Pris</span> {product.price}kr/st
                   </div>
                   <div>
-                    <span>Kategori</span> 
+                    <span>Kategori</span>
                     {product.category.map((category) => (
-                    <div>{category}</div>))}
+                      <div>{category}</div>
+                    ))}
                   </div>
                   <div>
                     <span>Beskrivning</span> {product.description}

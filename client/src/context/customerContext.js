@@ -14,6 +14,7 @@ export default class CustomerProvider extends React.Component {
       loggedInCustomerId: "",
       customerRole: "",
       allCustomers: [],
+      wantsToBeAdmin: 0,
     };
     this.registerCustomer = this.registerCustomer.bind(this);
     this.loginCustomer = this.loginCustomer.bind(this);
@@ -25,6 +26,16 @@ export default class CustomerProvider extends React.Component {
   componentDidMount() {
     this.getLoggedInUser();
     this.getAllCustomers();
+  }
+
+  getAdminRequests() {
+    let nr = 0;
+    for (const customer of this.state.allCustomers) {
+      if (customer.role === "wantsToBeAdmin") {
+        nr++;
+      }
+    }
+    this.setState({ wantsToBeAdmin: nr });
   }
 
   getLoggedInUser() {
@@ -131,6 +142,7 @@ export default class CustomerProvider extends React.Component {
         this.setState({
           allCustomers: responseData,
         });
+        this.getAdminRequests();
       }
     } catch (error) {
       console.log(error);
