@@ -1,6 +1,7 @@
 import React from "react";
-import "./addProduct.css";
 import { TextField, Button } from "@material-ui/core";
+import "./addProduct.css";
+
 
 //Administratörer ska kunna lägga till och ta bort produkter (VG)
 /* category: [String],
