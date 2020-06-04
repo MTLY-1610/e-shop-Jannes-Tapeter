@@ -18,7 +18,7 @@ class DeleteProductCard extends React.Component {
         <div>Ref</div>
         <div>Dimensions</div>
         <div>Date</div>
-        <Button id="formularButton" size="small" variant="contained">
+        <Button id="adminButton" size="small" variant="contained">
             Ta bort produkt
           </Button>
       </div>

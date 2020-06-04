@@ -25,7 +25,7 @@ class AdminRequest extends React.Component {
                       <h4>{user.firstName}</h4>
                       <h4>{user.lastName}</h4>
                       <h4>{user.email}</h4>
-                      <RadioGroup row id="radioGroup">
+                      <RadioGroup row id="adminRadioGroup">
                         <FormControlLabel
                           control={<Radio color="default" size="small" />}
                           value="Godkänn"
@@ -40,7 +40,7 @@ class AdminRequest extends React.Component {
                         />
                       </RadioGroup>
                       <Button
-                        id="formularButton"
+                        id="adminButton"
                         size="small"
                         variant="contained"
                       >

@@ -110,7 +110,7 @@ class AddProduct extends React.Component {
             margin="dense"
           />
           </div>
-          <Button id="formularButton" size="small" variant="contained">
+          <Button id="adminButton" size="small" variant="contained">
             Lägg till produkt
           </Button>
         </div>
