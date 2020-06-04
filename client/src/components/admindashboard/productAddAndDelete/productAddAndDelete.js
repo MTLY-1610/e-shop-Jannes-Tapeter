@@ -5,6 +5,7 @@ import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import AddProduct from "./addProduct/addProduct";
+import DeleteProductCard from "./deleteProductCard/deleteProductCard";
 
 //Administratörer ska kunna lägga till och ta bort produkter (VG)
 /* category: [String],
@@ -27,7 +28,7 @@ class ProductAddAndDelete extends React.Component {
         <div id="content-container">
           <h3>Här ska man kunna lägga till och ta bort produkter</h3>
          <AddProduct />
-         
+         <DeleteProductCard />
         </div>
         <Footer />
       </React.Fragment>
