@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-around;
   width: 85vw;
+  margin-bottom: 5rem;
 }
 #img-container > img{
     display: flex;
@@ -12,9 +13,48 @@
     height: 40vw;
 }
 
+
 #desc-container{
     display: flex;
+    flex-direction: column;
     height:40vw ;
     width: 25vw;
     background-color: aquamarine;
 }
+#brand-row{
+    display: flex;
+    flex-direction: row;
+    height:5rem ;
+    width: 100%;
+    justify-content:flex-end;
+    
+}
+#brand-container > img{
+    display: flex;
+   height: 3rem;
+   width: auto;
+}
+#specs-row{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height:2rem ;
+    background-color: rebeccapurple;
+}
+#specs-col1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height:2rem ;
+    background-color: rebeccapurple;
+}
+#specs-col2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height:2rem ;
+    background-color: rebeccapurple;
+}
+#model{}
+#ref{}
+#price{}
