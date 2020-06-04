@@ -8,6 +8,8 @@ import { ProductConsumer } from "../../../context/productContext";
 //Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 
 class ProductStockBalance extends React.Component {
+  serverUrl = "http://localhost:5000/";
+
   render() {
     return (
       <ProductConsumer>
@@ -15,13 +17,17 @@ class ProductStockBalance extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div id="content-container">
+            <div className="qunatity-container">
               <h3>Lager saldo:</h3>
               {product.state.allProducts.map(
                 (product) =>
                   (
-                    <div key={product._id}>
-                      <img></img>
+                    <div className="card-container" key={product._id}>
+                      <img
+                        className="sample"
+                        src={`${this.serverUrl}${product.url}`}
+                        alt="product"
+                      />
                       <h4>Namn: {product.ref}</h4>
                       <h5>Antal: {product.quantity}</h5>
                     </div>
