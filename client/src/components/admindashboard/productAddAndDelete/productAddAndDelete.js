@@ -5,6 +5,7 @@ import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import AddProduct from "./addProduct/addProduct";
 import DeleteProductCard from "./deleteProductCard/deleteProductCard";
+import { ProductConsumer } from "../../../context/productContext";
 
 //Administratörer ska kunna lägga till och ta bort produkter (VG)
 /* category: [String],
@@ -21,18 +22,27 @@ date: Number, */
 class ProductAddAndDelete extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <Sidebar />
-        <div id="content-container">
-         <AddProduct />
-         <h2>Alla produkter</h2>
-         <DeleteProductCard />
-         <DeleteProductCard />
-         <DeleteProductCard />
-        </div>
-        <Footer />
-      </React.Fragment>
+      <ProductConsumer>
+        {(product) => (
+          <React.Fragment>
+            <Header />
+            <Sidebar />
+            <div id="content-container">
+              <AddProduct />
+              <h2>Alla produkter</h2>
+              {product.state.allProducts.map((product) => (
+                <div id="row-container" key={product._id}>
+                  <h4>{product.price}</h4>
+                </div>
+              ))}
+              <DeleteProductCard />
+              <DeleteProductCard />
+              <DeleteProductCard />
+            </div>
+            <Footer />
+          </React.Fragment>
+        )}
+      </ProductConsumer>
     );
   }
 }
