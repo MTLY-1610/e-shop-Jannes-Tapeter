@@ -14,7 +14,7 @@
   height: 60%;
 }
 
-#radioGroup {
+#radioGroupForDeliveryAndPayment {
   height: 12rem;
   display: flex;
   justify-content: space-around;
