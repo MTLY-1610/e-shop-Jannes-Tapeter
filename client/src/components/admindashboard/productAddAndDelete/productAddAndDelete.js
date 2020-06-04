@@ -1,5 +1,6 @@
 import React from "react";
 import "./productAddAndDelete.css";
+import { Button } from "@material-ui/core";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
@@ -20,6 +21,8 @@ dimensions: String,
 date: Number, */
 
 class ProductAddAndDelete extends React.Component {
+  serverUrl = "http://localhost:5000/";
+
   render() {
     return (
       <ProductConsumer>
@@ -31,13 +34,41 @@ class ProductAddAndDelete extends React.Component {
               <AddProduct />
               <h2>Alla produkter</h2>
               {product.state.allProducts.map((product) => (
-                <div id="row-container" key={product._id}>
-                  <h4>{product.price}</h4>
+                <div id="delete-product-card" key={product._id}>
+                  <img
+                    className="sample"
+                    src={`${this.serverUrl}${product.url}`}
+                    alt="product"
+                  />
+                  <div>
+                    <span>Märke</span> {product.brand}
+                  </div>
+                  <div>
+                    <span>Designer</span> {product.designer}
+                  </div>
+                  <div>
+                    <span>Ref</span> {product.ref}
+                  </div>
+                  <div>
+                    <span>Mått</span> {product.dimensions}
+                  </div>
+                  <div>
+                    <span>Antal</span> {product.quantity} st
+                  </div>
+                  <div>
+                    <span>Pris</span> {product.price}kr/st
+                  </div>
+                  <div>
+                    <span>Kategori</span> {product.category}
+                  </div>
+                  <div>
+                    <span>Beskrivning</span> {product.description}
+                  </div>
+                  <Button id="adminButton" size="small" variant="contained">
+                    Ta bort produkt
+                  </Button>
                 </div>
               ))}
-              <DeleteProductCard />
-              <DeleteProductCard />
-              <DeleteProductCard />
             </div>
             <Footer />
           </React.Fragment>
