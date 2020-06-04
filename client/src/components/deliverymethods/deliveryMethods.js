@@ -22,7 +22,7 @@ class DeliveryMethods extends React.Component {
           </div>
         </div>
         <div>
-          <RadioGroup id="radioGroup">
+          <RadioGroup id="radioGroupForDeliveryAndPayment">
             <FormControlLabel
               control={<Radio color="default" size="small" />}
               value="1"

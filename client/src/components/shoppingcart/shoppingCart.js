@@ -4,6 +4,7 @@ import DeliveryMethods from "../deliverymethods/deliveryMethods";
 import ProductInCart from "../ProductInCart/ProductInCart";
 import PaymentMethods from "../paymentmethods/paymentMethods";
 import Footer from "../footer/footer";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 import "./shoppingCart.css";
@@ -17,6 +18,7 @@ class ShoppingCart extends React.Component {
         <div className="shoppingcart-wrapper">
           <section className="cartrow-div">
             <h4>Din korg</h4>
+
             <ProductInCart />
             <ProductInCart />
             <ProductInCart />
@@ -39,7 +41,7 @@ class ShoppingCart extends React.Component {
               </div>
             </div>
             <button id="paymentBtn" variant="contained">
-              Till betalning
+              <Link to="/payment">Till betalning</Link>
             </button>
           </section>
         </div>
