@@ -30,7 +30,11 @@ class ProductStockBalance extends React.Component {
                       />
                       <span class="quantity">Namn: {product.ref}</span>
                       <span class="quantity">Pris: {product.price}kr/st</span>
-                      <span class="quantity">Antal: {product.quantity}</span>
+                      {/* <span class="quantity">Antal: {product.quantity}</span> */}
+                      <div>
+                        <label for="name">Antal: </label>
+                        <input type="text" name="quantity" id="qunatity" value={product.quantity}></input>
+                      </div>
                     </div>
                   )
               )}
