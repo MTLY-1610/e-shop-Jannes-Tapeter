@@ -14,7 +14,7 @@ class AdminRequestRow extends React.Component {
           <h4>{this.props.firstName}</h4>
           <h4>{this.props.lastName}</h4>
           <h4>{this.props.email}</h4>
-          <RadioGroup row id="radioGroup">
+          <RadioGroup row id="RadioGroup">
             <FormControlLabel
               control={<Radio color="default" size="small" />}
               value="Godkänn"

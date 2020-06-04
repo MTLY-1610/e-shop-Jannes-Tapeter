@@ -2,6 +2,8 @@
   font-family: titling-gothic-fb, sans-serif;
   font-weight: 300;
   font-style: normal;
+  text-decoration: none;
+  list-style: none;
 }
 
 #container-header {
@@ -14,6 +16,7 @@
 #logo {
   display: flex;
   font-size: 1.5rem;
+  color: black;
 }
 #container-right {
   display: flex;
@@ -32,6 +35,10 @@
   justify-content: space-between;
   font-size: smaller;
   width: 15vw;
+}
+#loggin > a {
+  cursor: pointer;
+  color: black;
 }
 .basket {
   width: 1.2rem;

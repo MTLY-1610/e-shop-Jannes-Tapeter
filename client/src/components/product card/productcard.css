@@ -1,49 +1,43 @@
-
-
-
-#container-1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: small;
-    color: dimgray;
-    width:17vw;
+#container-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: small;
+  color: dimgray;
+  width: 17vw;
+}
+#container-1 > div > img {
+  height: 17vw;
 }
 
-img{
-    width: 17vw;
+img {
+  width: 17vw;
 }
-#sample{
-    display: flex;
-    
-}
-
-#description{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 16vw;
-    
-    
-}
-#description-col1{
-    display: flex;
-    flex-direction: column;
-    width:8vw;
-    
-    
-}
-#description-col2{
-    display: flex;
-    flex-direction: column;
-    width:8vw;
-}
-#right{
-    display: flex;
-    justify-content: flex-start;
+#sample {
+  display: flex;
 }
 
-#left{
-    display: flex;
-    justify-content: flex-end;
+#description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 17vw;
+  font-size: 0.7rem;
 }
+#description-col1 {
+  display: flex;
+  flex-direction: column;
+  width: 8.5vw;
+}
+#description-col2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 8.5vw;
+}
+
+/* @media only screen and (max-width: 829px) {
+  .MuiInputBase-formControl {
+    width: 13rem;
+  }
+} */
