@@ -26,7 +26,7 @@ class ProductAddAndDelete extends React.Component {
   render() {
     return (
       <ProductConsumer>
-        {(product) => (
+        {(product, category) => (
           <React.Fragment>
             <Header />
             <Sidebar />
@@ -59,7 +59,9 @@ class ProductAddAndDelete extends React.Component {
                     <span>Pris</span> {product.price}kr/st
                   </div>
                   <div>
-                    <span>Kategori</span> {product.category}
+                    <span>Kategori</span> 
+                    {product.category.map((category) => (
+                    <div>{category}</div>))}
                   </div>
                   <div>
                     <span>Beskrivning</span> {product.description}
