@@ -32,8 +32,8 @@ class ProductStockBalance extends React.Component {
                       <span class="quantity">Pris: {product.price}kr/st</span>
                       {/* <span class="quantity">Antal: {product.quantity}</span> */}
                       <div>
-                        <label for="name">Antal: </label>
-                        <input type="text" name="quantity" id="qunatity" value={product.quantity}></input>
+                        <label for="quantity">Antal: </label>
+                        <input type="number" id="quantity" name="quantity" value={product.quantity} min="1" max="1000"></input>
                       </div>
                     </div>
                   )
