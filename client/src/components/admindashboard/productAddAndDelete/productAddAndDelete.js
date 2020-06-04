@@ -28,6 +28,9 @@ class ProductAddAndDelete extends React.Component {
         <div id="content-container">
           <h3>Här ska man kunna lägga till och ta bort produkter</h3>
          <AddProduct />
+         <h2>Alla produkter</h2>
+         <DeleteProductCard />
+         <DeleteProductCard />
          <DeleteProductCard />
         </div>
         <Footer />
