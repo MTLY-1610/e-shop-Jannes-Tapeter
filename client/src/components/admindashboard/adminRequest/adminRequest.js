@@ -9,6 +9,20 @@ import { CustomerConsumer } from "../../../context/customerContext";
 //En administratör behöver godkännas av en tidigare administratör innan man kan logga in fösta gången (VG)
 
 class AdminRequest extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      approved: false,
+    };
+  }
+
+  getRole() {
+    if (this.state.approved) {
+      return "admin";
+    } else {
+      return "regular";
+    }
+  }
   render() {
     return (
       <CustomerConsumer>
@@ -28,21 +42,29 @@ class AdminRequest extends React.Component {
                       <RadioGroup row id="adminRadioGroup">
                         <FormControlLabel
                           control={<Radio color="default" size="small" />}
-                          value="Godkänn"
+                          value="approved"
                           label="Godkänd"
                           labelPlacement="start"
+                          onChange={() => this.setState({ approved: true })}
                         />
                         <FormControlLabel
                           control={<Radio color="default" size="small" />}
-                          value="Denied"
+                          value="denied"
                           label="Nekad"
                           labelPlacement="start"
+                          onChange={() => this.setState({ approved: false })}
                         />
                       </RadioGroup>
                       <Button
                         id="adminButton"
                         size="small"
                         variant="contained"
+                        onClick={() =>
+                          customer.editCustomer({
+                            id: user._id,
+                            role: this.getRole(),
+                          })
+                        }
                       >
                         Sänd
                       </Button>

@@ -53,11 +53,27 @@ export default class ProductProvider extends React.Component {
     });
   }
 
+  async deleteProduct(id) {
+    try {
+      await fetch(`http://localhost:5000/product/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      this.getAllProducts();
+    } catch {
+      console.log("Error");
+    }
+  }
+
   render() {
     return (
       <ProductContext.Provider
         value={{
           state: this.state,
+          deleteProduct: this.deleteProduct,
         }}
       >
         {this.props.children}

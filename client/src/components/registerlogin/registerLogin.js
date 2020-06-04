@@ -362,12 +362,10 @@ class RegisterLogin extends React.Component {
                       <Button
                         onClick={
                           this.register
-                            ? () => (
+                            ? () =>
                                 customer.registerCustomer(
                                   this.getCustomerData()
-                                ),
-                                this.clearForm()
-                              )
+                                )
                             : null
                         }
                         id="formularButton"

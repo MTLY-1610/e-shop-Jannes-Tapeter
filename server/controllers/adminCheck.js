@@ -1,7 +1,6 @@
 const ServerError = require("../serverError");
 
 module.exports = async (req, res, next) => {
-  console.log(req.session.role);
   if (req.session.role === "admin") {
     next();
   } else {

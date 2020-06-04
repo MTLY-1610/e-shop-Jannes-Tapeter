@@ -40,3 +40,13 @@ Content-Type: application/json
 POST http://localhost:5000/customer/logout
 
 ###
+
+
+PUT http://localhost:5000/customer/5ed79dd283e7bf4b88c60805
+Content-Type: application/json
+
+{  
+  "role": "admin"
+}
+
+###
