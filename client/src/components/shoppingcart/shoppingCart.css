@@ -63,6 +63,9 @@
   transition: all 0.5s;
 }
 
+#paymentBtn > a {
+  color: black;
+}
 #paymentBtn:hover {
   background: black;
   color: white;

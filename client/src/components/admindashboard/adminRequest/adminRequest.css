@@ -9,8 +9,12 @@
     align-items: center;
 }
 
+#adminRadioGroup {
+    height: 3rem;
+    white-space: nowrap;
+}
 
-#radioGroup {
+#adminButton {
     height: 3rem;
 }
 
