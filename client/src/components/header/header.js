@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import icon from "./shopping-basket-light.png";
 import { CustomerConsumer } from "../../context/customerContext";
 
@@ -12,24 +12,34 @@ class Header extends React.Component {
         {(customer) => (
           <header>
             <div id="container-header">
-              <div id="logo">
-                Jannes <br /> Tapeter
-              </div>
+              <Link to="/">
+                <div id="logo">
+                  Jannes <br /> Tapeter
+                </div>
+              </Link>
               <div id="container-right">
                 {!customer.state.loggedInCustomer ? (
                   <div id="loggin">
-                    <span>Registrera</span>
-                    <span> Logga in </span>
+                    <Link to="/register">
+                      <span>Registrera</span>
+                    </Link>
+                    <Link to="/register">
+                      <span>Logga in</span>
+                    </Link>
                     <span id="">
-                      <img className="basket" src={icon} alt="product" />
+                      <Link to="/register">
+                        <img className="basket" src={icon} alt="product" />
+                      </Link>
                     </span>
                   </div>
                 ) : (
                   <div id="loggin">
-                    <span>{customer.state.loggedInCustomer}</span>
-                    <span onClick={customer.logoutCustomer}> Logga ut </span>
+                    <p>{customer.state.loggedInCustomer}</p>
+                    <p onClick={customer.logoutCustomer}> Logga ut </p>
                     <span id="">
-                      <img className="basket" src={icon} alt="product" />
+                      <Link to="/cart">
+                        <img className="basket" src={icon} alt="product" />
+                      </Link>
                     </span>
                   </div>
                 )}

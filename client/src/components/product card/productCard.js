@@ -21,12 +21,12 @@ class ProductCard extends React.Component {
 
         <div id="description">
           <div id="description-col1">
-            <div id="right">{this.props.brand}</div>
-            <div id="right">{this.props.dimensions}</div>
+            <p id="right">{this.props.brand}</p>
+            <p id="right">{this.props.dimensions}</p>
           </div>
           <div id="description-col2">
-            <div id="left">{this.props.designer}</div>
-            <div id="left">{`${this.props.price} kr / rulle`}</div>
+            <p id="left">{this.props.designer}</p>
+            <p id="left">{`${this.props.price} kr/m`}</p>
           </div>
         </div>
       </div>
