@@ -28,3 +28,11 @@ body {
   scroll-behavior: smooth;
 }
 
+@media only screen and (max-width: 829px) {
+  #hero {
+    display: block;
+    width: 100vw;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+}

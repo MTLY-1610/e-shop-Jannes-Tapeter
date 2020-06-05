@@ -1,8 +1,8 @@
-#component-container {
+#child-component-container {
   display: flex;
   flex-direction: column;
 }
-#children-container {
+#childrens-container {
   display: flex;
   justify-content: center;
   width: 85vw;
@@ -17,4 +17,9 @@
 }
 h1 {
   font-size: 1.2rem;
+}
+@media only screen and (max-width: 829px) {
+  #child-component-container {
+    display: none;
+  }
 }
