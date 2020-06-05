@@ -5,22 +5,20 @@ import { ProductConsumer } from "../../context/productContext";
 import { Link } from "react-router-dom";
 
 class MönsterRow extends React.Component {
-  state = {
-    patternProducts: [],
-  };
   render() {
     return (
       <ProductConsumer>
         {(product) => (
           <div id="component-container">
             <h1>Mönster</h1>
-            <div id="latests-container">
-              <div id="grid-latests">
+            <div id="latest-container">
+              <div id="grid-latest">
                 {product.state.allProducts.map((item) => {
                   if (item.category.includes("pattern")) {
                     return (
                       <Link to={`${item._id}`}>
                         <ProductCard
+                          onClick={() => console.log("hej")}
                           key={item._id}
                           img={item.url}
                           brand={item.brand}

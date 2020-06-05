@@ -6,11 +6,6 @@ import MönsterRow from "./MönsterRow";
 import "./mönster.css";
 
 class Mönster extends React.Component {
-  async componentDidMount() {
-    const response = await fetch("http://localhost:5000/product");
-    const responseData = await response.json();
-    console.log(responseData);
-  }
   state = {};
   render() {
     return (
