@@ -1,14 +1,11 @@
-.content-container{
-    display: flex;
-    flex-direction: column;
-    border-top:    1px solid BLACK;
-    border-right:  1px solid BLACK; 
-    border-bottom: 1px solid BLACK;
+.master-container{
+    display: flex; 
+    flex-direction: column; 
+    width: 85vw;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    position: fixed;
-    top: 10rem;
-    left: 10rem;
-    width: 100%;
+align-items: center;
+}
+
+.welcome{
+    font-size: 2em;
 }
