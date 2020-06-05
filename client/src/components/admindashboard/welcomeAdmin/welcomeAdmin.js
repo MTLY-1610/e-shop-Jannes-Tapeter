@@ -12,15 +12,16 @@ const WelcomeAdmin = () => {
       <Header />
       <Sidebar />
       <div className="master-container">
-        <h2 className="welcome">
-          Välkommen Admin!
+        <div className="master-content">
+          <h2 className="welcome">
+            Välkommen Admin!
         </h2>
-
-        <Typography component="div">
-          Du som inloggad administratör har speciella rättigheter som en vanlig användare inte har.
-          Du kan se i menyn till vänster vad du har möjlighet att göra.
-              </Typography>
-        <WelcomeList />
+          <span className="welcomeText">
+            Du som inloggad administratör har speciella rättigheter som en vanlig användare inte har.
+            Du kan se i menyn till vänster vad du har möjlighet att göra.
+              </span>
+          <WelcomeList />
+        </div>
       </div>
       <Footer />
     </React.Fragment >
