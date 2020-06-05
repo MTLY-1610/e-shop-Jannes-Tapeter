@@ -23,8 +23,6 @@ import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin"
 // import ProductStockBalance from './components/admindashboard/productStockBalance/productStockBalance'
 // import WelcomeAdmin from './components/admindashboard/welcomeAdmin/welcomeAdmin'
 
-
-
 function App() {
   return (
     <CustomerProvider>
@@ -33,12 +31,15 @@ function App() {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/register" component={RegisterLogin} />
-            <Route path="/:ref" component={ProductPage} />
+            <Route path="/ref" component={ProductPage} />
             <Route path="/products" component={RegularProducts} />
             <Route path="/payment" component={PaymentInfo} />
             <Route path="/cart" component={ShoppingCart} />
             <Route path="/admin/welcome" component={WelcomeAdmin} />
-            <Route path="/admin/productStockbalance" component={ProductStockBalance}/>
+            <Route
+              path="/admin/productStockbalance"
+              component={ProductStockBalance}
+            />
             <Route path="/admin/productCategory" component={ProductCategory} />
             <Route path="/admin/productEdit" component={ProductAddAndDelete} />
             <Route path="/admin/orderExport" component={OrderExport} />
