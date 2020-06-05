@@ -1,18 +1,16 @@
-.master-container{
-    display: flex; 
-    width: 100%;
-    height: 70vh;
-    justify-content: center;
-align-items: center;
-background: blue;
+.container-welcomeAdmin{
+display: flex;
+flex-direction: column;
+background-color: aquamarine;
 }
-
 
 .master-content{
-    display: flex;
+    display: flex; 
+    width: 85vw;
+align-items: center;
     flex-direction: column;
-    align-items: center;
-}
+    margin-bottom: 2.5rem;}
+
 
 .welcome{
     font-size: 2em;
@@ -21,4 +19,5 @@ background: blue;
 .welcomeText{
     width: 60%;
     text-align: center;
+    margin: 0.5rem 0 0.5rem 0;
 }
