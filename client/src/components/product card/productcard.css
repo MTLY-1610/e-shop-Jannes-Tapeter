@@ -5,9 +5,11 @@
   font-size: small;
   color: dimgray;
   width: 17vw;
+
 }
 #container-1 > div > img {
   height: 17vw;
+  width: 17vw;
 }
 
 img {
@@ -36,8 +38,5 @@ img {
   width: 8.5vw;
 }
 
-/* @media only screen and (max-width: 829px) {
-  .MuiInputBase-formControl {
-    width: 13rem;
-  }
-} */
+
+

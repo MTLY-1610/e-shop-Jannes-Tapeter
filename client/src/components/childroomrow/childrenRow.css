@@ -13,6 +13,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.5vw;
+  margin-bottom: 2rem ;
 }
 h1 {
   font-size: 1.2rem;

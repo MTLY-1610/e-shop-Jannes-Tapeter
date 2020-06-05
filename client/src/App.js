@@ -8,6 +8,7 @@ import Barnrum from "./components/barnrum/barnrum";
 import ProductPage from "./components/productpage/productpage";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
 import Test from "./components/test";
+
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 import CustomerProvider from "../src/context/customerContext";
 import ProductProvider from "../src/context/productContext";
@@ -40,7 +41,6 @@ function App() {
             <Route path="/barnrum" component={Barnrum} />
 
             <Route path="/ref" component={ProductPage} />
-            <Route path="/products" component={RegularProducts} />
             <Route path="/payment" component={PaymentInfo} />
             <Route path="/cart" component={ShoppingCart} />
             <Route path="/admin/welcome" component={WelcomeAdmin} />
