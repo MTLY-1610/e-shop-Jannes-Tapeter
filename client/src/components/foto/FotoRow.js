@@ -13,8 +13,8 @@ class FotoRow extends React.Component {
         {(product) => (
           <div id="component-container">
             <h1>Foto</h1>
-            <div id="latest-container">
-              <div id="grid-latest">
+            <div id="latests-container">
+              <div id="grid-latests">
                 {product.state.allProducts.map((item) => {
                   console.log(item.category.includes("photo"));
 
