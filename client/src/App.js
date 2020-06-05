@@ -2,7 +2,9 @@ import React, { Children } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
-import RegularProducts from "./components/allproducts/allProducts";
+import Mönster from "./components/mönster/mönster";
+import Foto from "./components/foto/foto";
+import Barnrum from "./components/barnrum/barnrum";
 import ProductPage from "./components/productpage/productpage";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
 import Test from "./components/test";
@@ -25,12 +27,17 @@ function App() {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/register" component={RegisterLogin} />
-            <Route path="/:ref" component={ProductPage} />
-            <Route path="/products" component={RegularProducts} />
+            {/* <Route path="/:ref" component={ProductPage} /> */}
+            <Route path="/mönster" component={Mönster} />
+            <Route path="/foto" component={Foto} />
+            <Route path="/barnrum" component={Barnrum} />
             <Route path="/payment" component={PaymentInfo} />
             <Route path="/cart" component={ShoppingCart} />
             <Route path="/admin/welcome" component={WelcomeAdmin} />
-            <Route path="/admin/productStockbalance" component={ProductStockBalance}/>
+            <Route
+              path="/admin/productStockbalance"
+              component={ProductStockBalance}
+            />
             <Route path="/admin/productCategory" component={ProductCategory} />
             <Route path="/admin/productEdit" component={ProductAddAndDelete} />
             <Route path="/admin/orderExport" component={OrderExport} />
