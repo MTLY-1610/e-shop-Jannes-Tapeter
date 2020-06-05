@@ -1,0 +1,25 @@
+.card-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.qunatity-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+top: 10rem;
+
+    /* align-items: center; */
+}
+
+.quantity{
+    padding: 0.5rem 0 0.5rem 0;
+}
