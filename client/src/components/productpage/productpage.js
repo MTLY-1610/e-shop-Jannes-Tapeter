@@ -18,7 +18,8 @@ import Select from '@material-ui/core/Select';
 
 class ProductPage extends React.Component {
   serverUrl = "http://localhost:5000/";
-  
+
+
 
   
 
@@ -66,9 +67,7 @@ class ProductPage extends React.Component {
             <div id="action-row">
               <div id="action-col1">
                 <FormControl >
-                  <Select
-                    
-                  >
+                  <Select >
                     <MenuItem value="quantity" disabled>
                     </MenuItem>
                     <MenuItem value={1}>1</MenuItem>
@@ -95,8 +94,6 @@ class ProductPage extends React.Component {
             </div>
           </div>
       </div>
-     
-
       <Footer />
     </React.Fragment>
       );
