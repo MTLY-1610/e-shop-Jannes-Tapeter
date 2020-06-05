@@ -13,7 +13,7 @@ class Homepage extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <img className="hero" src={Hero} alt="hero" />
+        <img id="hiro" className="hero" src={Hero} alt="hero" />
         <LatestProducts />
         <ChildrenProducts />
         <BrandRow />

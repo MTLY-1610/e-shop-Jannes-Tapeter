@@ -29,7 +29,7 @@ body {
 }
 
 @media only screen and (max-width: 829px) {
-  #hero {
+  #hiro {
     display: block;
     width: 100vw;
     height: auto;
