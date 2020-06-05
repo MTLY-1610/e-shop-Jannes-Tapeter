@@ -8,35 +8,67 @@ import { ProductConsumer } from "../../../context/productContext";
 //Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 
 class ProductStockBalance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantity: 0,
+    };
+  }
   serverUrl = "http://localhost:5000/";
 
   render() {
     return (
       <ProductConsumer>
-        {(product) => (
+        {(products) => (
           <React.Fragment>
             <Header />
             <Sidebar />
             <div className="qunatity-container">
               <h3>Lager saldo:</h3>
-              {product.state.allProducts.map(
+              {products.state.allProducts.map(
                 (product) =>
-                  (
+                  product.quantity <= 10 && (
                     <div className="card-container" key={product._id}>
                       <img
                         className="sample"
                         src={`${this.serverUrl}${product.url}`}
                         alt="product"
                       />
-                      <span class="quantity">Namn: {product.ref}</span>
-                      <span class="quantity">Pris: {product.price}kr/st</span>
+                      <span className="quantity">Namn: {product.ref}</span>
+                      <span className="quantity">
+                        Pris: {product.price}kr/st
+                      </span>
                       {/* <span class="quantity">Antal: {product.quantity}</span> */}
                       <div>
-                        <label for="quantity">Antal: </label>
-                        <input type="number" id="quantity" name="quantity" placeholder={product.quantity} min={product.quantity} max="1000">
-                        </input>
+                        <label htmlFor="quantity">Antal: </label>
+                        <input
+                          type="number"
+                          id="quantity"
+                          name="quantity"
+                          placeholder={product.quantity}
+                          min={product.quantity}
+                          max="1000"
+                          onChange={(event) =>
+                            this.setState({ quantity: event.target.value })
+                          }
+                        ></input>
                       </div>
-                      <button> Uppdatera antal</button>
+                      <button
+                        onClick={() =>
+                          products.editProduct(product._id, {
+                            quantity: this.state.quantity,
+                          })
+                        }
+                      >
+                        Uppdatera antal
+                      </button>
+                      {products.state.updateQuantity.success &&
+                        product.quantity <= 10 &&
+                        product._id === products.state.updateQuantity.id && (
+                          <p
+                            style={{ color: "green", fontSize: "0.9rem" }}
+                          >{`Antalet uppdaterat till ${product.quantity}`}</p>
+                        )}
                     </div>
                   )
               )}
