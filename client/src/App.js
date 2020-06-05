@@ -35,7 +35,6 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route path="/register" component={RegisterLogin} />
 
-            {/* <Route path="/:ref" component={ProductPage} /> */}
             <Route path="/mönster" component={Mönster} />
             <Route path="/foto" component={Foto} />
             <Route path="/barnrum" component={Barnrum} />
@@ -53,6 +52,8 @@ function App() {
             <Route path="/admin/orderExport" component={OrderExport} />
             <Route path="/admin/adminRequest" component={AdminRequest} />
             <Route path="/test" component={Test} />
+            <Route path="/:ref" component={ProductPage} />
+
             {/* <Route path="/forchildren"  component={ChildrenProducts} /> */}
           </Switch>
         </Router>

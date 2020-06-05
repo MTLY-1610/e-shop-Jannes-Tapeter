@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../product card/productCard";
 import "./MönsterRow.css";
 import { ProductConsumer } from "../../context/productContext";
+import { Link } from "react-router-dom";
 
 class MönsterRow extends React.Component {
   state = {
@@ -18,14 +19,16 @@ class MönsterRow extends React.Component {
                 {product.state.allProducts.map((item) => {
                   if (item.category.includes("pattern")) {
                     return (
-                      <ProductCard
-                        key={item._id}
-                        img={item.url}
-                        brand={item.brand}
-                        dimensions={item.dimensions}
-                        designer={item.designer}
-                        price={item.price}
-                      />
+                      <Link to={`${item._id}`}>
+                        <ProductCard
+                          key={item._id}
+                          img={item.url}
+                          brand={item.brand}
+                          dimensions={item.dimensions}
+                          designer={item.designer}
+                          price={item.price}
+                        />
+                      </Link>
                     );
                   }
                 })}
