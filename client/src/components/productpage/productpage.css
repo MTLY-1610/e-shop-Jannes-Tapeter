@@ -1,25 +1,26 @@
 #pp-container{
-    display: flex;
+  display: flex;
   margin-top: 3rem;
- flex-direction: row;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   width: 85vw;
   margin-bottom: 5rem;
+
 }
 #img-container > img{
     display: flex;
-    width: 40vw;
+    width: 50vw;
     height: 40vw;
+
 }
-
-
 #desc-container{
     display: flex;
     flex-direction: column;
-    height:40vw ;
-    width: 25vw;
-    background-color: aquamarine;
+    justify-content: space-evenly;
+    height:30vw ;
+    width: 28vw;
+
 }
 #brand-row{
     display: flex;
@@ -31,30 +32,108 @@
 }
 #brand-container > img{
     display: flex;
-   height: 3rem;
+   height: 4rem;
    width: auto;
+
 }
-#specs-row{
+#descr-row{
     display: flex;
     flex-direction:row;
     width: 100%;
-    height:2rem ;
-    background-color: rebeccapurple;
+    height: 2rem ;
+
 }
 #specs-col1 {
     display: flex;
     flex-direction: column;
     width: 50%;
-    height:2rem ;
-    background-color: rebeccapurple;
+    height: 100%;
+
 }
-#specs-col2{
+#specs-col2 {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     width: 50%;
-    height:2rem ;
-    background-color: rebeccapurple;
+    height:3rem ;
+
 }
-#model{}
-#ref{}
-#price{}
+
+#model{
+    display: flex;
+
+}
+#ref{
+    display: flex;
+    color: grey;
+    font-size: smaller;
+
+}
+#price{
+    display: flex;
+    color:gray;
+
+}
+#origin-row{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: 2rem ;
+    color: grey;
+
+}
+#origin-col1 {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  
+}
+#origin-col2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+    
+}
+
+#dim{
+    display: flex;
+    font-size: smaller;
+
+}
+#designer{
+    display: flex;
+    font-size: smaller;
+    
+
+}
+#designer-name{
+    display: flex;
+    font-size: smaller;
+
+}
+#text-container{
+    display: flex;
+    font-size: smaller;
+    text-align: justify;
+
+}
+#action-row{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: smaller;
+
+}
+#action-col1 {
+    display: flex;
+    width: 50%;
+    
+}
+#action-col2 {
+    display: flex;
+    width: 50%;
+    
+}
