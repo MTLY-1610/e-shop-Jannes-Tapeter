@@ -16,6 +16,7 @@ body {
 .hero {
   display: block;
   width: 80vw;
+  height: auto;
   margin-bottom: 2.5rem;
 }
 
@@ -26,3 +27,4 @@ body {
   flex-direction: column;
   scroll-behavior: smooth;
 }
+
