@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   width: 85vw;
 }
 #logo {
@@ -26,7 +26,8 @@
 }
 #menu {
   display: flex;
-  width: 30vw;
+  width: 20vw;
+  min-width: 12rem;
   justify-content: space-evenly;
   font-size: 0.8em;
 }
@@ -34,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   font-size: smaller;
-  width: 15vw;
+  width: 100%;
 }
 #loggin > a {
   cursor: pointer;
@@ -42,4 +43,28 @@
 }
 .basket {
   width: 1.2rem;
+  height: auto;
+}
+@media only screen and (max-width: 829px) {
+  /* #loggin {
+    display: flex;
+    width: 80%;
+    font-size: x-small;
+    align-items: flex-end;  }
+
+    #container-header {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      z-index: 2;
+      margin-bottom: 2rem;
+      width: 85vw;
+      color: black;
+    }
+    #container-right {
+      height: 12vh;
+      font-size: x-small;
+      
+      
+    } */
 }
