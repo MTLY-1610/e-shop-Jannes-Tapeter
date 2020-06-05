@@ -17,6 +17,8 @@ footer {
   align-items: center;
   padding: 1rem 0;
   width: 85vw;
+  
+  margin-bottom: 2rem;
 }
 
 footer > h1 {
