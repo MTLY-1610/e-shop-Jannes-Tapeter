@@ -2,11 +2,9 @@ import React from "react";
 import ProductCard from "../product card/productCard";
 import "./FotoRow.css";
 import { ProductConsumer } from "../../context/productContext";
+import { Link } from "react-router-dom";
 
 class FotoRow extends React.Component {
-  state = {
-    fotoProducts: [],
-  };
   render() {
     return (
       <ProductConsumer>
@@ -20,14 +18,16 @@ class FotoRow extends React.Component {
 
                   if (item.category.includes("photo")) {
                     return (
-                      <ProductCard
-                        key={item._id}
-                        img={item.url}
-                        brand={item.brand}
-                        dimensions={item.dimensions}
-                        designer={item.designer}
-                        price={item.price}
-                      />
+                      <Link to={`${item._id}`}>
+                        <ProductCard
+                          key={item._id}
+                          img={item.url}
+                          brand={item.brand}
+                          dimensions={item.dimensions}
+                          designer={item.designer}
+                          price={item.price}
+                        />
+                      </Link>
                     );
                   }
                 })}
