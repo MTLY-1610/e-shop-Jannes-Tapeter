@@ -14,16 +14,28 @@ export default class CustomerProvider extends React.Component {
       loggedInCustomerId: "",
       customerRole: "",
       allCustomers: [],
+      wantsToBeAdmin: 0,
     };
     this.registerCustomer = this.registerCustomer.bind(this);
     this.loginCustomer = this.loginCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
+    this.editCustomer = this.editCustomer.bind(this);
   }
 
   componentDidMount() {
     this.getLoggedInUser();
     this.getAllCustomers();
+  }
+
+  getAdminRequests() {
+    let nr = 0;
+    for (const customer of this.state.allCustomers) {
+      if (customer.role === "wantsToBeAdmin") {
+        nr++;
+      }
+    }
+    this.setState({ wantsToBeAdmin: nr });
   }
 
   getLoggedInUser() {
@@ -130,7 +142,25 @@ export default class CustomerProvider extends React.Component {
         this.setState({
           allCustomers: responseData,
         });
+        this.getAdminRequests();
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async editCustomer(data) {
+    try {
+      await fetch(`http://localhost:5000/customer/${data.id}`, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role: data.role }),
+      });
+
+      this.getAllCustomers();
     } catch (error) {
       console.log(error);
     }
@@ -144,6 +174,7 @@ export default class CustomerProvider extends React.Component {
           registerCustomer: this.registerCustomer,
           loginCustomer: this.loginCustomer,
           logoutCustomer: this.logoutCustomer,
+          editCustomer: this.editCustomer,
         }}
       >
         {this.props.children}
