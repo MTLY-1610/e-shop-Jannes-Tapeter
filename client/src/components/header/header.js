@@ -45,9 +45,15 @@ class Header extends React.Component {
                 )}
 
                 <div id="menu">
-                  <span>Mönster</span>
-                  <span>Foto</span>
-                  <span>Barnrum</span>
+                  <Link to="/mönster">
+                    <span>Mönster</span>
+                  </Link>
+                  <Link to="/foto">
+                    <span>Foto</span>
+                  </Link>
+                  <Link to="/barnrum">
+                    <span>Barnrum</span>
+                  </Link>
                 </div>
               </div>
             </div>
