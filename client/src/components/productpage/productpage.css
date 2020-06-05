@@ -18,29 +18,34 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height:60vh ;
+    align-items: center;
+    height:auto ;
     width: 28vw;
 
 }
 #brand-row{
     display: flex;
     flex-direction: row;
-    height:5rem ;
+    height:4rem ;
     width: 100%;
     justify-content:flex-end;
     
 }
-#brand-container > img{
+#brand-container {
     display: flex;
-   height: 4rem;
+   height: 5rem;
    width: auto;
 
+}
+img{
+    width: 4rem;
+    height:2.5rem;
 }
 #descr-row{
     display: flex;
     flex-direction:row;
     width: 100%;
-    height: 2rem ;
+    height: 4rem ;
 
 }
 #specs-col1 {
@@ -55,7 +60,7 @@
     flex-direction: column;
     align-items: flex-end;
     width: 50%;
-    height:3rem ;
+    height:100%;
 
 }
 
@@ -78,21 +83,22 @@
     display: flex;
     flex-direction:row;
     width: 100%;
-    height: 2rem ;
+    height: 4rem ;
     color: grey;
 
 }
 #origin-col1 {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
   
 }
 #origin-col2 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 40%;
+    width: 50%;
+
     
 }
 
@@ -121,14 +127,16 @@
 #action-row{
     display: flex;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: smaller;
+    height: 10rem;
 
 }
 #action-col1 {
     display: flex;
+  
    
     
 }
@@ -137,3 +145,32 @@
     
     
 }
+@media only screen and (max-width: 829px) {
+    #pp-container{
+        display: flex;
+        margin-top: 3rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 85vw;
+        margin-bottom: 5rem;
+      
+      }
+      #img-container > img{
+        display: flex;
+        width: 75vw;
+        height: auto;
+        margin-bottom: 3rem;
+    
+    }
+    #desc-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height:auto ;
+        width: 75vw;
+    
+    }
+
+    }
