@@ -11,21 +11,48 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import { ProductConsumer } from "../../context/productContext";
+import Input from "@material-ui/core/Input";
+import { OrderConsumer } from "../../context/orderContext";
 
 class SpecifikProduct extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: {},
+      quantity: 1,
+    };
+  }
+
+  componentDidMount() {
+    this.getSpecificProduct();
+  }
+
+  async getSpecificProduct() {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/product/${this.props.productId}`
+      );
+      if (response.status === 200) {
+        const responseData = await response.json();
+        this.setState({
+          product: responseData,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   serverUrl = "http://localhost:5000/";
-  state = {};
+
   render() {
-    const props = this.props.item[0];
     return (
       <React.Fragment>
         <div id="pp-container">
           <div id="img-container">
             <img
               className="sample"
-              src={`${this.serverUrl}${props.url}`}
+              src={`${this.serverUrl}${this.state.product.url}`}
               alt="product"
             />
           </div>
@@ -37,48 +64,54 @@ class SpecifikProduct extends React.Component {
             </div>
             <div id="descr-row">
               <div id="specs-col1">
-                <div id="model">{props.brand}</div>
-                <div id="ref">{`ref:${props.ref}`}</div>
+                <div id="model">{this.state.product.brand}</div>
+                <div id="ref">{`ref:${this.state.product.ref}`}</div>
               </div>
               <div id="specs-col2">
-                <div id="price">{`${props.price}kr`}</div>
+                <div id="price">{`${this.state.product.price}kr`}</div>
               </div>
             </div>
             <div id="origin-row">
               <div id="origin-col1">
-                <div id="dim">{props.dimensions}</div>
+                <div id="dim">{this.state.product.dimensions}</div>
               </div>
               <div id="origin-col2">
                 <div id="designer"> Designer:</div>
-                <div id="designer-name"> {props.designer}</div>
+                <div id="designer-name"> {this.state.product.designer}</div>
               </div>
             </div>
-            <div id="text-container">{props.description}</div>
+            <div id="text-container">{this.state.product.description}</div>
             <div id="action-row">
               <div id="action-col1">
                 <FormControl>
-                  <Select>
-                    <MenuItem value="quantity" disabled></MenuItem>
-                    <MenuItem value={1}>1</MenuItem>
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
-                    <MenuItem value={5}>5</MenuItem>
-                    <MenuItem value={6}>6</MenuItem>
-                    <MenuItem value={7}>7</MenuItem>
-                    <MenuItem value={8}>8</MenuItem>
-                    <MenuItem value={9}>9</MenuItem>
-                    <MenuItem value={10}>10</MenuItem>
-                    <MenuItem value={11}>11</MenuItem>
-                    <MenuItem value={12}>12</MenuItem>
-                  </Select>
+                  <Input
+                    type="number"
+                    value={this.state.quantity}
+                    onChange={(event) =>
+                      this.setState({ quantity: event.target.value })
+                    }
+                  />
                   <FormHelperText>Quantity</FormHelperText>
                 </FormControl>
               </div>
               <div id="action-col2">
-                <Button variant="contained" size="small" color="primary">
-                  add to cart
-                </Button>
+                <OrderConsumer>
+                  {(order) => (
+                    <Button
+                      variant="contained"
+                      size="small"
+                      color="primary"
+                      onClick={() =>
+                        order.addToCart({
+                          product: this.state.product,
+                          quantity: parseInt(this.state.quantity),
+                        })
+                      }
+                    >
+                      add to cart
+                    </Button>
+                  )}
+                </OrderConsumer>
               </div>
             </div>
           </div>

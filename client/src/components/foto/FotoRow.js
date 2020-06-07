@@ -14,13 +14,10 @@ class FotoRow extends React.Component {
             <div id="latests-container">
               <div id="grid-latests">
                 {product.state.allProducts.map((item) => {
-                  console.log(item.category.includes("photo"));
-
                   if (item.category.includes("photo")) {
                     return (
-                      <Link to={`${item._id}`}>
+                      <Link key={item._id} to={`${item._id}`}>
                         <ProductCard
-                          key={item._id}
                           img={item.url}
                           brand={item.brand}
                           dimensions={item.dimensions}

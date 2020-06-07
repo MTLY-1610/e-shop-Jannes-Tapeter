@@ -11,6 +11,7 @@ import Test from "./components/test";
 
 import PaymentInfo from "./components/paymentinfo/paymentInfo";
 import CustomerProvider from "../src/context/customerContext";
+import OrderProvider from "../src/context/orderContext";
 import ProductProvider from "../src/context/productContext";
 import AdminRequest from "./components/admindashboard/adminRequest/adminRequest";
 import OrderExport from "./components/admindashboard/orderExport/orderExport";
@@ -28,37 +29,45 @@ import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin"
 
 function App() {
   return (
-    <CustomerProvider>
-      <ProductProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/register" component={RegisterLogin} />
+    <OrderProvider>
+      <CustomerProvider>
+        <ProductProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route path="/register" component={RegisterLogin} />
 
-            <Route path="/mönster" component={Mönster} />
-            <Route path="/foto" component={Foto} />
-            <Route path="/barnrum" component={Barnrum} />
+              <Route path="/mönster" component={Mönster} />
+              <Route path="/foto" component={Foto} />
+              <Route path="/barnrum" component={Barnrum} />
 
-            <Route path="/ref" component={ProductPage} />
-            <Route path="/payment" component={PaymentInfo} />
-            <Route path="/cart" component={ShoppingCart} />
-            <Route path="/admin/welcome" component={WelcomeAdmin} />
-            <Route
-              path="/admin/productStockbalance"
-              component={ProductStockBalance}
-            />
-            <Route path="/admin/productCategory" component={ProductCategory} />
-            <Route path="/admin/productEdit" component={ProductAddAndDelete} />
-            <Route path="/admin/orderExport" component={OrderExport} />
-            <Route path="/admin/adminRequest" component={AdminRequest} />
-            <Route path="/test" component={Test} />
-            <Route path="/:ref" component={ProductPage} />
+              <Route path="/ref" component={ProductPage} />
+              <Route path="/payment" component={PaymentInfo} />
+              <Route path="/cart" component={ShoppingCart} />
+              <Route path="/admin/welcome" component={WelcomeAdmin} />
+              <Route
+                path="/admin/productStockbalance"
+                component={ProductStockBalance}
+              />
+              <Route
+                path="/admin/productCategory"
+                component={ProductCategory}
+              />
+              <Route
+                path="/admin/productEdit"
+                component={ProductAddAndDelete}
+              />
+              <Route path="/admin/orderExport" component={OrderExport} />
+              <Route path="/admin/adminRequest" component={AdminRequest} />
+              <Route path="/test" component={Test} />
+              <Route path="/:ref" component={ProductPage} />
 
-            {/* <Route path="/forchildren"  component={ChildrenProducts} /> */}
-          </Switch>
-        </Router>
-      </ProductProvider>
-    </CustomerProvider>
+              {/* <Route path="/forchildren"  component={ChildrenProducts} /> */}
+            </Switch>
+          </Router>
+        </ProductProvider>
+      </CustomerProvider>
+    </OrderProvider>
   );
 }
 

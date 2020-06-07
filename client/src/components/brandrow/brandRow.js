@@ -1,10 +1,10 @@
 import React from "react";
 import "./brandRow.css";
-import brand1 from "./Brand-sample.png"
-import brand2 from "./Brand2-sample.png"
-import brand3 from "./Brand3-sample.png"
-import brand4 from "./Brand4-sample.png"
-import brand5 from "./Brand5-sample.png"
+import brand1 from "./Brand-sample.png";
+import brand2 from "./Brand2-sample.png";
+import brand3 from "./Brand3-sample.png";
+import brand4 from "./Brand4-sample.png";
+import brand5 from "./Brand5-sample.png";
 
 class BrandRow extends React.Component {
   render() {
