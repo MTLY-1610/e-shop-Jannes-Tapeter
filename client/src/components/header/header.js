@@ -29,13 +29,6 @@ class Header extends React.Component {
                         <Link to="/register">
                           <span>Logga in</span>
                         </Link>
-                         {/* Detta ska tas bort senare -start */}
-                        <span id="myAccountIcon">
-                          <Link to="/myaccount">
-                          <AccountCircleOutlinedIcon />
-                          </Link>
-                        </span>
-                        {/* slut */}
                         <span id="">
                           <Link to="/cart">
                           <ShoppingBasketOutlinedIcon />
