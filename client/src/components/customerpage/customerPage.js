@@ -29,7 +29,7 @@ class CustomerPage extends React.Component {
               <div className="customerPage-main">
               
               <h2>Hej {customer.state.loggedInCustomer}!</h2>
-              <h5>Här kan du se en order information på dina ordrar som du har beställt hos oss på Jannes Tapeter. </h5>
+              <h5>Här kan du se order information på alla dina produkter som du har beställt hos oss på Jannes Tapeter. </h5>
               <h3>Min orderhistorik</h3>
 
             <div>
