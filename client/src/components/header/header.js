@@ -1,10 +1,10 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
-import icon from "./shopping-basket-light.png";
 import { CustomerConsumer } from "../../context/customerContext";
 import { OrderConsumer } from "../../context/orderContext";
-
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
 class Header extends React.Component {
   state = {};
   render() {
@@ -31,7 +31,7 @@ class Header extends React.Component {
                         </Link>
                         <span id="">
                           <Link to="/cart">
-                            <img className="basket" src={icon} alt="product" />
+                          <ShoppingBasketOutlinedIcon />
                             {order.state.cart.length > 0 && (
                               <span
                                 style={{
@@ -49,6 +49,11 @@ class Header extends React.Component {
                       </div>
                     ) : (
                       <div id="loggin">
+                        <span id="myAccountIcon">
+                          <Link to="/myaccount">
+                          <AccountCircleOutlinedIcon />
+                          </Link>
+                        </span>
                         <p>{customer.state.loggedInCustomer}</p>
                         <p
                           onClick={() => (
@@ -57,9 +62,10 @@ class Header extends React.Component {
                         >
                           Logga ut
                         </p>
+                        
                         <span id="">
                           <Link to="/cart">
-                            <img className="basket" src={icon} alt="product" />
+                          <ShoppingBasketOutlinedIcon />
                             {order.state.cart.length > 0 && (
                               <span
                                 style={{
