@@ -34,8 +34,8 @@ class Header extends React.Component {
                           <Link to="/myaccount">
                           <AccountCircleOutlinedIcon />
                           </Link>
-                          {/* slut */}
                         </span>
+                        {/* slut */}
                         <span id="">
                           <Link to="/cart">
                           <ShoppingBasketOutlinedIcon />
@@ -56,6 +56,11 @@ class Header extends React.Component {
                       </div>
                     ) : (
                       <div id="loggin">
+                        <span id="myAccountIcon">
+                          <Link to="/myaccount">
+                          <AccountCircleOutlinedIcon />
+                          </Link>
+                        </span>
                         <p>{customer.state.loggedInCustomer}</p>
                         <p
                           onClick={() => (
@@ -64,11 +69,7 @@ class Header extends React.Component {
                         >
                           Logga ut
                         </p>
-                        <span id="myAccountIcon">
-                          <Link to="/myaccount">
-                          <AccountCircleOutlinedIcon />
-                          </Link>
-                        </span>
+                        
                         <span id="">
                           <Link to="/cart">
                           <ShoppingBasketOutlinedIcon />
