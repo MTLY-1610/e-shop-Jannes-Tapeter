@@ -6,6 +6,7 @@ import { StylesProvider } from "@material-ui/styles";
 import ChangeAdressFormular from "./changeAdress";
 import CardDetails from "./cartDetails";
 import CustomerInfo from "./customerInformation";
+import { CustomerConsumer } from "../../context/customerContext";
 
 class PaymentInfo extends React.Component {
   state = {
@@ -13,22 +14,26 @@ class PaymentInfo extends React.Component {
   };
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <StylesProvider injectFirst>
-          <div className="registerLogin-main">
-            <div className="register-wrapper">
-              <CustomerInfo />
-              <CardDetails />
-            </div>
+      <CustomerConsumer>
+        {(customer) => (
+          <React.Fragment>
+            <Header />
+            <StylesProvider injectFirst>
+              <div className="registerLogin-main">
+                <div className="register-wrapper">
+                  <CustomerInfo customer={customer.state.customer} />
+                  <CardDetails />
+                </div>
 
-            <div className="change-adress-wrapper">
-              <ChangeAdressFormular />
-            </div>
-          </div>
-        </StylesProvider>
-        <Footer />
-      </React.Fragment>
+                <div className="change-adress-wrapper">
+                  <ChangeAdressFormular />
+                </div>
+              </div>
+            </StylesProvider>
+            <Footer />
+          </React.Fragment>
+        )}
+      </CustomerConsumer>
     );
   }
 }
