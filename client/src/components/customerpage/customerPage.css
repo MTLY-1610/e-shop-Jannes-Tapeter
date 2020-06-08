@@ -1,5 +1,6 @@
 
   .customerPage-main {
+      /* ska ta bort border senare */
       border: .1rem solid lightpink;
     display: flex;
     width: 100%;
