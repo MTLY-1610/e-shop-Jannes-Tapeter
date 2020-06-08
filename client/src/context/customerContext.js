@@ -15,6 +15,7 @@ export default class CustomerProvider extends React.Component {
       customerRole: "",
       allCustomers: [],
       wantsToBeAdmin: 0,
+      customer: {},
     };
     this.registerCustomer = this.registerCustomer.bind(this);
     this.loginCustomer = this.loginCustomer.bind(this);
@@ -26,6 +27,7 @@ export default class CustomerProvider extends React.Component {
   componentDidMount() {
     this.getLoggedInUser();
     this.getAllCustomers();
+    this.getCustomerData();
   }
 
   getAdminRequests() {
@@ -106,6 +108,7 @@ export default class CustomerProvider extends React.Component {
           successfulLogin: true,
           customerRole: responseData.role,
         });
+        this.getCustomerData();
       } else if (response.status === 401) {
         this.setState({ successfulLogin: false });
       }
@@ -161,6 +164,21 @@ export default class CustomerProvider extends React.Component {
       });
 
       this.getAllCustomers();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getCustomerData() {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/customer/${this.state.loggedInCustomerId}`
+      );
+      if (response.status === 200) {
+        const responseData = await response.json();
+
+        this.setState({ customer: responseData });
+      }
     } catch (error) {
       console.log(error);
     }

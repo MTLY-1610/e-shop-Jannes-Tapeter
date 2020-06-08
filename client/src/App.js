@@ -19,6 +19,8 @@ import ProductAddAndDelete from "./components/admindashboard/productAddAndDelete
 import ProductCategory from "./components/admindashboard/productCategory/productCategory";
 import ProductStockBalance from "./components/admindashboard/productStockBalance/productStockBalance";
 import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin";
+import CustomerPage from "./components/customerpage/customerPage"
+
 // import ChildrenProducts from "./components/productpage/regularProducts";
 // import AdminRequest from './components/admindashboard/adminRequest/adminRequest'
 // import OrderExport from './components/admindashboard/orderExport/orderExport'
@@ -36,6 +38,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route path="/register" component={RegisterLogin} />
+              <Route path="/myaccount" component={CustomerPage} />
 
               <Route path="/mönster" component={Mönster} />
               <Route path="/foto" component={Foto} />

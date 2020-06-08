@@ -11,6 +11,19 @@ import { OrderConsumer } from "../../context/orderContext";
 import "./shoppingCart.css";
 
 class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: "",
+    };
+  }
+  componentDidMount() {
+    if (localStorage.getItem("customerId")) {
+      let userId = JSON.parse(localStorage.getItem("customerId"));
+      this.setState({ userId: userId });
+    }
+  }
+
   render() {
     return (
       <OrderConsumer>
@@ -23,6 +36,10 @@ class ShoppingCart extends React.Component {
                 {order.state.cart.map((product) => (
                   <ProductInCart
                     key={product.product._id}
+                    id={product.product._id}
+                    add={order.increaseQuantityInCart}
+                    remove={order.decreaseQuantityInCart}
+                    delete={order.removeProductFromCart}
                     url={product.product.url}
                     brand={product.product.brand}
                     dimensions={product.product.dimensions}
@@ -49,8 +66,16 @@ class ShoppingCart extends React.Component {
                     <PaymentMethods />
                   </div>
                 </div>
-                <button id="paymentBtn" variant="contained">
-                  <Link to="/payment">Till betalning</Link>
+                <button
+                  id="paymentBtn"
+                  variant="contained"
+                  onClick={() => order.connectCartToOrder()}
+                >
+                  {this.state.userId ? (
+                    <Link to="/payment">Till betalning</Link>
+                  ) : (
+                    <Link to="/register">Registrera / Logga in</Link>
+                  )}
                 </button>
               </section>
             </div>
