@@ -16,10 +16,9 @@ class MönsterRow extends React.Component {
                 {product.state.allProducts.map((item) => {
                   if (item.category.includes("pattern")) {
                     return (
-                      <Link to={`${item._id}`}>
+                      <Link key={item._id} to={`${item._id}`}>
                         <ProductCard
                           onClick={() => console.log("hej")}
-                          key={item._id}
                           img={item.url}
                           brand={item.brand}
                           dimensions={item.dimensions}
