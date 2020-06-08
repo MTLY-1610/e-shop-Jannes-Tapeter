@@ -65,7 +65,9 @@ const getAllCustomers = async (req, res) => {
 //TODO -error for 500(ids length is not correct)
 //Get one customer
 const getCustomer = async (req, res) => {
-  const customer = await Customer.findOne({ _id: req.params.id });
+  const customer = await await Customer.findOne({
+    _id: req.params.id,
+  }).populate("adress");
   if (!customer) {
     throw new ServerError("User does not exist", 400);
   }

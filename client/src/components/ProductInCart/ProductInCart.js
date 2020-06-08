@@ -27,9 +27,15 @@ class ProductInCart extends React.Component {
         </div>
         <div>
           <div>
-            <RemoveIcon id="remove" />
-            <AddIcon id="add" />
-            <ClearIcon id="clear" />
+            <RemoveIcon
+              id="remove"
+              onClick={() => this.props.remove(this.props.id)}
+            />
+            <AddIcon id="add" onClick={() => this.props.add(this.props.id)} />
+            <ClearIcon
+              id="clear"
+              onClick={() => this.props.delete(this.props.id)}
+            />
           </div>
           <p className="productprice">
             {this.props.price * this.props.quantity}
