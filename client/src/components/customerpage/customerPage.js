@@ -3,12 +3,9 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import "./customerPage.css";
 import { ExpansionPanel, ExpansionPanelSummary, Typography, ExpansionPanelDetails } from "@material-ui/core";
-import { StylesProvider } from "@material-ui/styles";
-import Button from "@material-ui/core/Button";
-import { CustomerConsumer } from "../../context/customerContext";
 import { Redirect } from "react-router-dom";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import { CustomerConsumer } from "../../context/customerContext";
 class CustomerPage extends React.Component {
     constructor(props){
         super(props)
@@ -25,10 +22,16 @@ class CustomerPage extends React.Component {
     render() {
         
     return (
+        <CustomerConsumer>
+        {(customer) => (
       <React.Fragment>
         <Header />
               <div className="customerPage-main">
+              
+              <h2>Hej user.firstName!</h2>
+              <h5>Här kan du se en order information på dina ordrar som du har beställt hos oss på Jannes Tapeter. </h5>
               <h3>Min orderhistorik</h3>
+
             <div>
 
   <ExpansionPanel expanded={this.state.expanded === 'panel1'} onChange={this.handleChange('panel1')}>
@@ -55,6 +58,8 @@ class CustomerPage extends React.Component {
                 </div>
         <Footer />
       </React.Fragment>
+       )}
+       </CustomerConsumer>
     );
   }
 }

@@ -9,8 +9,9 @@
       flex-direction: column;
   }
   
-  .customerPage-main > h3 {
+  .customerPage-main > h5, h3, h2 {
     padding-bottom: 3rem;
+    text-align: center;
 }
   
   .ExpansionPanelDetails-wrapper {

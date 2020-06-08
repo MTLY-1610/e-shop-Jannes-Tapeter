@@ -29,10 +29,12 @@ class Header extends React.Component {
                         <Link to="/register">
                           <span>Logga in</span>
                         </Link>
+                         {/* Detta ska tas bort senare -start */}
                         <span id="myAccountIcon">
                           <Link to="/myaccount">
                           <AccountCircleOutlinedIcon />
                           </Link>
+                          {/* slut */}
                         </span>
                         <span id="">
                           <Link to="/cart">
@@ -62,6 +64,11 @@ class Header extends React.Component {
                         >
                           Logga ut
                         </p>
+                        <span id="myAccountIcon">
+                          <Link to="/myaccount">
+                          <AccountCircleOutlinedIcon />
+                          </Link>
+                        </span>
                         <span id="">
                           <Link to="/cart">
                           <ShoppingBasketOutlinedIcon />
