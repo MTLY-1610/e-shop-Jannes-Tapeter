@@ -3,9 +3,17 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { CustomerConsumer } from "../../context/customerContext";
 import { OrderConsumer } from "../../context/orderContext";
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import ShoppingBasketOutlinedIcon from '@material-ui/icons/ShoppingBasketOutlined';
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 class Header extends React.Component {
+  hamburgermenu = () => {
+    const menu = document.getElementById("container-right");
+    menu.classList.toggle("open");
+    if (menu.classList.open) {
+      document.getElementById("header-logo").style.display = "none";
+      console.log("hej");
+    }
+  };
   state = {};
   render() {
     return (
@@ -15,85 +23,85 @@ class Header extends React.Component {
             {(order) => (
               <header>
                 <div id="container-header">
-                  <Link to="/">
-                    <div id="logo">
+                  <div id="header-logo">
+                    <Link to="/">
                       Jannes <br /> Tapeter
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
+                  <div onClick={this.hamburgermenu} className="hamburger">
+                    <div className="burger-line"></div>
+                    <div className="burger-line"></div>
+                    <div className="burger-line"></div>
+                  </div>
                   <div id="container-right">
                     {!customer.state.loggedInCustomer ? (
-                      <div id="loggin">
-                        <Link to="/register">
-                          <span>Registrera</span>
-                        </Link>
-                        <Link to="/register">
-                          <span>Logga in</span>
-                        </Link>
-                        <span id="">
-                          <Link to="/cart">
-                          <ShoppingBasketOutlinedIcon />
-                            {order.state.cart.length > 0 && (
-                              <span
-                                style={{
-                                  marginLeft: "0.5rem",
-                                  padding: "0.2rem",
-                                  backgroundColor: "#3F51B5",
-                                  color: "white",
-                                }}
-                              >
-                                {order.state.cart.length}
-                              </span>
-                            )}
-                          </Link>
-                        </span>
-                      </div>
+                      <ul id="loggin">
+                        <li>
+                          <Link to="/register">Registrera</Link>
+                        </li>
+                        <li>
+                          <Link to="/register">Logga in </Link>
+                        </li>
+
+                        <ShoppingBasketOutlinedIcon />
+                        {order.state.cart.length > 0 && (
+                          <span
+                            style={{
+                              marginLeft: "0.5rem",
+                              padding: "0.2rem",
+                              backgroundColor: "#3F51B5",
+                              color: "white",
+                            }}
+                          >
+                            <Link to="/cart">{order.state.cart.length}</Link>
+                          </span>
+                        )}
+                      </ul>
                     ) : (
-                      <div id="loggin">
-                        <span id="myAccountIcon">
+                      <ul id="loggin">
+                        <li id="myAccountIcon">
                           <Link to="/myaccount">
-                          <AccountCircleOutlinedIcon />
+                            <AccountCircleOutlinedIcon />
                           </Link>
-                        </span>
-                        <p>{customer.state.loggedInCustomer}</p>
-                        <p
+                        </li>
+                        <li>{customer.state.loggedInCustomer}</li>
+                        <li
                           onClick={() => (
                             customer.logoutCustomer(), order.clearCart()
                           )}
                         >
                           Logga ut
-                        </p>
-                        
-                        <span id="">
-                          <Link to="/cart">
-                          <ShoppingBasketOutlinedIcon />
-                            {order.state.cart.length > 0 && (
-                              <span
-                                style={{
-                                  marginLeft: "0.5rem",
-                                  padding: "0.2rem",
-                                  backgroundColor: "#3F51B5",
-                                  color: "white",
-                                }}
-                              >
-                                {order.state.cart.length}
-                              </span>
-                            )}
-                          </Link>
-                        </span>
-                      </div>
+                        </li>
+
+                        <ShoppingBasketOutlinedIcon />
+                        {order.state.cart.length > 0 && (
+                          <span
+                            style={{
+                              marginLeft: "0.5rem",
+                              padding: "0.2rem",
+                              backgroundColor: "#3F51B5",
+                              color: "white",
+                            }}
+                          >
+                            <Link to="/cart">{order.state.cart.length}</Link>
+                          </span>
+                        )}
+                      </ul>
                     )}
 
-                    <div id="menu">
-                      <Link to="/mönster">
-                        <span>Mönster</span>
-                      </Link>
-                      <Link to="/foto">
-                        <span>Foto</span>
-                      </Link>
-                      <Link to="/barnrum">
-                        <span>Barnrum</span>
-                      </Link>
-                    </div>
+                    <div className="line"></div>
+
+                    <ul id="menu">
+                      <li>
+                        <Link to="/mönster">Mönster</Link>
+                      </li>
+                      <li>
+                        <Link to="/foto">Foto</Link>
+                      </li>
+                      <li>
+                        <Link to="/barnrum">Barnrum</Link>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </header>
