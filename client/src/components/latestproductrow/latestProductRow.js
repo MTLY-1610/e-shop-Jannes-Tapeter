@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "../product card/productCard";
 import "./latestProductRow.css";
 import { ProductConsumer } from "../../context/productContext";
-
+import { Link } from "react-router-dom";
 class LatestProducts extends React.Component {
   render() {
     return (
@@ -13,14 +13,16 @@ class LatestProducts extends React.Component {
             <div id="latests-container">
               <div id="grid-latests">
                 {product.state.latestProducts.map((item) => (
-                  <ProductCard
-                    key={item._id}
-                    img={item.url}
-                    brand={item.brand}
-                    dimensions={item.dimensions}
-                    designer={item.designer}
-                    price={item.price}
-                  />
+                  <Link key={item._id} to={`${item._id}`}>
+                    <ProductCard
+                      key={item._id}
+                      img={item.url}
+                      brand={item.brand}
+                      dimensions={item.dimensions}
+                      designer={item.designer}
+                      price={item.price}
+                    />
+                  </Link>
                 ))}
               </div>
             </div>
