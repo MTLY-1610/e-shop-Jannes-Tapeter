@@ -12,7 +12,7 @@ class MönsterRow extends React.Component {
           <div id="component-container">
             <h1>Mönster</h1>
             <div id="latest-container">
-              <div id="grid-latest">
+              <div id="grid-latests">
                 {product.state.allProducts.map((item) => {
                   if (item.category.includes("pattern")) {
                     return (
