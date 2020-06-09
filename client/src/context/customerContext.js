@@ -22,6 +22,7 @@ export default class CustomerProvider extends React.Component {
     this.logoutCustomer = this.logoutCustomer.bind(this);
     this.logoutCustomer = this.logoutCustomer.bind(this);
     this.editCustomer = this.editCustomer.bind(this);
+    this.getCustomerData = this.getCustomerData.bind(this);
   }
 
   componentDidMount() {
@@ -170,9 +171,10 @@ export default class CustomerProvider extends React.Component {
   }
 
   async getCustomerData() {
+    let customerId = JSON.parse(localStorage.getItem("customerId"));
     try {
       const response = await fetch(
-        `http://localhost:5000/customer/${this.state.loggedInCustomerId}`
+        `http://localhost:5000/customer/${customerId}`
       );
       if (response.status === 200) {
         const responseData = await response.json();
@@ -193,6 +195,7 @@ export default class CustomerProvider extends React.Component {
           loginCustomer: this.loginCustomer,
           logoutCustomer: this.logoutCustomer,
           editCustomer: this.editCustomer,
+          getCustomerData: this.getCustomerData,
         }}
       >
         {this.props.children}

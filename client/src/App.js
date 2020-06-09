@@ -6,6 +6,7 @@ import Mönster from "./components/mönster/mönster";
 import Foto from "./components/foto/foto";
 import Barnrum from "./components/barnrum/barnrum";
 import ProductPage from "./components/productpage/productpage";
+import ConfirmOrder from "./components/confirmOrder/confirmOrder";
 import ShoppingCart from "./components/shoppingcart/shoppingCart";
 import Test from "./components/test";
 
@@ -44,6 +45,7 @@ function App() {
               <Route path="/ref" component={ProductPage} />
               <Route path="/payment" component={PaymentInfo} />
               <Route path="/cart" component={ShoppingCart} />
+              <Route path="/confirmOrder" component={ConfirmOrder} />
               <Route path="/admin/welcome" component={WelcomeAdmin} />
               <Route
                 path="/admin/productStockbalance"

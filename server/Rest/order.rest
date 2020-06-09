@@ -23,10 +23,7 @@ Content-Type: application/json
         "dimensions": "60cm x 270cm"
 }],
     "shippingMethod": "5ecd07aad83c36113c1754b0",
-    "paymentMethod": {
-        "type": "Swish",
-        "phoneNumber": "0734340604"
-    },
+    "paymentMethod": "Swish",
     "adress": "5ecb8fce1c32ce0e54ad187b",
     "totalPrice": 500
 }
