@@ -1,8 +1,18 @@
 import React from "react";
+import "./productpage.css";
+import Header from "../header/header";
+import Footer from "../footer/footer";
+import SpecifikProduct from "./specifikProduct";
 
 class ProductPage extends React.Component {
   render() {
-    return <h3>PRODUKT</h3>;
+    return (
+      <React.Fragment>
+        <Header />
+        <SpecifikProduct productId={this.props.match.params.ref} />
+        <Footer />
+      </React.Fragment>
+    );
   }
 }
 

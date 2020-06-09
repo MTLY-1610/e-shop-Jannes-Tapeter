@@ -2,6 +2,8 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/styles";
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class CardDetails extends React.Component {
   state = {
@@ -15,6 +17,7 @@ class CardDetails extends React.Component {
     cardnumberError: "",
     yyError: "",
     ccvError: "",
+    redirect: null,
   };
 
   inputChange = (event) => {
@@ -64,10 +67,14 @@ class CardDetails extends React.Component {
 
     if (!errors) {
       console.log("Validation of payment approved");
+      this.setState({ redirect: "/confirmOrder" });
     }
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
     return (
       <React.Fragment>
         <h4 id="paymentheader">Kort detaljer</h4>
@@ -140,13 +147,14 @@ class CardDetails extends React.Component {
               />
             </div>
           </div>
+
           <Button
             onClick={this.goToPayment}
             id="formularButton"
             size="small"
             variant="contained"
           >
-            BETALA
+            FORTSÄTT
           </Button>
         </div>
       </React.Fragment>

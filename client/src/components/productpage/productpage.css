@@ -1,0 +1,176 @@
+#pp-container{
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 85vw;
+  margin-bottom: 5rem;
+
+}
+#img-container > img{
+    display: flex;
+    width: 50vw;
+    height: 40vw;
+
+}
+#desc-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height:auto ;
+    width: 28vw;
+
+}
+#brand-row{
+    display: flex;
+    flex-direction: row;
+    height:4rem ;
+    width: 100%;
+    justify-content:flex-end;
+    
+}
+#brand-container {
+    display: flex;
+   height: 5rem;
+   width: auto;
+
+}
+img{
+    width: 4rem;
+    height:2.5rem;
+}
+#descr-row{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: 4rem ;
+
+}
+#specs-col1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+
+}
+#specs-col2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+    height:100%;
+
+}
+
+#model{
+    display: flex;
+
+}
+#ref{
+    display: flex;
+    color: grey;
+    font-size: smaller;
+
+}
+#price{
+    display: flex;
+    color:gray;
+
+}
+#origin-row{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: 4rem ;
+    color: grey;
+
+}
+#origin-col1 {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  
+}
+#origin-col2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+
+    
+}
+
+#dim{
+    display: flex;
+    font-size: smaller;
+
+}
+#designer{
+    display: flex;
+    font-size: smaller;
+    
+
+}
+#designer-name{
+    display: flex;
+    font-size: smaller;
+
+}
+#text-container{
+    display: flex;
+    font-size: smaller;
+    text-align: justify;
+
+}
+#action-row{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: smaller;
+    height: 10rem;
+
+}
+#action-col1 {
+    display: flex;
+  
+   
+    
+}
+#action-col2 {
+    display: flex;
+    
+    
+}
+@media only screen and (max-width: 829px) {
+    #pp-container{
+        display: flex;
+        margin-top: 3rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 85vw;
+        margin-bottom: 5rem;
+      
+      }
+      #img-container > img{
+        display: flex;
+        width: 75vw;
+        height: auto;
+        margin-bottom: 3rem;
+    
+    }
+    #desc-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height:auto ;
+        width: 75vw;
+    
+    }
+
+    }

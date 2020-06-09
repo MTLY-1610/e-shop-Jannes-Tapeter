@@ -10,11 +10,24 @@ export default class ProductProvider extends React.Component {
       allProducts: [],
       latestProducts: [],
       childrenProducts: [],
+      updateQuantity: { success: false, id: "" },
+      lowQuantityProducts: 0,
     };
+    this.editProduct = this.editProduct.bind(this);
   }
 
   componentDidMount() {
     this.getAllProducts();
+  }
+
+  getQuantityUnder10() {
+    let nr = 0;
+    for (const product of this.state.allProducts) {
+      if (product.quantity <= 10) {
+        nr++;
+      }
+    }
+    this.setState({ lowQuantityProducts: nr });
   }
 
   async getAllProducts() {
@@ -25,6 +38,7 @@ export default class ProductProvider extends React.Component {
         this.setState({ allProducts: responseData });
         this.getLatestProducts();
         this.getChildrenProducts();
+        this.getQuantityUnder10();
       }
     } catch (error) {
       console.log(error);
@@ -53,11 +67,48 @@ export default class ProductProvider extends React.Component {
     });
   }
 
+  async editProduct(id, data) {
+    try {
+      const response = await fetch(`http://localhost:5000/product/${id}`, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const responseData = await response.json();
+      this.getAllProducts();
+      this.setState({
+        updateQuantity: { success: true, id: responseData._id },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async deleteProduct(id) {
+    try {
+      await fetch(`http://localhost:5000/product/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      this.getAllProducts();
+    } catch {
+      console.log("Error");
+    }
+  }
+
   render() {
     return (
       <ProductContext.Provider
         value={{
           state: this.state,
+          deleteProduct: this.deleteProduct,
+          editProduct: this.editProduct,
         }}
       >
         {this.props.children}

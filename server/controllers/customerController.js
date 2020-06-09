@@ -65,7 +65,9 @@ const getAllCustomers = async (req, res) => {
 //TODO -error for 500(ids length is not correct)
 //Get one customer
 const getCustomer = async (req, res) => {
-  const customer = await Customer.findOne({ _id: req.params.id });
+  const customer = await await Customer.findOne({
+    _id: req.params.id,
+  }).populate("adress");
   if (!customer) {
     throw new ServerError("User does not exist", 400);
   }
@@ -92,7 +94,6 @@ const loginCustomer = async (req, res) => {
   res.status(200).json(customer);
 };
 
-//TODO change errorhandling?
 //Logout customer
 const logoutCustomer = async (req, res) => {
   try {
@@ -103,10 +104,28 @@ const logoutCustomer = async (req, res) => {
   }
 };
 
+//Edit customer role
+const editCustomer = async (req, res) => {
+  try {
+    const customer = await Customer.findOne({ _id: req.params.id });
+
+    if (req.body.role) {
+      customer.role = req.body.role;
+    }
+
+    await customer.save();
+
+    res.status(200).json(customer);
+  } catch (err) {
+    throw new ServerError("Could not update customer", 400);
+  }
+};
+
 module.exports = {
   getCustomer,
   registerCustomer,
   getAllCustomers,
   loginCustomer,
   logoutCustomer,
+  editCustomer,
 };

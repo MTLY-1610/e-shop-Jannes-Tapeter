@@ -1,7 +1,7 @@
 GET http://localhost:5000/customer
 
 ###
-GET http://localhost:5000/customer/5ecb902504d98c43344111
+GET http://localhost:5000/customer/5ed62796602ca6254c8aa5df
 
 ###
 
@@ -38,5 +38,15 @@ Content-Type: application/json
 ###
 
 POST http://localhost:5000/customer/logout
+
+###
+
+
+PUT http://localhost:5000/customer/5ed79dd283e7bf4b88c60805
+Content-Type: application/json
+
+{  
+  "role": "admin"
+}
 
 ###

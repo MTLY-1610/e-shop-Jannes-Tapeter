@@ -1,20 +1,32 @@
-#component-container {
+#components-container {
   display: flex;
   flex-direction: column;
+
 }
-#latest-container {
+#latests-container {
   display: flex;
   justify-content: center;
   width: 85vw;
   margin-bottom: 2.5rem;
 }
-#grid-latest {
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+#grid-latests {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   column-gap: 1.5vw;
   row-gap: 1vw;
 }
-h1 {
-  font-size: 1.2rem;
+@media only screen and (max-width: 829px) {
+  #grid-latests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+  }
+ 
 }
+

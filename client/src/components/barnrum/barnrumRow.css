@@ -1,0 +1,40 @@
+#component-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #latests-container {
+    display: flex;
+    justify-content: center;
+    width: 85vw;
+    margin-bottom: 2.5rem;
+  }
+  #grid-latests {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 1.5vw;
+    row-gap: 1.5vw;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 829px) {
+    #component-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80vw;
+    }
+    #latests-container {
+      display: flex;
+      justify-content: center;
+
+      width: 85vw;
+      margin-bottom: 2.5rem;
+    }
+    #grid-latests {
+      display: flex;
+      flex-direction: column;
+      
+    }
+  }

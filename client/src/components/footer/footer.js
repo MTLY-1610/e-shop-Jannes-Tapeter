@@ -5,11 +5,13 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <h1>
-        Jannes
-        <br />
-        Tapeter
-        </h1>
+        <div id="logo">
+          <h1>
+          Jannes
+          <br />
+          Tapeter
+          </h1>
+        </div>
       </footer>
     );
   }

@@ -9,9 +9,9 @@ class ChildrenProducts extends React.Component {
     return (
       <ProductConsumer>
         {(product) => (
-          <div id="component-container">
+          <div id="child-component-container">
             <h1>Barnrum</h1>
-            <div id="children-container">
+            <div id="childrens-container">
               <div id="grid-children">
                 {product.state.childrenProducts.map((item) => (
                   <ProductCard

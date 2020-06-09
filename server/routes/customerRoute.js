@@ -8,6 +8,7 @@ const {
   registerCustomer,
   loginCustomer,
   logoutCustomer,
+  editCustomer,
 } = require("../controllers/customerController");
 
 router.use(express.json());
@@ -16,7 +17,7 @@ router.use(express.json());
 router.get("/:id", getCustomer);
 
 //Get all customers
-router.get("/", adminCheck, getAllCustomers);
+router.get("/", getAllCustomers);
 
 //Register new customer
 router.post("/register", registerCustomer);
@@ -26,5 +27,8 @@ router.post("/login", loginCustomer);
 
 //Logout customer
 router.post("/logout", logoutCustomer);
+
+//Edit customer role
+router.put("/:id", adminCheck, editCustomer);
 
 module.exports = router;

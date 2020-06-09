@@ -6,9 +6,12 @@ import { TextField, Checkbox } from "@material-ui/core";
 import { StylesProvider } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 import { CustomerConsumer } from "../../context/customerContext";
+import { CustomerContext } from "../../context/customerContext";
 import { Redirect } from "react-router-dom";
 
 class RegisterLogin extends React.Component {
+  static contextType = CustomerContext;
+  ''
   constructor(props) {
     super(props);
     this.state = {
@@ -36,6 +39,8 @@ class RegisterLogin extends React.Component {
       passError: "",
     };
   }
+
+
 
   inputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -124,11 +129,11 @@ class RegisterLogin extends React.Component {
     });
     const checkErrors = this.validation();
 
-    if (!checkErrors) {
-      return true;
-    }
 
-    return false;
+    if (!checkErrors) {
+
+      this.context.registerCustomer(this.getCustomerData())
+    }
   };
 
   getCustomerData = () => {
@@ -361,15 +366,7 @@ class RegisterLogin extends React.Component {
                     {!customer.state.successfulRegister && (
                       <Button
                         onClick={
-                          this.register
-                            ? () => (
-                                customer.registerCustomer(
-                                  this.getCustomerData()
-                                ),
-                                this.clearForm()
-                              )
-                            : null
-                        }
+                          this.register}
                         id="formularButton"
                         size="small"
                         variant="contained"

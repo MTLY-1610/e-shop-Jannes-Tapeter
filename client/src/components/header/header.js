@@ -1,57 +1,112 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
-import icon from "./shopping-basket-light.png";
 import { CustomerConsumer } from "../../context/customerContext";
-
+import { OrderConsumer } from "../../context/orderContext";
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 class Header extends React.Component {
+  hamburgermenu = () => {
+    const menu = document.getElementById("container-right");
+    menu.classList.toggle("open");
+    if (menu.classList.open) {
+      document.getElementById("header-logo").style.display = "none";
+      console.log("hej");
+    }
+  };
   state = {};
   render() {
     return (
       <CustomerConsumer>
         {(customer) => (
-          <header>
-            <div id="container-header">
-              <Link to="/">
-                <div id="logo">
-                  Jannes <br /> Tapeter
-                </div>
-              </Link>
-              <div id="container-right">
-                {!customer.state.loggedInCustomer ? (
-                  <div id="loggin">
-                    <Link to="/register">
-                      <span>Registrera</span>
+          <OrderConsumer>
+            {(order) => (
+              <header>
+                <div id="container-header">
+                  <div id="header-logo">
+                    <Link to="/">
+                      Jannes <br /> Tapeter
                     </Link>
-                    <Link to="/register">
-                      <span>Logga in</span>
-                    </Link>
-                    <span id="">
-                      <Link to="/register">
-                        <img className="basket" src={icon} alt="product" />
-                      </Link>
-                    </span>
                   </div>
-                ) : (
-                  <div id="loggin">
-                    <p>{customer.state.loggedInCustomer}</p>
-                    <p onClick={customer.logoutCustomer}> Logga ut </p>
-                    <span id="">
-                      <Link to="/cart">
-                        <img className="basket" src={icon} alt="product" />
-                      </Link>
-                    </span>
+                  <div onClick={this.hamburgermenu} className="hamburger">
+                    <div className="burger-line"></div>
+                    <div className="burger-line"></div>
+                    <div className="burger-line"></div>
                   </div>
-                )}
+                  <div id="container-right">
+                    {!customer.state.loggedInCustomer ? (
+                      <ul id="loggin">
+                        <li>
+                          <Link to="/register">Registrera</Link>
+                        </li>
+                        <li>
+                          <Link to="/register">Logga in </Link>
+                        </li>
 
-                <div id="menu">
-                  <span>Mönster</span>
-                  <span>Foto</span>
-                  <span>Barnrum</span>
+                        <ShoppingBasketOutlinedIcon />
+                        {order.state.cart.length > 0 && (
+                          <span
+                            style={{
+                              marginLeft: "0.5rem",
+                              padding: "0.2rem",
+                              backgroundColor: "#3F51B5",
+                              color: "white",
+                            }}
+                          >
+                            <Link to="/cart">{order.state.cart.length}</Link>
+                          </span>
+                        )}
+                      </ul>
+                    ) : (
+                      <ul id="loggin">
+                        <li id="myAccountIcon">
+                          <Link to="/myaccount">
+                            <AccountCircleOutlinedIcon />
+                          </Link>
+                        </li>
+                        <li>{customer.state.loggedInCustomer}</li>
+                        <li
+                          onClick={() => (
+                            customer.logoutCustomer(), order.clearCart()
+                          )}
+                        >
+                          Logga ut
+                        </li>
+
+                        <ShoppingBasketOutlinedIcon />
+                        {order.state.cart.length > 0 && (
+                          <span
+                            style={{
+                              marginLeft: "0.5rem",
+                              padding: "0.2rem",
+                              backgroundColor: "#3F51B5",
+                              color: "white",
+                            }}
+                          >
+                            <Link to="/cart">{order.state.cart.length}</Link>
+                          </span>
+                        )}
+                      </ul>
+                    )}
+
+                    <div className="line"></div>
+
+                    <ul id="menu">
+                      <li>
+                        <Link to="/mönster">Mönster</Link>
+                      </li>
+                      <li>
+                        <Link to="/foto">Foto</Link>
+                      </li>
+                      <li>
+                        <Link to="/barnrum">Barnrum</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </header>
+              </header>
+            )}
+          </OrderConsumer>
         )}
       </CustomerConsumer>
     );

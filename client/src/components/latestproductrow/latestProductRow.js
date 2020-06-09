@@ -8,10 +8,10 @@ class LatestProducts extends React.Component {
     return (
       <ProductConsumer>
         {(product) => (
-          <div id="component-container">
+          <div id="components-container">
             <h1>Senaste produkter</h1>
-            <div id="latest-container">
-              <div id="grid-latest">
+            <div id="latests-container">
+              <div id="grid-latests">
                 {product.state.latestProducts.map((item) => (
                   <ProductCard
                     key={item._id}
