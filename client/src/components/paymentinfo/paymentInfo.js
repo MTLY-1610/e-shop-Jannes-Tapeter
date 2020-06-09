@@ -3,37 +3,54 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import "./paymentInfo.css";
 import { StylesProvider } from "@material-ui/styles";
-import ChangeAdressFormular from "./changeAdress";
 import CardDetails from "./cartDetails";
+import InvoiceDetails from "./invoice";
+import SwishDetails from "./swishDetails";
 import CustomerInfo from "./customerInformation";
-import { CustomerConsumer } from "../../context/customerContext";
+import { OrderConsumer } from "../../context/orderContext";
 
 class PaymentInfo extends React.Component {
-  state = {
-    changeAdress: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      changeAdress: false,
+      showPayment: false,
+    };
+    this.setShowPayment = this.setShowPayment.bind(this);
+  }
+
+  setShowPayment() {
+    this.setState({ showPayment: true });
+  }
+
   render() {
     return (
-      <CustomerConsumer>
-        {(customer) => (
+      <OrderConsumer>
+        {(order) => (
           <React.Fragment>
             <Header />
             <StylesProvider injectFirst>
               <div className="registerLogin-main">
                 <div className="register-wrapper">
-                  <CustomerInfo customer={customer.state.customer} />
-                  <CardDetails />
-                </div>
-
-                <div className="change-adress-wrapper">
-                  <ChangeAdressFormular />
+                  {order.state.order.customer && (
+                    <CustomerInfo
+                      customer={order.state.order.customer}
+                      showPayment={this.setShowPayment}
+                    />
+                  )}
+                  {order.state.order.paymentMethod === "card" &&
+                    this.state.showPayment && <CardDetails />}
+                  {order.state.order.paymentMethod === "swish" &&
+                    this.state.showPayment && <SwishDetails />}
+                  {order.state.order.paymentMethod === "klarna" &&
+                    this.state.showPayment && <InvoiceDetails />}
                 </div>
               </div>
             </StylesProvider>
             <Footer />
           </React.Fragment>
         )}
-      </CustomerConsumer>
+      </OrderConsumer>
     );
   }
 }

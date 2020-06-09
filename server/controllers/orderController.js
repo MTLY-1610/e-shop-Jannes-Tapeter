@@ -1,16 +1,17 @@
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
+const Adress = require("../models/adressModel");
 const ServerError = require("../serverError");
 
 //Get all Orders
 const getAllOrders = async (req, res) => {
-    const orders = await Order.find()
-      .populate("customer")
-      .populate("shippingMethod")
-      .populate("adress");
-    
+  const orders = await Order.find()
+    .populate("customer")
+    .populate("shippingMethod")
+    .populate("adress");
+
   if (orders.length === 0) {
-    throw new ServerError('No orders found', 400)
+    throw new ServerError("No orders found", 400);
   }
   res.status(200).json(orders);
 };
@@ -24,6 +25,34 @@ const getOrder = async (req, res) => {
     res.status(200).json(order);
   } catch (err) {
     throw new ServerError("Could not find order", 400);
+  }
+};
+
+//Get one Adress
+// const getAdress = async (req, res) => {
+//   try {
+//     const adress = await Adress.findOne({
+//       _id: req.params.id,
+//     });
+//     res.status(200).json(adress);
+//   } catch (err) {
+//     throw new ServerError("Could not find adress", 400);
+//   }
+// };
+
+//Add Adress
+const addAdress = async (req, res) => {
+  try {
+    const adress = new Adress({
+      street: req.body.street,
+      city: req.body.city,
+      zip: req.body.zip,
+      country: req.body.country,
+    });
+    await adress.save();
+    res.status(200).json(adress);
+  } catch (err) {
+    throw new ServerError("Could not save adress", 400);
   }
 };
 
@@ -59,4 +88,4 @@ const placeOrder = async (req, res) => {
   }
 };
 
-module.exports = { getOrder, getAllOrders, placeOrder };
+module.exports = { getOrder, getAllOrders, placeOrder, addAdress };

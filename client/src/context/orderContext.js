@@ -8,10 +8,15 @@ export default class OrderProvider extends React.Component {
     this.state = {
       cart: [],
       deliveryMethods: [],
+      orderPlaced: false,
+      orderNumber: 0,
       order: {
         shippingMethod: "",
         paymentMethod: "",
         products: [],
+        customer: "",
+        adress: "",
+        totalPrice: 0,
       },
     };
     this.addToCart = this.addToCart.bind(this);
@@ -22,12 +27,19 @@ export default class OrderProvider extends React.Component {
     this.addShippingMethodToOrder = this.addShippingMethodToOrder.bind(this);
     this.addPaymentMethodToOrder = this.addPaymentMethodToOrder.bind(this);
     this.connectCartToOrder = this.connectCartToOrder.bind(this);
+    this.connectAdressToOrder = this.connectAdressToOrder.bind(this);
+    this.cartTotalPrice = this.cartTotalPrice.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
     this.getCartItems();
     this.getDeliveryMethods();
     this.connectCartToOrder();
+    setTimeout(() => {
+      this.savePaymentMethod();
+      this.saveShippingMethod();
+    }, 1000);
   }
 
   getCartItems() {
@@ -96,15 +108,36 @@ export default class OrderProvider extends React.Component {
   }
 
   addShippingMethodToOrder(orderData) {
-    this.setState({
-      order: { ...this.state.order, shippingMethod: orderData },
-    });
+    localStorage.setItem("shippingMethod", JSON.stringify(orderData));
+    this.saveShippingMethod();
   }
   addPaymentMethodToOrder(orderData) {
-    this.setState({ order: { ...this.state.order, paymentMethod: orderData } });
+    localStorage.setItem("paymentMethod", JSON.stringify(orderData));
+    this.savePaymentMethod();
+  }
+
+  saveShippingMethod() {
+    const shippingMethod = JSON.parse(localStorage.getItem("shippingMethod"));
+    this.setState({
+      order: { ...this.state.order, shippingMethod: shippingMethod },
+    });
+  }
+
+  savePaymentMethod() {
+    const paymentMethod = JSON.parse(localStorage.getItem("paymentMethod"));
+    this.setState({
+      order: { ...this.state.order, paymentMethod: paymentMethod },
+    });
+  }
+
+  connectAdressToOrder(adressId) {
+    this.setState({
+      order: { ...this.state.order, adress: adressId },
+    });
   }
 
   async connectCartToOrder() {
+    await this.getCartItems();
     let temp = [];
     let productList = [];
 
@@ -126,7 +159,45 @@ export default class OrderProvider extends React.Component {
         console.log(error);
       }
     }
-    this.setState({ order: { ...this.state.order, products: productList } });
+
+    this.setState({
+      order: { ...this.state.order, totalPrice: this.cartTotalPrice() },
+    });
+
+    const customerId = JSON.parse(localStorage.getItem("customerId"));
+    this.setState({
+      order: {
+        ...this.state.order,
+        products: productList,
+        customer: customerId,
+      },
+    });
+  }
+
+  async placeOrder() {
+    try {
+      const response = await fetch("http://localhost:5000/order/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.state.order),
+      });
+      const responseData = await response.json();
+      if (response.status === 200) {
+        this.setState({
+          orderPlaced: true,
+          orderNumber: responseData.orderNumber,
+        });
+      }
+      if (response.status === 403) {
+        this.setState({
+          orderPlaced: false,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
@@ -143,6 +214,8 @@ export default class OrderProvider extends React.Component {
           addShippingMethodToOrder: this.addShippingMethodToOrder,
           addPaymentMethodToOrder: this.addPaymentMethodToOrder,
           connectCartToOrder: this.connectCartToOrder,
+          connectAdressToOrder: this.connectAdressToOrder,
+          placeOrder: this.placeOrder,
         }}
       >
         {this.props.children}

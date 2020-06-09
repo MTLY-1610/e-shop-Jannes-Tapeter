@@ -14,7 +14,7 @@ const OrderModel = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: "shippingMethod",
   },
-  paymentMethod: Object,
+  paymentMethod: "String",
   adress: {
     type: mongoose.Types.ObjectId,
     ref: "adress",

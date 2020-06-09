@@ -5,7 +5,6 @@ import ProductInCart from "../ProductInCart/ProductInCart";
 import PaymentMethods from "../paymentmethods/paymentMethods";
 import Footer from "../footer/footer";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import { OrderConsumer } from "../../context/orderContext";
 
 import "./shoppingCart.css";
