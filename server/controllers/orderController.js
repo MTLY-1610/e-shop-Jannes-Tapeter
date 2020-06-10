@@ -28,18 +28,6 @@ const getOrder = async (req, res) => {
   }
 };
 
-//Get one Adress
-// const getAdress = async (req, res) => {
-//   try {
-//     const adress = await Adress.findOne({
-//       _id: req.params.id,
-//     });
-//     res.status(200).json(adress);
-//   } catch (err) {
-//     throw new ServerError("Could not find adress", 400);
-//   }
-// };
-
 //Add Adress
 const addAdress = async (req, res) => {
   try {
@@ -58,6 +46,9 @@ const addAdress = async (req, res) => {
 
 const placeOrder = async (req, res) => {
   const orderNumber = Math.floor(Math.random() * 1000000);
+  const date = new Date();
+  const formattedDate = date.toDateString();
+  const slicedDate = formattedDate.slice(4);
 
   try {
     const order = new Order({
@@ -69,6 +60,7 @@ const placeOrder = async (req, res) => {
       paymentMethod: req.body.paymentMethod,
       adress: req.body.adress,
       totalPrice: req.body.totalPrice,
+      date: slicedDate,
     });
 
     await order.save();
