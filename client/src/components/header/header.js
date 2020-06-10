@@ -9,10 +9,6 @@ class Header extends React.Component {
   hamburgermenu = () => {
     const menu = document.getElementById("container-right");
     menu.classList.toggle("open");
-    if (menu.classList.open) {
-      document.getElementById("header-logo").style.display = "none";
-      console.log("hej");
-    }
   };
   state = {};
   render() {
@@ -45,20 +41,27 @@ class Header extends React.Component {
 
                         <ShoppingBasketOutlinedIcon />
                         {order.state.cart.length > 0 && (
-                          <span
-                            style={{
-                              marginLeft: "0.5rem",
-                              padding: "0.2rem",
-                              backgroundColor: "#3F51B5",
-                              color: "white",
-                            }}
-                          >
-                            <Link to="/cart">{order.state.cart.length}</Link>
-                          </span>
+                          <Link to="/cart">
+                            <span
+                              style={{
+                                marginLeft: "0.5rem",
+                                padding: "0.2rem",
+                                backgroundColor: "#3F51B5",
+                                color: "white",
+                              }}
+                            >
+                              {order.state.cart.length}
+                            </span>
+                          </Link>
                         )}
                       </ul>
                     ) : (
                       <ul id="loggin">
+                        {customer.state.customerRole === "admin" && (
+                          <li>
+                            <Link to="/admin/welcome">Admin</Link>
+                          </li>
+                        )}
                         <li id="myAccountIcon">
                           <Link to="/myaccount">
                             <AccountCircleOutlinedIcon />
@@ -75,16 +78,18 @@ class Header extends React.Component {
 
                         <ShoppingBasketOutlinedIcon />
                         {order.state.cart.length > 0 && (
-                          <span
-                            style={{
-                              marginLeft: "0.5rem",
-                              padding: "0.2rem",
-                              backgroundColor: "#3F51B5",
-                              color: "white",
-                            }}
-                          >
-                            <Link to="/cart">{order.state.cart.length}</Link>
-                          </span>
+                          <Link to="/cart">
+                            <span
+                              style={{
+                                marginLeft: "0.5rem",
+                                padding: "0.2rem",
+                                backgroundColor: "#3F51B5",
+                                color: "white",
+                              }}
+                            >
+                              {order.state.cart.length}
+                            </span>
+                          </Link>
                         )}
                       </ul>
                     )}

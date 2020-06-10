@@ -20,6 +20,7 @@ const OrderModel = mongoose.Schema({
     ref: "adress",
   },
   totalPrice: Number,
+  date: String,
 });
 
 module.exports = mongoose.model("order", OrderModel);
