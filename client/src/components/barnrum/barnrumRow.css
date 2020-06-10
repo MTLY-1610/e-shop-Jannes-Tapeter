@@ -1,6 +1,7 @@
 #component-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
   #latests-container {
     display: flex;
