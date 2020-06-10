@@ -4,6 +4,7 @@ import "./orderExport.css";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
+import { OrderConsumer } from "../../../context/orderContext";
 
 //Administratörer ska kunna se en lista på alla gjorda beställningar (G)
 //Administratörer ska kunna markera beställningar som skickade (VG)
@@ -12,21 +13,50 @@ import Sidebar from "../sidebar/sidebar";
 class OrderExport extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <Sidebar />
-        <div id="content-container">
-        <h2>Ordrar som ska sändas</h2>
-          <div id="not-shipped-order-container">
-            <OrderCard />
-          </div>
-          <h2>Utsända ordrar</h2>
-          <div id="shipped-order-container">
-            <OrderCard />
-          </div>
-        </div>
-        <Footer />
-      </React.Fragment>
+      <OrderConsumer>
+        {(order) => (
+          <React.Fragment>
+            <Header />
+            <Sidebar />
+            <div id="content-container">
+              <h2>Ordrar som ska sändas</h2>
+              <div id="not-shipped-order-container">
+                {order.state.allOrders.map(
+                  (ord) =>
+                    !ord.shipped && (
+                      <OrderCard
+                        key={ord._id}
+                        orderNumber={ord.orderNumber}
+                        firstName={ord.customer.firstName}
+                        lastName={ord.customer.lastName}
+                        totalPrice={ord.totalPrice}
+                        shipped={ord.shipped}
+                        id={ord._id}
+                      />
+                    )
+                )}
+              </div>
+              <h2>Utsända ordrar</h2>
+              <div id="shipped-order-container">
+                {order.state.allOrders.map(
+                  (ord) =>
+                    ord.shipped && (
+                      <OrderCard
+                        key={ord._id}
+                        orderNumber={ord.orderNumber}
+                        firstName={ord.customer.firstName}
+                        lastName={ord.customer.lastName}
+                        totalPrice={ord.totalPrice}
+                        shipped={ord.shipped}
+                      />
+                    )
+                )}
+              </div>
+            </div>
+            <Footer />
+          </React.Fragment>
+        )}
+      </OrderConsumer>
     );
   }
 }

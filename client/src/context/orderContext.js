@@ -33,6 +33,7 @@ export default class OrderProvider extends React.Component {
     this.cartTotalPrice = this.cartTotalPrice.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.setShippingCost = this.setShippingCost.bind(this);
+    this.editOrder = this.editOrder.bind(this);
   }
 
   componentDidMount() {
@@ -230,6 +231,23 @@ export default class OrderProvider extends React.Component {
     }
   }
 
+  async editOrder(id) {
+    try {
+      await fetch(`http://localhost:5000/order/${id}`, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ shipped: true }),
+      });
+
+      this.getAllOrders();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <OrderContext.Provider
@@ -247,6 +265,7 @@ export default class OrderProvider extends React.Component {
           connectAdressToOrder: this.connectAdressToOrder,
           placeOrder: this.placeOrder,
           setShippingCost: this.setShippingCost,
+          editOrder: this.editOrder,
         }}
       >
         {this.props.children}
