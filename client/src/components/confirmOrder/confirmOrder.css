@@ -1,0 +1,13 @@
+.orderSummary {
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+}
+
+.orderSummary h5 {
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+.orderSummary p {
+  font-size: 0.8rem;
+}

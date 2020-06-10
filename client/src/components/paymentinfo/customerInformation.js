@@ -34,6 +34,7 @@ class CustomerInformation extends React.Component {
 
   setAdress(adress) {
     this.setState({ customer: { ...this.state.customer, adress: adress } });
+    localStorage.setItem("shippingAdress", JSON.stringify(adress));
   }
 
   render() {
@@ -41,7 +42,6 @@ class CustomerInformation extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            {console.log(this.state.customer)}
             <div className="change-adress-wrapper">
               <ChangeAdressFormular setAdress={this.setAdress} />
             </div>

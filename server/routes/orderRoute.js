@@ -8,7 +8,6 @@ const {
   getAllOrders,
   placeOrder,
   addAdress,
-  //getAdress,
 } = require("../controllers/orderController");
 
 router.use(express.json());
@@ -17,15 +16,12 @@ router.use(express.json());
 router.get("/:id", getOrder);
 
 //Get all orders
-router.get("/", adminCheck, getAllOrders);
+router.get("/", getAllOrders);
 
 //Place order
 router.post("/", placeOrder);
 
 //Add Adress
 router.post("/AddAdress", addAdress);
-
-// //Get one adress
-// router.get("/getAdress", getAdress);
 
 module.exports = router;
