@@ -9,10 +9,6 @@ class Header extends React.Component {
   hamburgermenu = () => {
     const menu = document.getElementById("container-right");
     menu.classList.toggle("open");
-    if (menu.classList.open) {
-      document.getElementById("header-logo").style.display = "none";
-      console.log("hej");
-    }
   };
   state = {};
   render() {

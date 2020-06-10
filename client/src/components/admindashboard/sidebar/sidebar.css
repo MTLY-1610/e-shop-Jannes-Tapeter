@@ -1,28 +1,105 @@
 #container-sidebar {
-  border: 0.1rem solid green;
-
+  display: flex;
+  flex-direction: column;
+  width: 30%;
   height: 100%;
-  width: 15rem;
-  position: fixed;
-  left: 0rem;
-  top: 10rem;
+  margin-top: 1rem;
+}
+
+#dropdown-icon {
+  display: none;
+}
+
+#container-sidebar-admin, .products-sidebar, .orders-sidebar, .admin-sidebar {
   display: flex;
   flex-direction: column;
 }
 
-#container-sidebar > div {
-  display: flex;
-  flex-direction: column;
-  margin: 1.5rem;
+#container-sidebar-admin>h5, .products-sidebar>div>h5, .orders-sidebar>div>h5, .admin-sidebar>div>h5 {
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
-
-#container-sidebar > div > h5 {
-    padding-left: 1rem;
-    padding-top: 1rem;
-  }
+#container-sidebar-admin>h4, .products-sidebar>h4, .orders-sidebar>h4, .admin-sidebar>h4 {
+  padding-top: 1rem;
+}
 
 #container-sidebar-admin {
-    color: gray;
-  }
+  color: gray;
+  opacity: 0.7;
+  column-span: all;
+}
 
+@media only screen and (max-width: 768px) {
+  #dropdown-icon {
+    display: block;
+  }
+  .menu-header:hover {
+    font-weight: 400;
+    cursor: pointer;
+  }
+  #container-sidebar-admin {
+    display: flex;
+    flex-direction: row;
+    grid-area: adminRole;
+  }
+  .menu-header {
+    display: flex;
+    align-items: center;
+  }
+  #container-sidebar-admin>h4, .products-sidebar>h4, .orders-sidebar>h4, .admin-sidebar>h4 {
+    padding-top: 0rem;
+  }
+  #container-sidebar-admin h5 {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+  .products-sidebar {
+    justify-self: center;
+    grid-area: products;
+  }
+  .orders-sidebar {
+    justify-self: center;
+    grid-area: orders;
+  }
+  .admin-sidebar {
+    justify-self: center;
+    grid-area: admin;
+  }
+  #container-sidebar {
+    display: grid;
+    grid-template-rows: 2.2rem 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin: 1rem 0rem;
+    justify-content: space-evenly;
+    grid-template-areas: " adminRole adminRole adminRole " "products orders admin"
+  }
+  .dropdown-content-products, .dropdown-content-orders, .dropdown-content-admin {
+    display: none;
+  }
+  .dropdown-content-products.show, .dropdown-content-orders.show, .dropdown-content-admin.show {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #container-sidebar>div>h5 {
+    font-size: 0.7rem;
+  }
+  #container-sidebar>div>h4 {
+    font-size: 0.85rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .dropdown-content-products.show>h5, .dropdown-content-orders.show>h5, .dropdown-content-admin.show>h5 {
+    font-size: 0.6rem;
+  }
+  #container-sidebar>div>h5 {
+    font-size: 0.6rem;
+  }
+  #container-sidebar>div>h4 {
+    font-size: 0.70rem;
+  }
+}

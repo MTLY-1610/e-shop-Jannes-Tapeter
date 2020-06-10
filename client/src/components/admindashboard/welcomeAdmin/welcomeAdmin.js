@@ -3,34 +3,33 @@ import "./welcomeAdmin.css";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { flexbox } from '@material-ui/system';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import SendIcon from '@material-ui/icons/Send';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
-import PlusOneIcon from '@material-ui/icons/PlusOne';
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import { flexbox } from "@material-ui/system";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import SendIcon from "@material-ui/icons/Send";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import MoveToInboxIcon from "@material-ui/icons/MoveToInbox";
+import PlusOneIcon from "@material-ui/icons/PlusOne";
 
 const WelcomeAdmin = () => {
   return (
     <React.Fragment>
       <Header />
-      <Sidebar />
       <div className="content-container">
-        <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
-          <Typography variant="h3" component="h3" gutterBottom>
-            Välkommen Admin!
-          </Typography>
-          <Typography component="div">
-            Du som inloggad administratör har speciella rättigheter som en vanlig användare inte har.
-            Du kan se i menyn till vänster vad du har möjlighet att göra.
-              </Typography>
+        <Sidebar />
+        <div className="welcome">
+          <h3>Välkommen Admin!</h3>
+          <p id="welcome-text">
+            Du som inloggad administratör har speciella rättigheter som en
+            vanlig användare inte har. Du kan se i menyn till vänster vad du har
+            möjlighet att göra.
+          </p>
           <List>
             <ListItem>
               <ListItemAvatar>
@@ -70,16 +69,14 @@ const WelcomeAdmin = () => {
                   <PersonAddIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Acceptera användare som ansöker om att bli administratörer
-"/>
+              <ListItemText primary="Acceptera användare som ansöker om att bli administratörer" />
             </ListItem>
           </List>
-        </Box>
+        </div>
       </div>
       <Footer />
-    </React.Fragment >
+    </React.Fragment>
   );
 };
-
 
 export default WelcomeAdmin;
