@@ -52,7 +52,10 @@ class SpecifikProduct extends React.Component {
           <div id="img-container">
             <img
               className="sample"
-              src={`${this.serverUrl}${this.state.product.url}`}
+              src={
+                this.state.product.url &&
+                `${this.serverUrl}${this.state.product.url}`
+              }
               alt="product"
             />
           </div>

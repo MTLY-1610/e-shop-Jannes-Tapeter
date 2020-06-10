@@ -14,11 +14,12 @@ class BarnrumRow extends React.Component {
             <h1>Mönster</h1>
             <div id="latests-container">
               <div id="grid-latests">
-                {product.state.allProducts.map((item) => {
-                  if (item.category.includes("pattern")) {
-                    return (
+                {product.state.allProducts.map(
+                  (item) =>
+                    item.category.includes("children") && (
                       <Link key={item._id} to={`${item._id}`}>
                         <ProductCard
+                          onClick={() => console.log("hej")}
                           img={item.url}
                           brand={item.brand}
                           dimensions={item.dimensions}
@@ -26,9 +27,8 @@ class BarnrumRow extends React.Component {
                           price={item.price}
                         />
                       </Link>
-                    );
-                  }
-                })}
+                    )
+                )}
               </div>
             </div>
           </div>

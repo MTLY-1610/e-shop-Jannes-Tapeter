@@ -13,6 +13,7 @@ class ProductInCart extends React.Component {
           <img
             id="product-image-cart"
             src={`${this.serverUrl}${this.props.url}`}
+            alt=""
           ></img>
         </div>
         <div>

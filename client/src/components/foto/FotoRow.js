@@ -13,11 +13,12 @@ class FotoRow extends React.Component {
             <h1>Foto</h1>
             <div id="latests-container">
               <div id="grid-latests">
-                {product.state.allProducts.map((item) => {
-                  if (item.category.includes("photo")) {
-                    return (
+                {product.state.allProducts.map(
+                  (item) =>
+                    item.category.includes("photo") && (
                       <Link key={item._id} to={`${item._id}`}>
                         <ProductCard
+                          onClick={() => console.log("hej")}
                           img={item.url}
                           brand={item.brand}
                           dimensions={item.dimensions}
@@ -25,9 +26,8 @@ class FotoRow extends React.Component {
                           price={item.price}
                         />
                       </Link>
-                    );
-                  }
-                })}
+                    )
+                )}
               </div>
             </div>
           </div>
