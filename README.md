@@ -9,8 +9,8 @@ För denna skoluppgift har vi har byggt en webbshops-applikation inkluderande en
 Vi ska skriva en kort kommentar om vilka krav vi har uppfyllt och hur.
 
 Kravspecifikation på projektet:
-Alla sidor skall vara responsiva. (G)
-Arbetet ska implementeras med en React frontend och en Express backend. (G)
+Alla sidor skall vara responsiva. (G)  
+Arbetet ska implementeras med en React frontend och en Express backend. (G)  
 Skapa ett ER diagram och koddiagram, detta ska lämnas in vid idégodkännandet G)
 Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 All data som programmet utnyttjar ska vara sparat i en Mongo-databas (produkter, beställningar, konton mm) (G)
