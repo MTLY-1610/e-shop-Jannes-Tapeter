@@ -28,6 +28,22 @@ const getOrder = async (req, res) => {
   }
 };
 
+//Edit order
+const editOrder = async (req, res) => {
+  try {
+    const order = await Order.findOne({ _id: req.params.id });
+    if (req.body.shipped) {
+      order.shipped = req.body.shipped;
+    }
+
+    await order.save();
+
+    res.status(200).json(order);
+  } catch (err) {
+    throw new ServerError("Could not update order", 400);
+  }
+};
+
 //Add Adress
 const addAdress = async (req, res) => {
   try {
@@ -80,4 +96,4 @@ const placeOrder = async (req, res) => {
   }
 };
 
-module.exports = { getOrder, getAllOrders, placeOrder, addAdress };
+module.exports = { getOrder, getAllOrders, placeOrder, addAdress, editOrder };

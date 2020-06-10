@@ -8,6 +8,7 @@ const {
   getAllOrders,
   placeOrder,
   addAdress,
+  editOrder,
 } = require("../controllers/orderController");
 
 router.use(express.json());
@@ -23,5 +24,7 @@ router.post("/", placeOrder);
 
 //Add Adress
 router.post("/AddAdress", addAdress);
+
+router.put("/:id", adminCheck, editOrder);
 
 module.exports = router;
