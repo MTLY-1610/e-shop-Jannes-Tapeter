@@ -14,6 +14,10 @@ header {
   height: 9rem;
 }
 
+#dropUp-icon, #dropUp-icon-admin, #dropUp-icon-order {
+  display: none;
+}
+
 #container-header {
   display: flex;
   justify-content: space-between;
@@ -58,7 +62,7 @@ header {
   width: 1.2rem;
 }
 
-@media only screen and (max-width: 829px) {
+@media only screen and (max-width: 768px) {
   .burger-line {
     width: 30px;
     height: 3px;
