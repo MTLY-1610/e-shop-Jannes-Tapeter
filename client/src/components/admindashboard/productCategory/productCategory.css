@@ -1,0 +1,8 @@
+.category-div > div {
+    padding: 1rem;
+
+}
+
+#product-card > div > span {
+    color: grey;
+}
