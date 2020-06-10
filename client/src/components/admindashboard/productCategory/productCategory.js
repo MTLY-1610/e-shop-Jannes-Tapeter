@@ -70,7 +70,9 @@ class ProductCategory extends React.Component {
                     <span>Kategori</span>
                     {product.category.map((category, index) => (
                       <div key={index}>
-                        {category}
+                        {category === "pattern" && <>Mönster</>}
+                        {category === "photo" && <>Foto</>}
+                        {category === "children" && <>Barnrum</>}
                         <Modal
                           open={this.state.openConfirmationWindow}
                           onClose={() =>

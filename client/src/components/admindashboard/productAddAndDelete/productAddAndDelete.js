@@ -72,7 +72,11 @@ class ProductAddAndDelete extends React.Component {
                   <div>
                     <span>Kategori</span>
                     {product.category.map((category, index) => (
-                      <div key={index}>{category}</div>
+                      <div key={index}>
+                        {category === "pattern" && <>Mönster</>}
+                        {category === "photo" && <>Foto</>}
+                        {category === "children" && <>Barnrum</>}
+                        </div>
                     ))}
                   </div>
                   <div>
