@@ -92,11 +92,11 @@ Epost:
 Lösenord:
 
 ## Gruppmedlemmar som har skapat applicationen
-### Fredrik Thelin https://github.com/FThelin  
-### Mattin Atai Najaf https://github.com/MattinNajafi
-### Mathieu Larrouy https://github.com/MTLY-1610
-### Embla Jonsson https://github.com/emmbla
-### Ellinor Carlberg https://github.com/Ellinor-Carlberg
+Fredrik Thelin https://github.com/FThelin  
+Mattin Atai Najaf https://github.com/MattinNajafi  
+Mathieu Larrouy https://github.com/MTLY-1610  
+Embla Jonsson https://github.com/emmbla  
+Ellinor Carlberg https://github.com/Ellinor-Carlberg  
 
 
 ### Länk till github repot
