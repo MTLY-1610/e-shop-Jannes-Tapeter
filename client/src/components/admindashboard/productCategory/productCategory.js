@@ -3,7 +3,7 @@ import "./productCategory.css";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
-import { Button, Modal, FormHelperText } from "@material-ui/core";
+import { Button, Modal, Checkbox, FormControlLabel } from "@material-ui/core";
 import { ProductConsumer } from "../../../context/productContext";
 
 /* category: [String],
@@ -40,10 +40,13 @@ class ProductCategory extends React.Component {
             <Header />
             <Sidebar />
             <div id="content-container">
-              <h2>Alla produkter</h2>
+              <h2>Kategori Mönster tapet</h2>
+              <h2>Kategori Foto tapet</h2>
+            <h2>Kategori Barnrum tapet</h2>
+            <h2>Tapeter tillhörande flera kategorier</h2>
               {products.state.allProducts.map((product) => (
                 <div id="product-card" key={product._id}>
-                  <img
+                 <div className="product-info" edit-category-container> <img
                     className="sample"
                     src={`${this.serverUrl}${product.url}`}
                     alt="product"
@@ -66,72 +69,93 @@ class ProductCategory extends React.Component {
                   <div>
                     <span>Pris</span> {product.price}kr/st
                   </div>
-                  <div class="category-div">
+                  <div>
+                    <span>Beskrivning</span> {product.description}
+                  </div>
+                  <div>
                     <span>Kategori</span>
                     {product.category.map((category, index) => (
-                      <div key={index}>
+                      <div className="category-inline" key={index}>
                         {category === "pattern" && <>Mönster</>}
                         {category === "photo" && <>Foto</>}
                         {category === "children" && <>Barnrum</>}
-                        <Modal
-                          open={this.state.openConfirmationWindow}
-                          onClose={() =>
-                            this.setState({ openConfirmationWindow: false })
-                          }
-                          aria-labelledby="simple-modal-title"
-                          aria-describedby="simple-modal-description"
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          {
-                            <div
-                              style={{
-                                background: "white",
-                                alignItems: "center",
-                                flexDirection: "column",
-                                display: "flex",
-                                padding: "2rem",
-                              }}
-                            >
-                              <h1>
-                                {`Är du säker på att du vill redigera "${this.state.productBrand}" kategori?
-              `}
-                              </h1>
-                              <Button
-                                id="confirmationButton"
-                                size="small"
-                                variant="contained"
-                                onClick={() =>
-                                  products.deleteProduct(product._id)
-                                }
-                              >
-                                Ja, ta bort
-                              </Button>
-                            </div>
-                          }
-                        </Modal>
-                        <Button
-                          id="adminButton"
-                          size="small"
-                          variant="contained"
-                          onClick={() =>
-                            this.removeProduct(product._id, product.brand)
-                          }
-                        >
-                          Redigera kategori
-                        </Button>
                       </div>
                     ))}
                   </div>
-                  <div>
-                    <span>Beskrivning</span> {product.description}
+                  </div>
+                  <div className="edit-category-container">
+                    <h4>Redigera denna produkts kategori</h4>
+                    <FormControlLabel
+
+control={<Checkbox name="patternCheckbox" color="default" />}
+label="Mönster"
+labelPlacement="start"
+/>
+<FormControlLabel
+
+control={<Checkbox name="photoCheckbox" color="default" />}
+label="Foto"
+labelPlacement="start"
+/>
+<FormControlLabel
+
+control={<Checkbox name="childCheckbox" color="default" />}
+label="Barnrum"
+labelPlacement="start"
+/>
+                    <Modal
+                      open={this.state.openConfirmationWindow}
+                      onClose={() =>
+                        this.setState({ openConfirmationWindow: false })
+                      }
+                      aria-labelledby="simple-modal-title"
+                      aria-describedby="simple-modal-description"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {
+                        <div
+                          style={{
+                            background: "white",
+                            alignItems: "center",
+                            flexDirection: "column",
+                            display: "flex",
+                            padding: "2rem",
+                          }}
+                        >
+                          <h1>
+                            {`Är du säker på att du vill redigera "${this.state.productBrand}s" kategori?
+              `}
+                          </h1>
+                          <Button
+                            id="confirmationButton"
+                            size="small"
+                            variant="contained"
+                            onClick={() => products.deleteProduct(product._id)}
+                          >
+                            Ja, redigera
+                          </Button>
+                        </div>
+                      }
+                    </Modal>
+                    <Button
+                      id="adminButton"
+                      size="small"
+                      variant="contained"
+                      onClick={() =>
+                        this.removeProduct(product._id, product.brand)
+                      }
+                    >
+                      Redigera kategori
+                    </Button>
                   </div>
                 </div>
               ))}
             </div>
+           
             <Footer />
           </React.Fragment>
         )}
