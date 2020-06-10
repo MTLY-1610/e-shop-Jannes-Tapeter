@@ -29,10 +29,7 @@ class Sidebar extends React.Component {
             {(customer) => (
               <div onClick={this.click} id="container-sidebar">
                 <div id="container-sidebar-admin">
-                  <h5>Mattin Najafi, Admin</h5>
-
-                  {/* <h5>{customer.state.loggedInCustomer}</h5>
-                  <h5>{customer.state.customerRole}</h5> */}
+                  <h5>{`${customer.state.loggedInCustomer}, ${customer.state.customerRole}`}</h5>
                 </div>
                 <div className="products-sidebar">
                   <h4
