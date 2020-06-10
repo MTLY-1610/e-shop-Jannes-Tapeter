@@ -10,6 +10,8 @@ export default class OrderProvider extends React.Component {
       deliveryMethods: [],
       orderPlaced: false,
       orderNumber: 0,
+      shippingCost: 0,
+      allOrders: [],
       order: {
         shippingMethod: "",
         paymentMethod: "",
@@ -30,9 +32,11 @@ export default class OrderProvider extends React.Component {
     this.connectAdressToOrder = this.connectAdressToOrder.bind(this);
     this.cartTotalPrice = this.cartTotalPrice.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.setShippingCost = this.setShippingCost.bind(this);
   }
 
   componentDidMount() {
+    this.getAllOrders();
     this.getCartItems();
     this.getDeliveryMethods();
     this.connectCartToOrder();
@@ -40,6 +44,10 @@ export default class OrderProvider extends React.Component {
       this.savePaymentMethod();
       this.saveShippingMethod();
     }, 1000);
+  }
+
+  setShippingCost(cost) {
+    this.setState({ shippingCost: cost });
   }
 
   getCartItems() {
@@ -85,6 +93,10 @@ export default class OrderProvider extends React.Component {
 
   clearCart() {
     this.setState({ cart: [] });
+    localStorage.removeItem("cart");
+    localStorage.removeItem("shippingMethod");
+    localStorage.removeItem("paymentMethod");
+    localStorage.removeItem("shippingAdress");
   }
 
   addToCart(product) {
@@ -189,10 +201,28 @@ export default class OrderProvider extends React.Component {
           orderPlaced: true,
           orderNumber: responseData.orderNumber,
         });
+        this.getAllOrders();
       }
       if (response.status === 403) {
         this.setState({
           orderPlaced: false,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getAllOrders() {
+    try {
+      const response = await fetch("http://localhost:5000/order", {
+        credentials: "include",
+      });
+      const responseData = await response.json();
+
+      if (response.status === 200) {
+        this.setState({
+          allOrders: responseData,
         });
       }
     } catch (error) {
@@ -216,6 +246,7 @@ export default class OrderProvider extends React.Component {
           connectCartToOrder: this.connectCartToOrder,
           connectAdressToOrder: this.connectAdressToOrder,
           placeOrder: this.placeOrder,
+          setShippingCost: this.setShippingCost,
         }}
       >
         {this.props.children}

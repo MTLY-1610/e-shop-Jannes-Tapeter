@@ -24,6 +24,7 @@ class DeliveryMethods extends React.Component {
                     onChange={(event) => {
                       if (event.target.checked) {
                         order.addShippingMethodToOrder(event.target.value);
+                        order.setShippingCost(dm.price);
                       }
                     }}
                   />
