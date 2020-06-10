@@ -1,0 +1,31 @@
+.edit-category-container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: 30%;
+    text-align: center;
+}
+
+
+.product-info {
+    
+    flex-basis: 70%;
+}
+
+.product-info > div > span {
+    color: grey;
+}
+
+#product-card {
+    border: .1rem solid grey;
+    display: flex;
+    flex-direction: row;
+   
+    
+}
+.category-inline {
+    display: inline-block;
+    margin-left: .5rem;
+}
