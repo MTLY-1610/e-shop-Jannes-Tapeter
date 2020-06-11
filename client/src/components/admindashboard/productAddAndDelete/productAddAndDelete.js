@@ -41,13 +41,13 @@ class ProductAddAndDelete extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div id="content-container">
+            <div id="a-content-container">
               <AddProduct />
               <h2>Alla produkter</h2>
               {products.state.allProducts.map((product) => (
-                <div id="delete-product-card" key={product._id}>
+                <div id="a-delete-product-card" key={product._id}>
                   <img
-                    className="sample"
+                    className="a-sample"
                     src={`${this.serverUrl}${product.url}`}
                     alt="product"
                   />
@@ -110,7 +110,7 @@ class ProductAddAndDelete extends React.Component {
                   sortimentet`}
                         </h1>
                         <Button
-                          id="confirmationButton"
+                          id="a-confirmationButton"
                           size="small"
                           variant="contained"
                           onClick={() => products.deleteProduct(product._id)}
@@ -121,7 +121,7 @@ class ProductAddAndDelete extends React.Component {
                     }
                   </Modal>
                   <Button
-                    id="adminButton"
+                    id="a-adminButton"
                     size="small"
                     variant="contained"
                     onClick={() =>

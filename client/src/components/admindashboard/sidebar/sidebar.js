@@ -27,33 +27,33 @@ class Sidebar extends React.Component {
         {(product) => (
           <CustomerConsumer>
             {(customer) => (
-              <div onClick={this.click} id="container-sidebar">
-                <div id="container-sidebar-admin">
+              <div onClick={this.click} id="a-container-sidebar">
+                <div id="a-container-sidebar-admin">
                   <h5>{`${customer.state.loggedInCustomer}, ${customer.state.customerRole}`}</h5>
                 </div>
-                <div className="products-sidebar">
+                <div className="a-products-sidebar">
                   <h4
-                    className="menu-header"
+                    className="a-menu-header"
                     onClick={() => {
                       if (this.state.productClicked == false) {
                         const products = document.querySelector(
-                          ".dropdown-content-products"
+                          ".a-dropdown-content-products"
                         );
 
                         products.classList.toggle("show");
-                        document.getElementById("dropdown-icon").style.display =
+                        document.getElementById("a-dropdown-icon").style.display =
                           "none";
-                        document.getElementById("dropUp-icon").style.display =
+                        document.getElementById("a-dropUp-icon").style.display =
                           "block";
                         this.setState({ productClicked: true });
                       } else {
                         const products = document.querySelector(
-                          ".dropdown-content-products"
+                          ".a-dropdown-content-products"
                         );
                         products.classList.toggle("show");
-                        document.getElementById("dropdown-icon").style.display =
+                        document.getElementById("a-dropdown-icon").style.display =
                           "block";
-                        document.getElementById("dropUp-icon").style.display =
+                        document.getElementById("a-dropUp-icon").style.display =
                           "none";
                         this.setState({ productClicked: false });
                       }
@@ -62,12 +62,12 @@ class Sidebar extends React.Component {
                     Produkter
                     {
                       <React.Fragment>
-                        <ArrowDropDownIcon id="dropdown-icon" />
-                        <ArrowDropUpIcon id="dropUp-icon" />
+                        <ArrowDropDownIcon id="a-dropdown-icon" />
+                        <ArrowDropUpIcon id="a-dropUp-icon" />
                       </React.Fragment>
                     }
                   </h4>
-                  <div className="dropdown-content-products">
+                  <div className="a-dropdown-content-products">
                     <h5>
                       Uppdatera lagersaldo{" "}
                       <span
@@ -84,32 +84,32 @@ class Sidebar extends React.Component {
                     <h5>Lägg till / Ta bort</h5>
                   </div>
                 </div>
-                <div className="orders-sidebar">
+                <div className="a-orders-sidebar">
                   <h4
-                    className="menu-header"
+                    className="a-menu-header"
                     onClick={() => {
                       if (this.state.orderClicked == false) {
                         const order = document.querySelector(
-                          ".dropdown-content-orders"
+                          ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
                         document.getElementById(
-                          "dropdown-icon-order"
+                          "a-dropdown-icon-order"
                         ).style.display = "none";
                         document.getElementById(
-                          "dropUp-icon-order"
+                          "a-dropUp-icon-order"
                         ).style.display = "block";
                         this.setState({ orderClicked: true });
                       } else {
                         const order = document.querySelector(
-                          ".dropdown-content-orders"
+                          ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
                         document.getElementById(
-                          "dropdown-icon-order"
+                          "a-dropdown-icon-order"
                         ).style.display = "block";
                         document.getElementById(
-                          "dropUp-icon-order"
+                          "a-dropUp-icon-order"
                         ).style.display = "none";
                         this.setState({ orderClicked: false });
                       }
@@ -118,55 +118,55 @@ class Sidebar extends React.Component {
                     Beställningar{" "}
                     {
                       <React.Fragment>
-                        <ArrowDropDownIcon id="dropdown-icon-order" />
-                        <ArrowDropUpIcon id="dropUp-icon-order" />
+                        <ArrowDropDownIcon id="a-dropdown-icon-order" />
+                        <ArrowDropUpIcon id="a-dropUp-icon-order" />
                       </React.Fragment>
                     }
                   </h4>
-                  <div className="dropdown-content-orders">
+                  <div className="a-dropdown-content-orders">
                     <h5>Uppdatera exporter</h5>
                   </div>
                 </div>
-                <div className="admin-sidebar">
+                <div className="a-admin-sidebar">
                   <h4
                     onClick={() => {
                       if (this.state.adminClicked == false) {
                         const admins = document.querySelector(
-                          ".dropdown-content-admin"
+                          ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
                         document.getElementById(
-                          "dropdown-icon-admin"
+                          "a-dropdown-icon-admin"
                         ).style.display = "none";
                         document.getElementById(
-                          "dropUp-icon-admin"
+                          "a-dropUp-icon-admin"
                         ).style.display = "block";
                         this.setState({ adminClicked: true });
                       } else {
                         const admins = document.querySelector(
-                          ".dropdown-content-admin"
+                          ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
                         document.getElementById(
-                          "dropdown-icon-admin"
+                          "a-dropdown-icon-admin"
                         ).style.display = "block";
                         document.getElementById(
-                          "dropUp-icon-admin"
+                          "a-dropUp-icon-admin"
                         ).style.display = "none";
                         this.setState({ adminClicked: false });
                       }
                     }}
-                    className="menu-header"
+                    className="a-menu-header"
                   >
                     Administratörer{" "}
                     {
                       <React.Fragment>
-                        <ArrowDropDownIcon id="dropdown-icon-admin" />
-                        <ArrowDropUpIcon id="dropUp-icon-admin" />
+                        <ArrowDropDownIcon id="a-dropdown-icon-admin" />
+                        <ArrowDropUpIcon id="a-dropUp-icon-admin" />
                       </React.Fragment>
                     }
                   </h4>
-                  <div className="dropdown-content-admin">
+                  <div className="a-dropdown-content-admin">
                     <h5>
                       Nya förfrågningar
                       <span

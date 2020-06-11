@@ -1,4 +1,4 @@
-.card-container{
+.a-card-container{
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     margin: 1rem;
 }
 
-.qunatity-container{
+.a-quantity-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,6 +20,6 @@ top: 10rem;
     /* align-items: center; */
 }
 
-.quantity{
+.a-quantity{
     padding: 0.5rem 0 0.5rem 0;
 }

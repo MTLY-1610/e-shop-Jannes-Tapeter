@@ -21,11 +21,11 @@ const WelcomeAdmin = () => {
   return (
     <React.Fragment>
       <Header />
-      <div className="content-container">
+      <div className="a-content-container">
         <Sidebar />
-        <div className="welcome">
+        <div className="a-welcome">
           <h3>Välkommen Admin!</h3>
-          <p id="welcome-text">
+          <p id="a-welcome-text">
             Du som inloggad administratör har speciella rättigheter som en
             vanlig användare inte har. Du kan se i menyn till vänster vad du har
             möjlighet att göra.
