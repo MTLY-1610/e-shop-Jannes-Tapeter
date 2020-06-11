@@ -33,7 +33,7 @@
     .a-content-container {
         flex-direction: column;
         align-items: center;
-        margin: 1rem;
+        margin: 0rem;
     }
 
     .a-child-content-container {
@@ -42,10 +42,4 @@
         align-self: center;
     }
    
-}
-
-@media only screen and (max-width: 425px) {
-    .a-content-container {
-        margin: .5rem;
-    }
 }

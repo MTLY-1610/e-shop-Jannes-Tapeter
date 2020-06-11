@@ -17,8 +17,11 @@ class OrderExport extends React.Component {
         {(order) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div id="a-content-container">
+
+            <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
+          
               <h2>Ordrar som ska sändas</h2>
               <div id="a-not-shipped-order-container">
                 {order.state.allOrders.map(
@@ -52,6 +55,7 @@ class OrderExport extends React.Component {
                     )
                 )}
               </div>
+            </div>
             </div>
             <Footer />
           </React.Fragment>
