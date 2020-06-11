@@ -12,8 +12,8 @@ class DeliveryMethods extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            <div className="delivery-flex"></div>
-            <div>
+            <div className="delivery-choices">
+            
               <RadioGroup id="radioGroupForDeliveryAndPayment">
                 {order.state.deliveryMethods.map((dm) => (
                   <FormControlLabel
