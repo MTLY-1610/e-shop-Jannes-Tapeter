@@ -13,7 +13,7 @@ class PaymentMethods extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            <div>
+            <div id="payment-choices">
               <div id="creditcard">
                 <img src={CreditCards} alt="cc"></img>
               </div>

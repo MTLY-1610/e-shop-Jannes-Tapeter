@@ -1,24 +1,26 @@
 #postnord,
 #dhl,
 #db {
-  width: 7rem;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
 }
 #postnord > img,
 #dhl > img,
 #db > img {
-  width: 60%;
-  height: 60%;
+ 
 }
-
-#radioGroupForDeliveryAndPayment {
+.delivery-choices{
+  display: flex;
+ align-items: center;
   height: 12rem;
+  
+
+}
+#radioGroupForDeliveryAndPayment {
+  height: 8rem;
+  font-size: .8rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items:stretch;
 }
 
 @media only screen and (max-width: 870px) {
