@@ -18,9 +18,9 @@ class OrderExport extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div id="content-container">
+            <div id="a-content-container">
               <h2>Ordrar som ska sändas</h2>
-              <div id="not-shipped-order-container">
+              <div id="a-not-shipped-order-container">
                 {order.state.allOrders.map(
                   (ord) =>
                     !ord.shipped && (
@@ -37,7 +37,7 @@ class OrderExport extends React.Component {
                 )}
               </div>
               <h2>Utsända ordrar</h2>
-              <div id="shipped-order-container">
+              <div id="a-shipped-order-container">
                 {order.state.allOrders.map(
                   (ord) =>
                     ord.shipped && (

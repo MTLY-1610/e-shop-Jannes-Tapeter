@@ -10,11 +10,11 @@ class AdminRequestRow extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div id="row-container">
+        <div id="a-row-container">
           <h4>{this.props.firstName}</h4>
           <h4>{this.props.lastName}</h4>
           <h4>{this.props.email}</h4>
-          <RadioGroup row id="RadioGroup">
+          <RadioGroup row id="a-RadioGroup">
             <FormControlLabel
               control={<Radio color="default" size="small" />}
               value="Godkänn"
@@ -28,7 +28,7 @@ class AdminRequestRow extends React.Component {
               labelPlacement="start"
             />
           </RadioGroup>
-          <Button id="formularButton" size="small" variant="contained">
+          <Button id="a-formularButton" size="small" variant="contained">
             Sänd
           </Button>
         </div>

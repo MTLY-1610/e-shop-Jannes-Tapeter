@@ -30,16 +30,16 @@ class AdminRequest extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div id="content-container">
+            <div id="a-content-container">
               <h3>Förfrågningar om att bli administratör:</h3>
               {customer.state.allCustomers.map(
                 (user) =>
                   user.role === "wantsToBeAdmin" && (
-                    <div id="row-container" key={user._id}>
+                    <div id="a-row-container" key={user._id}>
                       <h4>{user.firstName}</h4>
                       <h4>{user.lastName}</h4>
                       <h4>{user.email}</h4>
-                      <RadioGroup row id="adminRadioGroup">
+                      <RadioGroup row id="a-adminRadioGroup">
                         <FormControlLabel
                           control={<Radio color="default" size="small" />}
                           value="approved"
@@ -56,7 +56,7 @@ class AdminRequest extends React.Component {
                         />
                       </RadioGroup>
                       <Button
-                        id="adminButton"
+                        id="a-adminButton"
                         size="small"
                         variant="contained"
                         onClick={() =>

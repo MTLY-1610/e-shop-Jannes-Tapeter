@@ -23,19 +23,19 @@ class ProductStockBalance extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div className="qunatity-container">
+            <div className="a-quantity-container">
               <h3>Lager saldo:</h3>
               {products.state.allProducts.map(
                 (product) =>
                   product.quantity <= 10 && (
-                    <div className="card-container" key={product._id}>
+                    <div className="a-card-container" key={product._id}>
                       <img
-                        className="sample"
+                        className="a-sample"
                         src={`${this.serverUrl}${product.url}`}
                         alt="product"
                       />
-                      <span className="quantity">Namn: {product.ref}</span>
-                      <span className="quantity">
+                      <span className="a-quantity">Namn: {product.ref}</span>
+                      <span className="a-quantity">
                         Pris: {product.price}kr/st
                       </span>
                       {/* <span class="quantity">Antal: {product.quantity}</span> */}

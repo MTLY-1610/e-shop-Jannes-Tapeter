@@ -1,21 +1,21 @@
-#content-container {
+#a-content-container {
     width: 50vw;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
 }
 
-#content-container > div {
+#a-content-container > div {
    margin-bottom: 1rem;
 }
 
-#not-shipped-order-container {
+#a-not-shipped-order-container {
     display: flex;
     flex-direction: row;
 }
 
 
-#shipped-order-container {
+#a-shipped-order-container {
     display: flex;
     flex-direction: row;
 }

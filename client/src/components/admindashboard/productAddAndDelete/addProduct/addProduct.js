@@ -70,7 +70,7 @@ const AddProduct = () => {
 
   return (
     
-      <form noValidate autoComplete="off">
+      <form id="a-form" noValidate autoComplete="off">
       <Input name="image" type="file" onChange={fileSelectedHandler} />
       <Button
         onClick={fileUploadHandler}
@@ -84,7 +84,7 @@ const AddProduct = () => {
       {product.url && <img src={`http://localhost:5000/${product.url}`} />}
       
 
-      <TextField id="outlined-basic" label="Märke" variant="outlined"
+      <TextField id="a-outlined-basic" label="Märke" variant="outlined"
         name="brand"
         type="text"
         placeholder="Märke"
@@ -92,21 +92,21 @@ const AddProduct = () => {
           setProduct({ ...product, brand: event.target.value })
         }
       />
-      <TextField id="outlined-basic" label="Designer" variant="outlined"
+      <TextField id="a-outlined-basic" label="Designer" variant="outlined"
         name="designer"
         type="text"
         onChange={(event) =>
           setProduct({ ...product, designer: event.target.value })
         }
       />
-      <TextField id="outlined-basic" label="Ref" variant="outlined"
+      <TextField id="a-outlined-basic" label="Ref" variant="outlined"
         name="ref"
         type="text"
         onChange={(event) =>
           setProduct({ ...product, ref: event.target.value })
         }
       />
-      <TextField id="outlined-basic" label="Mått" variant="outlined"
+      <TextField id="a-outlined-basic" label="Mått" variant="outlined"
         name="dimensions"
         type="text"
         onChange={(event) =>
@@ -114,7 +114,7 @@ const AddProduct = () => {
         }
       />
 
-<TextField id="outlined-multiline-flexible" label="Beskrivning" variant="outlined"
+<TextField id="a-outlined-multiline-flexible" label="Beskrivning" variant="outlined"
         name="description"
         type="text"
           multiline
@@ -124,7 +124,7 @@ const AddProduct = () => {
           setProduct({ ...product, description: event.target.value })
         }
       />
-      <TextField id="outlined-basic" label="Pris" variant="outlined" 
+      <TextField id="a-outlined-basic" label="Pris" variant="outlined" 
         name="price"
         type="number"
         onChange={(event) =>
@@ -132,7 +132,7 @@ const AddProduct = () => {
         }
       />
      
-     <TextField id="outlined-basic" label="Antal" variant="outlined" 
+     <TextField id="a-outlined-basic" label="Antal" variant="outlined" 
         name="quantity"
         type="number"
         onChange={(event) =>
@@ -159,7 +159,7 @@ const AddProduct = () => {
       />
       <Button
         onClick={addProduct}
-        id="adminButton"
+        id="a-adminButton"
         size="small"
         variant="contained"
       >
