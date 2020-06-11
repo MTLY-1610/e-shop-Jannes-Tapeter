@@ -1,27 +1,19 @@
-#postnord,
-#dhl,
-#db {
-  
-}
-#postnord > img,
-#dhl > img,
-#db > img {
- 
-}
-.delivery-choices{
-  display: flex;
- align-items: center;
-  height: 12rem;
-  
+#postnord, #dhl, #db {}
 
+#postnord>img, #dhl>img, #db>img {}
+
+.delivery-choices {
+  display: flex;
+  align-items: center;
+  height: 12rem;
 }
+
 #radioGroupForDeliveryAndPayment {
   height: 8rem;
   font-size: .8rem;
   display: flex;
   justify-content: space-around;
-  align-items:stretch;
+  align-items: center;
 }
 
-@media only screen and (max-width: 870px) {
-}
+@media only screen and (max-width: 870px) {}
