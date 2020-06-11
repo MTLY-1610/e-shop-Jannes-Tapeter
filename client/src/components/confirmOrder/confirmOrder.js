@@ -35,8 +35,10 @@ class ConfirmOrder extends React.Component {
               <React.Fragment>
                 <Header />
                 <StylesProvider injectFirst>
-                  <div>
+                  <div id="confirm-order-container">
+                  
                     <h1>Bekräfta Order</h1>
+                   
                     <p>
                       Dina betalningsuppgifter ser ut att stämma och vi är redo
                       att skicka din order!
