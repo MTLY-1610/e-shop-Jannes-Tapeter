@@ -29,8 +29,9 @@ class AdminRequest extends React.Component {
         {(customer) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div id="a-content-container">
+            <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
               <h3>Förfrågningar om att bli administratör:</h3>
               {customer.state.allCustomers.map(
                 (user) =>
@@ -71,6 +72,7 @@ class AdminRequest extends React.Component {
                     </div>
                   )
               )}
+            </div>
             </div>
             <Footer />
           </React.Fragment>

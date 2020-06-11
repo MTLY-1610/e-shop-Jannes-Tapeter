@@ -1,7 +1,22 @@
-#a-content-container {
-    margin-left: 10rem;
+.a-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+     width: 95vw; 
+     border: .1rem solid blue;
 }
 
+
+.a-child-content-container {
+    border: .1rem solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 2rem;
+    width: (100vw -15rem); 
+    align-self: center;
+}
 #a-row-container {
     display: flex;
     flex-direction: row;
@@ -27,4 +42,25 @@
 #a-row-container > button {
     margin-left: 1rem;
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .a-content-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+    }
+
+    .a-child-content-container {
+        padding: .5rem;
+        width: 90vw; 
+        align-self: center;
+    }
+   
+}
+
+@media only screen and (max-width: 425px) {
+    .a-content-container {
+        margin: .5rem;
+    }
 }
