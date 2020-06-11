@@ -11,7 +11,7 @@ import { Redirect } from "react-router-dom";
 
 class RegisterLogin extends React.Component {
   static contextType = CustomerContext;
-  ''
+  "";
   constructor(props) {
     super(props);
     this.state = {
@@ -39,8 +39,6 @@ class RegisterLogin extends React.Component {
       passError: "",
     };
   }
-
-
 
   inputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -129,10 +127,8 @@ class RegisterLogin extends React.Component {
     });
     const checkErrors = this.validation();
 
-
     if (!checkErrors) {
-
-      this.context.registerCustomer(this.getCustomerData())
+      this.context.registerCustomer(this.getCustomerData());
     }
   };
 
@@ -365,8 +361,7 @@ class RegisterLogin extends React.Component {
                     </div>
                     {!customer.state.successfulRegister && (
                       <Button
-                        onClick={
-                          this.register}
+                        onClick={this.register}
                         id="formularButton"
                         size="small"
                         variant="contained"
@@ -427,14 +422,14 @@ class RegisterLogin extends React.Component {
                       </div>
                     </div>
                     <Button
-                      onClick={() => (
+                      onClick={() => {
                         customer.loginCustomer({
                           email: this.state.loginEmail,
                           password: this.state.loginPassword,
-                        }),
-                        this.clearForm(),
-                        this.setState({ redirect: "/" })
-                      )}
+                        });
+                        this.clearForm();
+                        this.setState({ redirect: "/" });
+                      }}
                       id="formularButton"
                       size="small"
                       variant="contained"
