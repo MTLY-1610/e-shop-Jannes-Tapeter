@@ -25,7 +25,7 @@
   justify-content: space-between;
 }
 
-.shoppingcart-wrapper > section > h4 {
+.shoppingcart-wrapper>section>h4 {
   margin-bottom: 1rem;
 }
 
@@ -36,7 +36,7 @@
   align-items: center;
 }
 
-.flexing-delivery-div > h4 {
+.flexing-delivery-div>h4 {
   align-self: flex-start;
 }
 
@@ -51,14 +51,13 @@
   height: 7rem;
 }
 
-#total-rows > p {
+#total-rows>p {
   font-size: .8rem;
   font-weight: 300;
-  color:gray;
-  
+  color: gray;
 }
 
-#total-rows{
+#total-rows {
   display: flex;
   flex-direction: row;
   width: 85%;
@@ -66,9 +65,8 @@
   justify-content: space-between;
 }
 
-
 #paymentBtn {
-  align-self: flex-end;
+  align-self: center;
   margin-top: 1.3rem;
   padding: 10px 15px;
   background-color: white;
@@ -77,14 +75,15 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.5s;
+  box-shadow: none;
 }
 
-#paymentBtn > a {
+#paymentBtn>a {
   color: black;
 }
-#paymentBtn:hover {
-  background: lightcoral;
-  color: white;
+
+#paymentBtn:disabled {
+  opacity: 0.2;
 }
 
 @media only screen and (max-width: 870px) {
@@ -109,16 +108,14 @@
     flex-direction: column;
     margin-top: 1rem;
   }
-
-  .flexing-delivery-div > h4 {
+  .flexing-delivery-div>h4 {
     align-self: center;
     margin: 1rem 0rem;
   }
-
   .cartrow-div {
     width: 95%;
   }
-  .cartrow-div > h4 {
+  .cartrow-div>h4 {
     text-align: center;
   }
 }
@@ -128,6 +125,7 @@
     width: 100%;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .cartrow-div {
     width: 100%;
