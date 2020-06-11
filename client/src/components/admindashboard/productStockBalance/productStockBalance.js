@@ -22,8 +22,11 @@ class ProductStockBalance extends React.Component {
         {(products) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div className="a-quantity-container">
+            <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
+
+
               <h3>Lager saldo:</h3>
               {products.state.allProducts.map(
                 (product) =>
@@ -72,6 +75,7 @@ class ProductStockBalance extends React.Component {
                     </div>
                   )
               )}
+            </div>
             </div>
             <Footer />
           </React.Fragment>

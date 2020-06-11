@@ -23,14 +23,14 @@ const WelcomeAdmin = () => {
       <Header />
       <div className="a-content-container">
         <Sidebar />
-        <div className="a-welcome">
+        <div className="a-child-content-container">
           <h3>Välkommen Admin!</h3>
           <p id="a-welcome-text">
             Du som inloggad administratör har speciella rättigheter som en
             vanlig användare inte har. Du kan se i menyn till vänster vad du har
             möjlighet att göra.
           </p>
-          <List>
+          <List className="a-list-welcome">
             <ListItem>
               <ListItemAvatar>
                 <Avatar>

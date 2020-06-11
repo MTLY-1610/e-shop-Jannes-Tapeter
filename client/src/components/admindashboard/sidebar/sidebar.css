@@ -1,43 +1,82 @@
 #a-container-sidebar {
+  border: 0.1rem solid green;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 15rem;
+  min-width: 15rem;
   height: 100%;
-  margin-top: 1rem;
-}
-
-#a-dropdown-icon {
-  display: none;
-}
-
-#a-container-sidebar-admin, .a-products-sidebar, .a-orders-sidebar, .a-admin-sidebar {
-  display: flex;
-  flex-direction: column;
-}
-
-#a-container-sidebar-admin>h5, .a-products-sidebar>div>h5, .a-orders-sidebar>div>h5, .a-admin-sidebar>div>h5 {
-  padding-left: 1rem;
-  padding-top: 1rem;
-}
-
-#a-container-sidebar-admin>h4, .a-products-sidebar>h4, .a-orders-sidebar>h4, .a-admin-sidebar>h4 {
-  padding-top: 1rem;
+  background-color: whitesmoke;
+  /* margin-top: 1rem; */
 }
 
 #a-container-sidebar-admin {
-  color: gray;
-  opacity: 0.7;
-  column-span: all;
+  border: 0.1rem solid darkblue;
+  color: rgb(139, 139, 139);
+  vertical-align: bottom;
+  vertical-align: text-bottom;
+  /* column-span: all; */
+  
+  
 }
 
+#a-container-sidebar-admin > h5 {
+  border: 0.1rem solid red;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  /* display: block; */
+display: flex;
+align-items: center;
+}
+
+#a-container-sidebar-admin > h5 > .a-face-icon {
+  border: 0.1rem solid purple;
+}
+#a-container-sidebar-admin > h5 > .a-admin-name {
+  border: 0.1rem solid green;
+  
+}
+
+.a-products-sidebar,
+.a-orders-sidebar,
+.a-admin-sidebar {
+  border: 0.1rem solid pink;
+  display: flex;
+  flex-direction: column;
+}
+
+.a-products-sidebar > div > h5,
+.a-orders-sidebar > div > h5,
+.a-admin-sidebar > div > h5 {
+  border: 0.1rem solid paleturquoise;
+  padding-left: 1rem;
+  padding-top: 1rem; 
+}
+
+.a-products-sidebar > h4,
+.a-orders-sidebar > h4,
+.a-admin-sidebar > h4 {
+  padding-top: 1rem;
+  border: 0.1rem solid yellow;
+}
+
+.a-menu-header:hover {
+  font-weight: 400;
+  cursor: pointer;
+}
+.a-dropdown-content-products,
+.a-dropdown-content-orders,
+.a-dropdown-content-admin {
+  display: none;
+}
+.a-dropdown-content-products.show,
+.a-dropdown-content-orders.show,
+.a-dropdown-content-admin.show {
+  display: block;
+}
+
+/* MEDIA QUERYS 768PX */
 @media only screen and (max-width: 768px) {
-  #a-dropdown-icon {
-    display: block;
-  }
-  .a-menu-header:hover {
-    font-weight: 400;
-    cursor: pointer;
-  }
+ 
   #a-container-sidebar-admin {
     display: flex;
     flex-direction: row;
@@ -46,14 +85,20 @@
   .a-menu-header {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
   }
-  #a-container-sidebar-admin>h4, .a-products-sidebar>h4, .a-orders-sidebar>h4, .a-admin-sidebar>h4 {
+  #a-container-sidebar-admin > h4,
+  .a-products-sidebar > h4,
+  .a-orders-sidebar > h4,
+  .a-admin-sidebar > h4 {
     padding-top: 0rem;
+    
   }
-  #a-container-sidebar-admin h5 {
-    padding-left: 0;
-    padding-right: 1rem;
-  }
+  #a-container-sidebar-admin > h5 {
+    padding-left: 1rem;
+    padding-bottom: 1rem; 
+    }
+  
   .a-products-sidebar {
     justify-self: center;
     grid-area: products;
@@ -68,38 +113,44 @@
   }
   #a-container-sidebar {
     display: grid;
-    grid-template-rows: 2.2rem 1fr;
+    grid-template-rows: 2.5rem 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     margin: 1rem 0rem;
     justify-content: space-evenly;
-    grid-template-areas: " adminRole adminRole adminRole " "products orders admin"
+    grid-template-areas: " adminRole adminRole adminRole " "products orders admin";
   }
-  .a-dropdown-content-products, .a-dropdown-content-orders, .a-dropdown-content-admin {
+  .a-dropdown-content-products,
+  .a-dropdown-content-orders,
+  .a-dropdown-content-admin {
     display: none;
   }
-  .a-dropdown-content-products.show, .a-dropdown-content-orders.show, .a-dropdown-content-admin.show {
+  .a-dropdown-content-products.show,
+  .a-dropdown-content-orders.show,
+  .a-dropdown-content-admin.show {
     display: block;
   }
 }
-
+/* MEDIA QUERYS 425PX */
 @media only screen and (max-width: 425px) {
-  #a-container-sidebar>div>h5 {
+  #a-container-sidebar > div > h5 {
     font-size: 0.7rem;
   }
-  #a-container-sidebar>div>h4 {
+  #a-container-sidebar > div > h4 {
     font-size: 0.85rem;
   }
 }
-
+/* MEDIA QUERYS 375PX */
 @media only screen and (max-width: 375px) {
-  .a-dropdown-content-products.show>h5, .a-dropdown-content-orders.show>h5, .a-dropdown-content-admin.show>h5 {
+  .a-dropdown-content-products.show > h5,
+  .a-dropdown-content-orders.show > h5,
+  .a-dropdown-content-admin.show > h5 {
     font-size: 0.6rem;
   }
-  #a-container-sidebar>div>h5 {
+  #a-container-sidebar > div > h5 {
     font-size: 0.6rem;
   }
-  #a-container-sidebar>div>h4 {
-    font-size: 0.70rem;
+  #a-container-sidebar > div > h4 {
+    font-size: 0.7rem;
   }
 }

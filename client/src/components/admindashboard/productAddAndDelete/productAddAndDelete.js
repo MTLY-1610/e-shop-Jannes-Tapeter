@@ -40,8 +40,10 @@ class ProductAddAndDelete extends React.Component {
         {(products, category) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div id="a-content-container">
+            <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
+           
               <AddProduct />
               <h2>Alla produkter</h2>
               {products.state.allProducts.map((product) => (
@@ -132,6 +134,7 @@ class ProductAddAndDelete extends React.Component {
                   </Button>
                 </div>
               ))}
+            </div>
             </div>
             <Footer />
           </React.Fragment>

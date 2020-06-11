@@ -74,9 +74,14 @@ class ProductCategory extends React.Component {
         {(products, category) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div id="a-content-container">
+
+      <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
+            
+  
               <h2>Redigera kategorier</h2>
+
               {products.state.allProducts.map((product) => (
                 <div id="a-product-card" key={product._id}>
                   <div className="a-product-info">
@@ -228,7 +233,7 @@ class ProductCategory extends React.Component {
                 </div>
               ))}
             </div>
-
+           </div>
             <Footer />
           </React.Fragment>
         )}

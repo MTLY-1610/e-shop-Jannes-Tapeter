@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 
 //Administratörer ska kunna lägga till och ta bort produkter (VG)
+
 /* category: [String],
 quantity: Number,
 url: String,
