@@ -2,8 +2,7 @@ import React from "react";
 import "./sidebar.css";
 import { CustomerConsumer } from "../../../context/customerContext";
 import { ProductConsumer } from "../../../context/productContext";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import FaceIcon from '@material-ui/icons/Face';
 
 //<div id="container-sidebar-admin">  path="/admin/welcome"
 //<h5>Uppdatera lagersaldon</h5> path="/admin/productStockbalance"
@@ -29,7 +28,7 @@ class Sidebar extends React.Component {
             {(customer) => (
               <div onClick={this.click} id="a-container-sidebar">
                 <div id="a-container-sidebar-admin">
-                  <h5>{`${customer.state.loggedInCustomer}, ${customer.state.customerRole}`}</h5>
+                  <h5><FaceIcon />{`${customer.state.loggedInCustomer}, ${customer.state.customerRole }`}</h5>
                 </div>
                 <div className="a-products-sidebar">
                   <h4
@@ -41,31 +40,22 @@ class Sidebar extends React.Component {
                         );
 
                         products.classList.toggle("show");
-                        document.getElementById("a-dropdown-icon").style.display =
-                          "none";
-                        document.getElementById("a-dropUp-icon").style.display =
-                          "block";
+           
+                        document.getElementById("a-menu-header")
                         this.setState({ productClicked: true });
                       } else {
                         const products = document.querySelector(
                           ".a-dropdown-content-products"
                         );
                         products.classList.toggle("show");
-                        document.getElementById("a-dropdown-icon").style.display =
-                          "block";
-                        document.getElementById("a-dropUp-icon").style.display =
-                          "none";
+                        document.getElementById("a-menu-header")
+                          
                         this.setState({ productClicked: false });
                       }
                     }}
                   >
                     Produkter
-                    {
-                      <React.Fragment>
-                        <ArrowDropDownIcon id="a-dropdown-icon" />
-                        <ArrowDropUpIcon id="a-dropUp-icon" />
-                      </React.Fragment>
-                    }
+                    
                   </h4>
                   <div className="a-dropdown-content-products">
                     <h5>
@@ -93,35 +83,20 @@ class Sidebar extends React.Component {
                           ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
-                        document.getElementById(
-                          "a-dropdown-icon-order"
-                        ).style.display = "none";
-                        document.getElementById(
-                          "a-dropUp-icon-order"
-                        ).style.display = "block";
+                       
                         this.setState({ orderClicked: true });
                       } else {
                         const order = document.querySelector(
                           ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
-                        document.getElementById(
-                          "a-dropdown-icon-order"
-                        ).style.display = "block";
-                        document.getElementById(
-                          "a-dropUp-icon-order"
-                        ).style.display = "none";
+                    
                         this.setState({ orderClicked: false });
                       }
                     }}
                   >
                     Beställningar{" "}
-                    {
-                      <React.Fragment>
-                        <ArrowDropDownIcon id="a-dropdown-icon-order" />
-                        <ArrowDropUpIcon id="a-dropUp-icon-order" />
-                      </React.Fragment>
-                    }
+          
                   </h4>
                   <div className="a-dropdown-content-orders">
                     <h5>Uppdatera exporter</h5>
@@ -135,36 +110,21 @@ class Sidebar extends React.Component {
                           ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
-                        document.getElementById(
-                          "a-dropdown-icon-admin"
-                        ).style.display = "none";
-                        document.getElementById(
-                          "a-dropUp-icon-admin"
-                        ).style.display = "block";
+                  
                         this.setState({ adminClicked: true });
                       } else {
                         const admins = document.querySelector(
                           ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
-                        document.getElementById(
-                          "a-dropdown-icon-admin"
-                        ).style.display = "block";
-                        document.getElementById(
-                          "a-dropUp-icon-admin"
-                        ).style.display = "none";
+                        
                         this.setState({ adminClicked: false });
                       }
                     }}
                     className="a-menu-header"
                   >
                     Administratörer{" "}
-                    {
-                      <React.Fragment>
-                        <ArrowDropDownIcon id="a-dropdown-icon-admin" />
-                        <ArrowDropUpIcon id="a-dropUp-icon-admin" />
-                      </React.Fragment>
-                    }
+                    
                   </h4>
                   <div className="a-dropdown-content-admin">
                     <h5>
