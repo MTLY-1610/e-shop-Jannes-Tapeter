@@ -36,13 +36,13 @@ class ConfirmOrder extends React.Component {
                 <Header />
                 <StylesProvider injectFirst>
                   <div id="confirm-order-container">
-                  
                     <h1>Bekräfta Order</h1>
-                   
-                    <p>
-                      Dina betalningsuppgifter ser ut att stämma och vi är redo
-                      att skicka din order!
-                    </p>
+                    {this.state.showSummary && (
+                      <p>
+                        Dina betalningsuppgifter ser ut att stämma och vi är
+                        redo att skicka din order!
+                      </p>
+                    )}
                     {this.state.showSummary && order.state.order && (
                       <div className="orderSummary">
                         <h5>Namn:</h5>
@@ -104,7 +104,11 @@ class ConfirmOrder extends React.Component {
                       </Button>
                     ) : (
                       <p>
-                        {`Order inskickad. Spara ditt ordernummer som är bra att ha vid kontakt med oss. Ordernummer: ${order.state.orderNumber}`}
+                        {`Order inskickad. Spara ditt ordernummer som är bra att ha vid kontakt med oss. 
+                        Ordernummer:`}{" "}
+                        <span style={{ fontSize: "1.5rem", color: "gray" }}>
+                          {order.state.orderNumber}
+                        </span>
                       </p>
                     )}
                   </div>
