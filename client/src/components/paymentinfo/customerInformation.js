@@ -42,9 +42,7 @@ class CustomerInformation extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            <div className="change-adress-wrapper">
-              <ChangeAdressFormular setAdress={this.setAdress} />
-            </div>
+            
             <h4 id="paymentheader">Dina Uppgifter</h4>
             {this.state.customer && (
               <div className="register-div">
@@ -169,6 +167,7 @@ class CustomerInformation extends React.Component {
                     />
                   </div>
                   <div id="change-adress-div">
+                 
                     <Button
                       onClick={() => {
                         order.connectAdressToOrder(
@@ -184,6 +183,10 @@ class CustomerInformation extends React.Component {
                     </Button>
                   </div>
                 </div>
+                <div className="change-adress-wrapper">
+              <ChangeAdressFormular setAdress={this.setAdress} />
+            </div>
+              
               </div>
             )}
           </React.Fragment>

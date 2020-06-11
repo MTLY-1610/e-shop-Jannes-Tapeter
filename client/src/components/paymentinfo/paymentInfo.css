@@ -11,7 +11,23 @@
 
 .change-adress-wrapper {
   display: none;
-  width: 40%;
+  width: 100%;
+  margin-top: 2rem;
+}
+.change-adress-wrapper > div > div {
+ 
+  width: 100%;
+  
+}
+.register-wrapper{
+  display: flex;
+  flex-direction: column;
+ 
+}
+.change-adress-div {
+  display: none;
+  width: 100%;
+  
 }
 
 #Ändra-adress {
@@ -22,7 +38,7 @@
 }
 
 .change-adress-wrapper > div > div {
-  width: 80%;
+  
 }
 
 .change-adress-wrapper > div > div > div > div > div {
