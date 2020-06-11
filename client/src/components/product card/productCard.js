@@ -1,7 +1,5 @@
 import React from "react";
 import "./productcard.css";
-import Link from "react-router-dom";
-import sample from "./product-sample.png";
 
 class ProductCard extends React.Component {
   serverUrl = "http://localhost:5000/";

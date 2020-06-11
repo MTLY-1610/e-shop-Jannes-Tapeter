@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./components/homepage/homepage";
 import RegisterLogin from "./components/registerlogin/registerLogin";
@@ -20,7 +20,7 @@ import ProductAddAndDelete from "./components/admindashboard/productAddAndDelete
 import ProductCategory from "./components/admindashboard/productCategory/productCategory";
 import ProductStockBalance from "./components/admindashboard/productStockBalance/productStockBalance";
 import WelcomeAdmin from "./components/admindashboard/welcomeAdmin/welcomeAdmin";
-import CustomerPage from "./components/customerpage/customerPage"
+import CustomerPage from "./components/customerpage/customerPage";
 
 // import ChildrenProducts from "./components/productpage/regularProducts";
 // import AdminRequest from './components/admindashboard/adminRequest/adminRequest'
