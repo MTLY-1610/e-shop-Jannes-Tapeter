@@ -13,8 +13,9 @@
     justify-content: center;
     /* align-items: center; */
     padding: 2rem;
-    width: (95vw -15rem); 
+    /* width: (95vw -15rem); */ 
     align-self: center;
+    flex-grow: 1;
 }
 
 #a-welcome-text {

@@ -14,34 +14,63 @@
     justify-content: center;
     /* align-items: center; */
     padding: 2rem;
-    width: (100vw -15rem); 
+    /* width: (100vw -15rem);  */
     align-self: center;
-}
-#a-row-container {
-    display: flex;
-    flex-direction: row;
-    height: 4rem;
-    align-items: center;
+    flex-grow: 1;
 }
 
-#a-adminRadioGroup {
-    height: 3rem;
+
+.a-admin-request-card  > div > h4 > span {
+    color: grey;
+}
+
+.a-admin-request-card {
+    display: flex;
+    flex-direction: row;
+    border: .1rem solid pink;
+    align-self: center;
     white-space: nowrap;
 }
+
+
+.a-admin-request-card-name {
+    
+    border: .1rem solid navajowhite;
+   
+}
+.a-admin-request-card-form {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    border: .1rem solid lightblue;
+    
+   
+}
+
+.a-admin-request-card > h4 {
+    white-space: nowrap;
+    margin-bottom: .5rem;
+    align-self: flex-start;
+}
+
 
 #a-adminButton {
     height: 3rem;
+    width: 5rem;
+    margin: 0 1rem;
 }
 
-#a-row-container > h4 {
+
+
+@media only screen and (max-width: 992px) {
+    .a-admin-request-card {
+    display: flex;
+    flex-direction: column;
+    border: .1rem solid pink;
+    align-self: center;
     white-space: nowrap;
-    margin-left: .5rem;
-    margin-bottom: .3rem;
-
 }
-#a-row-container > button {
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+   
 }
 
 @media only screen and (max-width: 768px) {
