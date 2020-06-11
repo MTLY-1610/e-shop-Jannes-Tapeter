@@ -12,6 +12,7 @@ a {
 
 header {
   height: 9rem;
+  margin-bottom: 2rem;
 }
 
 #dropUp-icon, #dropUp-icon-admin, #dropUp-icon-order {
@@ -71,7 +72,7 @@ header {
   }
   .hamburger {
     position: absolute;
-    top: 6.8%;
+    top: 3.6rem;
     right: 10vw;
     cursor: pointer;
     z-index: 3;

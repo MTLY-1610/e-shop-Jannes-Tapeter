@@ -1,13 +1,30 @@
+#confirm-order-container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 2rem;
+  
+}
 .orderSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  text-align: right;
   border: 1px solid lightgray;
   padding: 0.5rem;
+  height: 20rem;
+
 }
 
 .orderSummary h5 {
-  font-weight: bold;
+  display: flex;
+  
+  font-weight: 500;
   font-size: 0.8rem;
   margin-top: 0.2rem;
 }
 .orderSummary p {
   font-size: 0.8rem;
+  
 }

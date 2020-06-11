@@ -13,7 +13,7 @@ class PaymentMethods extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            <div>
+            <div id="payment-choices">
               <div id="creditcard">
                 <img src={CreditCards} alt="cc"></img>
               </div>
@@ -25,7 +25,10 @@ class PaymentMethods extends React.Component {
               </div>
             </div>
             <div>
-              <RadioGroup id="radioGroupForDeliveryAndPayment">
+              <RadioGroup
+                onChange={this.props.radioOnChange}
+                id="radioGroupForDeliveryAndPayment"
+              >
                 <FormControlLabel
                   control={<Radio color="default" size="small" />}
                   value="card"

@@ -11,7 +11,7 @@ class BarnrumRow extends React.Component {
       <ProductConsumer>
         {(product) => (
           <div id="component-container">
-            <h1>Mönster</h1>
+            <h1>Barnrum</h1>
             <div id="latests-container">
               <div id="grid-latests">
                 {product.state.allProducts.map(
