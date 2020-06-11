@@ -48,12 +48,18 @@ class ShoppingCart extends React.Component {
                 ))}
 
                 <div className="totalDiv">
+                  <div id="total-rows">
                   <p>Pris</p>
                   <p>{order.cartTotalPrice()}</p>
+                  </div>
+                  <div id="total-rows">
                   <p>Frakt</p>
                   <p>{order.state.shippingCost}</p>
+                  </div>
+                  <div id="total-rows">
                   <p>Total</p>
-                  <p>{order.cartTotalPrice() + order.state.shippingCost}</p>
+                  <p id="t-total">{order.cartTotalPrice() + order.state.shippingCost}</p>
+                  </div>
                 </div>
               </section>
               <section className="delivery-payment-div">
