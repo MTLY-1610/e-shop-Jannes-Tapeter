@@ -1,15 +1,31 @@
 .a-content-container {
     display: flex;
-    justify-content: space-between;
-    margin: 2rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+     width: 95vw; 
 }
 
-.a-welcome {
-    width: 60%;
+
+.a-welcome-container {
+    border: .1rem solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 2rem;
+    width: 95vw -15rem; 
+    align-self: center;
 }
 
 #a-welcome-text {
     text-align: center;
+    padding-bottom: 3rem;
+}
+
+.a-list-welcome {
+    border: .1rem solid lightgray;
+    align-self: center;
+    
 }
 
 @media only screen and (max-width: 768px) {
