@@ -171,18 +171,20 @@ export default class CustomerProvider extends React.Component {
   }
 
   async getCustomerData() {
-    let customerId = JSON.parse(localStorage.getItem("customerId"));
-    try {
-      const response = await fetch(
-        `http://localhost:5000/customer/${customerId}`
-      );
-      if (response.status === 200) {
-        const responseData = await response.json();
+    if (localStorage.getItem("customerId")) {
+      let customerId = JSON.parse(localStorage.getItem("customerId"));
+      try {
+        const response = await fetch(
+          `http://localhost:5000/customer/${customerId}`
+        );
+        if (response.status === 200) {
+          const responseData = await response.json();
 
-        this.setState({ customer: responseData });
+          this.setState({ customer: responseData });
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
 
