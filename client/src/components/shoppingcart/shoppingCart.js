@@ -94,12 +94,10 @@ class ShoppingCart extends React.Component {
               <section className="delivery-payment-div">
                 <div className="flexing-delivery-div">
                   <h4>Leverans</h4>
-                  <div className="divForRadioAndImg">
-                    <DeliveryMethods
-                      radioOnChange={this.radioOnChange}
-                      setShippingCost={this.setShippingCost}
-                    />
-                  </div>
+                  <DeliveryMethods
+                    radioOnChange={this.radioOnChange}
+                    setShippingCost={this.setShippingCost}
+                  />
                 </div>
                 <div className="flexing-delivery-div">
                   <h4>Betalningsmetod</h4>
