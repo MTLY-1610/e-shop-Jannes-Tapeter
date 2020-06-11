@@ -1,9 +1,6 @@
 import React from "react";
 import "./deliveryMethods.css";
 import { RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
-import DB from "./db.png";
-import Postnord from "./postnord.jpg";
-import DHL from "./dhl.jpg";
 import { OrderConsumer } from "../../context/orderContext";
 
 class DeliveryMethods extends React.Component {

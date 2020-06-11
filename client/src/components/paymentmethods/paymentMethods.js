@@ -4,7 +4,7 @@ import CreditCards from "./cc.png";
 import Klarna from "./klarna.png";
 import { RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 import "./paymentMethods.css";
-import { orderConsumer, OrderConsumer } from "../../context/orderContext";
+import { OrderConsumer } from "../../context/orderContext";
 
 class PaymentMethods extends React.Component {
   state = {};

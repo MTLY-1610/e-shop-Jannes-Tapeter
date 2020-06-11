@@ -2,7 +2,7 @@ import React from "react";
 import "./sidebar.css";
 import { CustomerConsumer } from "../../../context/customerContext";
 import { ProductConsumer } from "../../../context/productContext";
-import FaceIcon from '@material-ui/icons/Face';
+import FaceIcon from "@material-ui/icons/Face";
 
 //<div id="container-sidebar-admin">  path="/admin/welcome"
 //<h5>Uppdatera lagersaldon</h5> path="/admin/productStockbalance"
@@ -28,34 +28,38 @@ class Sidebar extends React.Component {
             {(customer) => (
               <div onClick={this.click} id="a-container-sidebar">
                 <div id="a-container-sidebar-admin">
-                  <h5><FaceIcon className="a-face-icon" /><span className="a-admin-name">Admin: {`${customer.state.loggedInCustomer}`}</span></h5>
+                  <h5>
+                    <FaceIcon className="a-face-icon" />
+                    <span className="a-admin-name">
+                      Admin: {`${customer.state.loggedInCustomer}`}
+                    </span>
+                  </h5>
                 </div>
                 <div className="a-products-sidebar">
                   <h4
                     className="a-menu-header"
                     onClick={() => {
-                      if (this.state.productClicked == false) {
+                      if (this.state.productClicked === false) {
                         const products = document.querySelector(
                           ".a-dropdown-content-products"
                         );
 
                         products.classList.toggle("show");
-           
-                        document.getElementById("a-menu-header")
+
+                        document.getElementById("a-menu-header");
                         this.setState({ productClicked: true });
                       } else {
                         const products = document.querySelector(
                           ".a-dropdown-content-products"
                         );
                         products.classList.toggle("show");
-                        document.getElementById("a-menu-header")
-                          
+                        document.getElementById("a-menu-header");
+
                         this.setState({ productClicked: false });
                       }
                     }}
                   >
                     Produkter
-                    
                   </h4>
                   <div className="a-dropdown-content-products">
                     <h5>
@@ -78,25 +82,24 @@ class Sidebar extends React.Component {
                   <h4
                     className="a-menu-header"
                     onClick={() => {
-                      if (this.state.orderClicked == false) {
+                      if (this.state.orderClicked === false) {
                         const order = document.querySelector(
                           ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
-                       
+
                         this.setState({ orderClicked: true });
                       } else {
                         const order = document.querySelector(
                           ".a-dropdown-content-orders"
                         );
                         order.classList.toggle("show");
-                    
+
                         this.setState({ orderClicked: false });
                       }
                     }}
                   >
                     Beställningar{" "}
-          
                   </h4>
                   <div className="a-dropdown-content-orders">
                     <h5>Uppdatera exporter</h5>
@@ -105,26 +108,25 @@ class Sidebar extends React.Component {
                 <div className="a-admin-sidebar">
                   <h4
                     onClick={() => {
-                      if (this.state.adminClicked == false) {
+                      if (this.state.adminClicked === false) {
                         const admins = document.querySelector(
                           ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
-                  
+
                         this.setState({ adminClicked: true });
                       } else {
                         const admins = document.querySelector(
                           ".a-dropdown-content-admin"
                         );
                         admins.classList.toggle("show");
-                        
+
                         this.setState({ adminClicked: false });
                       }
                     }}
                     className="a-menu-header"
                   >
                     Administratörer{" "}
-                    
                   </h4>
                   <div className="a-dropdown-content-admin">
                     <h5>

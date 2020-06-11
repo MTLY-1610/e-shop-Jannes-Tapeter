@@ -49,7 +49,9 @@ const Test = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Input name="image" type="file" onChange={fileSelectedHandler} />
       <button onClick={fileUploadHandler}>Upload File</button>
-      {product.url && <img src={`http://localhost:5000/${product.url}`} />}
+      {product.url && (
+        <img alt="" src={`http://localhost:5000/${product.url}`} />
+      )}
       <Input
         name="price"
         type="number"

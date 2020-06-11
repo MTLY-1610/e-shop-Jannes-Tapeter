@@ -43,7 +43,6 @@ class ChangeAdress extends React.Component {
               <p>Adress</p>
               <TextField
                 size="small"
-                id="outlined-basic"
                 variant="outlined"
                 margin="dense"
                 value={this.state.street}
@@ -60,7 +59,6 @@ class ChangeAdress extends React.Component {
             <div>
               <p>Postnummer</p>
               <TextField
-                id="outlined-basic"
                 size="small"
                 variant="outlined"
                 margin="dense"
@@ -79,7 +77,6 @@ class ChangeAdress extends React.Component {
               <p>Stad</p>
               <TextField
                 size="small"
-                id="outlined-basic"
                 variant="outlined"
                 margin="dense"
                 value={this.state.city}
@@ -93,7 +90,6 @@ class ChangeAdress extends React.Component {
             <div>
               <p>Land</p>
               <TextField
-                id="outlined-basic"
                 size="small"
                 variant="outlined"
                 margin="dense"

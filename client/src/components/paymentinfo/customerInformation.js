@@ -42,7 +42,6 @@ class CustomerInformation extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            
             <h4 id="paymentheader">Dina Uppgifter</h4>
             {this.state.customer && (
               <div className="register-div">
@@ -50,7 +49,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Förnamn</p>
                     <TextField
-                      id="outlined-basic"
                       variant="outlined"
                       size="small"
                       margin="dense"
@@ -60,7 +58,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Efternamn</p>
                     <TextField
-                      id="outlined-basic"
                       variant="outlined"
                       size="small"
                       margin="dense"
@@ -72,7 +69,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Epost</p>
                     <TextField
-                      id="outlined-basic"
                       size="small"
                       variant="outlined"
                       margin="dense"
@@ -82,7 +78,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Telefon</p>
                     <TextField
-                      id="outlined-basic"
                       size="small"
                       variant="outlined"
                       margin="dense"
@@ -94,7 +89,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Adress</p>
                     <TextField
-                      id="outlined-basic"
                       size="small"
                       variant="outlined"
                       margin="dense"
@@ -138,7 +132,6 @@ class CustomerInformation extends React.Component {
                     <p>Stad</p>
                     <TextField
                       size="small"
-                      id="outlined-basic"
                       variant="outlined"
                       margin="dense"
                       value={this.state.customer.adress.city}
@@ -147,7 +140,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Postnummer</p>
                     <TextField
-                      id="outlined-basic"
                       size="small"
                       variant="outlined"
                       margin="dense"
@@ -159,7 +151,6 @@ class CustomerInformation extends React.Component {
                   <div>
                     <p>Land</p>
                     <TextField
-                      id="outlined-basic"
                       size="small"
                       variant="outlined"
                       margin="dense"
@@ -167,7 +158,6 @@ class CustomerInformation extends React.Component {
                     />
                   </div>
                   <div id="change-adress-div">
-                 
                     <Button
                       onClick={() => {
                         order.connectAdressToOrder(
@@ -184,9 +174,8 @@ class CustomerInformation extends React.Component {
                   </div>
                 </div>
                 <div className="change-adress-wrapper">
-              <ChangeAdressFormular setAdress={this.setAdress} />
-            </div>
-              
+                  <ChangeAdressFormular setAdress={this.setAdress} />
+                </div>
               </div>
             )}
           </React.Fragment>
