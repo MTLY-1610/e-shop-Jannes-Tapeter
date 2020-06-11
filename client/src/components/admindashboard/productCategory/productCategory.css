@@ -1,4 +1,14 @@
-.edit-category-container {
+#a-content-container {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+
+}
+
+
+
+.a-edit-category-container {
     
     display: flex;
     flex-direction: column;
@@ -9,23 +19,23 @@
 }
 
 
-.product-info {
+.a-product-info {
     
     flex-basis: 70%;
 }
 
-.product-info > div > span {
+.a-product-info > div > span {
     color: grey;
 }
 
-#product-card {
+#a-product-card {
     border: .1rem solid grey;
     display: flex;
     flex-direction: row;
    
     
 }
-.category-inline {
+.a-category-inline {
     display: inline-block;
     margin-left: .5rem;
 }

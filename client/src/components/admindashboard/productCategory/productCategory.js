@@ -39,15 +39,15 @@ class ProductCategory extends React.Component {
           <React.Fragment>
             <Header />
             <Sidebar />
-            <div id="content-container">
+            <div id="a-content-container">
               <h2>Kategori Mönster tapet</h2>
               <h2>Kategori Foto tapet</h2>
             <h2>Kategori Barnrum tapet</h2>
             <h2>Tapeter tillhörande flera kategorier</h2>
               {products.state.allProducts.map((product) => (
-                <div id="product-card" key={product._id}>
-                 <div className="product-info" edit-category-container> <img
-                    className="sample"
+                <div id="a-product-card" key={product._id}>
+                 <div className="a-product-info"> <img
+                    className="a-sample"
                     src={`${this.serverUrl}${product.url}`}
                     alt="product"
                   />
@@ -75,7 +75,7 @@ class ProductCategory extends React.Component {
                   <div>
                     <span>Kategori</span>
                     {product.category.map((category, index) => (
-                      <div className="category-inline" key={index}>
+                      <div className="a-category-inline" key={index}>
                         {category === "pattern" && <>Mönster</>}
                         {category === "photo" && <>Foto</>}
                         {category === "children" && <>Barnrum</>}
@@ -83,7 +83,7 @@ class ProductCategory extends React.Component {
                     ))}
                   </div>
                   </div>
-                  <div className="edit-category-container">
+                  <div className="a-edit-category-container">
                     <h4>Redigera denna produkts kategori</h4>
                     <FormControlLabel
 
@@ -131,7 +131,7 @@ labelPlacement="start"
               `}
                           </h1>
                           <Button
-                            id="confirmationButton"
+                            id="a-confirmationButton"
                             size="small"
                             variant="contained"
                             onClick={() => products.deleteProduct(product._id)}
@@ -142,7 +142,7 @@ labelPlacement="start"
                       }
                     </Modal>
                     <Button
-                      id="adminButton"
+                      id="a-adminButton"
                       size="small"
                       variant="contained"
                       onClick={() =>
