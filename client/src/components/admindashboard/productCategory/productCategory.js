@@ -38,8 +38,11 @@ class ProductCategory extends React.Component {
         {(products, category) => (
           <React.Fragment>
             <Header />
-            <Sidebar />
-            <div id="a-content-container">
+
+      <div className="a-content-container">
+        <Sidebar />
+        <div className="a-child-content-container">
+            
               <h2>Kategori Mönster tapet</h2>
               <h2>Kategori Foto tapet</h2>
             <h2>Kategori Barnrum tapet</h2>
@@ -155,7 +158,7 @@ labelPlacement="start"
                 </div>
               ))}
             </div>
-           
+           </div>
             <Footer />
           </React.Fragment>
         )}
