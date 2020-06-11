@@ -25,7 +25,10 @@ class PaymentMethods extends React.Component {
               </div>
             </div>
             <div>
-              <RadioGroup id="radioGroupForDeliveryAndPayment">
+              <RadioGroup
+                onChange={this.props.radioOnChange}
+                id="radioGroupForDeliveryAndPayment"
+              >
                 <FormControlLabel
                   control={<Radio color="default" size="small" />}
                   value="card"
