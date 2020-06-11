@@ -13,13 +13,16 @@ class DeliveryMethods extends React.Component {
         {(order) => (
           <React.Fragment>
             <div className="delivery-choices">
-            
-              <RadioGroup id="radioGroupForDeliveryAndPayment">
+              <RadioGroup
+                onChange={this.props.radioOnChange}
+                id="radioGroupForDeliveryAndPayment"
+              >
                 {order.state.deliveryMethods.map((dm) => (
                   <FormControlLabel
                     key={dm._id}
                     control={<Radio color="default" size="small" />}
                     value={dm._id}
+                    name="radio"
                     label={`${dm.company} (${dm.deliveryTime} dagar) ${dm.price}kr`}
                     onChange={(event) => {
                       if (event.target.checked) {

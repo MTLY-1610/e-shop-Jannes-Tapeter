@@ -4,6 +4,7 @@ import DeliveryMethods from "../deliverymethods/deliveryMethods";
 import ProductInCart from "../ProductInCart/ProductInCart";
 import PaymentMethods from "../paymentmethods/paymentMethods";
 import Footer from "../footer/footer";
+import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { OrderConsumer } from "../../context/orderContext";
 
@@ -14,6 +15,8 @@ class ShoppingCart extends React.Component {
     super(props);
     this.state = {
       userId: "",
+      paymentChosen: false,
+      deliveryChosen: false,
     };
   }
   componentDidMount() {
@@ -22,6 +25,30 @@ class ShoppingCart extends React.Component {
       this.setState({ userId: userId });
     }
   }
+
+  radioOnChange = (event) => {
+    if (event.target.name === "radio") {
+      this.setState({ deliveryChosen: true });
+    }
+    if (
+      event.target.value === "swish" ||
+      event.target.value === "klarna" ||
+      event.target.value === "card"
+    ) {
+      this.setState({ paymentChosen: true });
+    }
+  };
+
+  checkButton = () => {
+    if (
+      this.state.paymentChosen === true &&
+      this.state.deliveryChosen === true
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   render() {
     return (
@@ -49,16 +76,18 @@ class ShoppingCart extends React.Component {
 
                 <div className="totalDiv">
                   <div id="total-rows">
-                  <p>Pris</p>
-                  <p>{order.cartTotalPrice()}</p>
+                    <p>Pris</p>
+                    <p>{order.cartTotalPrice()}</p>
                   </div>
                   <div id="total-rows">
-                  <p>Frakt</p>
-                  <p>{order.state.shippingCost}</p>
+                    <p>Frakt</p>
+                    <p>{order.state.shippingCost}</p>
                   </div>
                   <div id="total-rows">
-                  <p>Total</p>
-                  <p id="t-total">{order.cartTotalPrice() + order.state.shippingCost}</p>
+                    <p>Total</p>
+                    <p id="t-total">
+                      {order.cartTotalPrice() + order.state.shippingCost}
+                    </p>
                   </div>
                 </div>
               </section>
@@ -66,18 +95,22 @@ class ShoppingCart extends React.Component {
                 <div className="flexing-delivery-div">
                   <h4>Leverans</h4>
                   <div className="divForRadioAndImg">
-                    <DeliveryMethods setShippingCost={this.setShippingCost} />
+                    <DeliveryMethods
+                      radioOnChange={this.radioOnChange}
+                      setShippingCost={this.setShippingCost}
+                    />
                   </div>
                 </div>
                 <div className="flexing-delivery-div">
                   <h4>Betalningsmetod</h4>
                   <div className="divForRadioAndImg">
-                    <PaymentMethods />
+                    <PaymentMethods radioOnChange={this.radioOnChange} />
                   </div>
                 </div>
-                <button
+                <Button
                   id="paymentBtn"
                   variant="contained"
+                  disabled={this.checkButton()}
                   onClick={() => order.connectCartToOrder()}
                 >
                   {this.state.userId ? (
@@ -85,7 +118,7 @@ class ShoppingCart extends React.Component {
                   ) : (
                     <Link to="/register">Registrera / Logga in</Link>
                   )}
-                </button>
+                </Button>
               </section>
             </div>
             <Footer />
