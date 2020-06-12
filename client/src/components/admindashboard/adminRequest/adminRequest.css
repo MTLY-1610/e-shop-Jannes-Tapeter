@@ -1,89 +1,79 @@
 .a-content-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-     width: 95vw; 
-     border: .1rem solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95vw;
 }
-
 
 .a-child-content-container {
-    border: .1rem solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    padding: 2rem;
-    /* width: (100vw -15rem);  */
-    align-self: center;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  align-self: center;
+  flex-grow: 1;
 }
 
-
-.a-admin-request-card  > div > h4 > span {
-    color: grey;
+.a-admin-request-card > div > h4 > span {
+  color: gray;
 }
 
 .a-admin-request-card {
-    display: flex;
-    flex-direction: row;
-    border: .1rem solid pink;
-    align-self: center;
-    white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  border: 0.1rem solid lightgray;
+  align-self: center;
+  white-space: nowrap;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
-
 
 .a-admin-request-card-name {
-    
-    border: .1rem solid navajowhite;
-   
+  padding: 0.5rem;
 }
+
 .a-admin-request-card-form {
-    display: flex;
-    flex-direction: row;
-    width: 20rem;
-    border: .1rem solid lightblue;
-    
-   
+  display: flex;
+  flex-direction: row;
+  width: 20rem;
+  align-self: center;
 }
 
 .a-admin-request-card > h4 {
-    white-space: nowrap;
-    margin-bottom: .5rem;
-    align-self: flex-start;
+  white-space: nowrap;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
 }
 
-
-#a-adminButton {
-    height: 3rem;
-    width: 5rem;
-    margin: 0 1rem;
+#a-admin-reguest-button {
+  height: 3rem;
+  width: 5rem;
+  margin: 0 1rem;
 }
-
-
 
 @media only screen and (max-width: 992px) {
-    .a-admin-request-card {
-    display: flex;
+  .a-admin-request-card {
     flex-direction: column;
-    border: .1rem solid pink;
+    white-space: wrap;
+    padding-bottom: 0.7rem;
+  }
+
+  .a-admin-request-card-name {
     align-self: center;
-    white-space: nowrap;
-}
-   
+    padding-bottom: 0.7rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .a-content-container {
-        flex-direction: column;
-        align-items: center;
-        margin: 0rem;
-    }
+  .a-content-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem;
+  }
 
-    .a-child-content-container {
-        padding: .5rem;
-        width: 90vw; 
-        align-self: center;
-    }
-   
+  .a-child-content-container {
+    padding: 0.5rem;
+    width: 90vw;
+    align-self: center;
+  }
 }

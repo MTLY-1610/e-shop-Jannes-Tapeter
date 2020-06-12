@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { TextField } from "@material-ui/core";
-import { StylesProvider } from "@material-ui/styles";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 class CardDetails extends React.Component {

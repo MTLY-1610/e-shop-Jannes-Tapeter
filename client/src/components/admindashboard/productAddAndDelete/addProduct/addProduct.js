@@ -4,27 +4,10 @@ import {
   TextField,
   Button,
   Input,
-  FormGroup,
-  OutlinedInput,
-  InputAdornment,
-  FormControl,
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
 import axios from "axios";
-
-//Administratörer ska kunna lägga till och ta bort produkter (VG)
-
-/* category: [String],
-quantity: Number,
-url: String,
-price: Number,
-description: String,
-brand: String,
-designer: String,
-ref: String,
-dimensions: String,
-date: Number, */
 
 const AddProduct = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -70,8 +53,7 @@ const AddProduct = () => {
   };
 
   return (
-    
-      <form id="a-form" noValidate autoComplete="off">
+    <form id="a-form" noValidate autoComplete="off">
       <Input name="image" type="file" onChange={fileSelectedHandler} />
       <Button
         onClick={fileUploadHandler}
@@ -82,10 +64,14 @@ const AddProduct = () => {
         Ladda upp bild
       </Button>
 
-      {product.url && <img src={`http://localhost:5000/${product.url}`} />}
-      
+      {product.url && (
+        <img alt="" src={`http://localhost:5000/${product.url}`} />
+      )}
 
-      <TextField id="a-outlined-basic" label="Märke" variant="outlined"
+      <TextField
+        id="a-outlined-basic"
+        label="Märke"
+        variant="outlined"
         name="brand"
         type="text"
         placeholder="Märke"
@@ -93,21 +79,30 @@ const AddProduct = () => {
           setProduct({ ...product, brand: event.target.value })
         }
       />
-      <TextField id="a-outlined-basic" label="Designer" variant="outlined"
+      <TextField
+        id="a-outlined-basic"
+        label="Designer"
+        variant="outlined"
         name="designer"
         type="text"
         onChange={(event) =>
           setProduct({ ...product, designer: event.target.value })
         }
       />
-      <TextField id="a-outlined-basic" label="Ref" variant="outlined"
+      <TextField
+        id="a-outlined-basic"
+        label="Ref"
+        variant="outlined"
         name="ref"
         type="text"
         onChange={(event) =>
           setProduct({ ...product, ref: event.target.value })
         }
       />
-      <TextField id="a-outlined-basic" label="Mått" variant="outlined"
+      <TextField
+        id="a-outlined-basic"
+        label="Mått"
+        variant="outlined"
         name="dimensions"
         type="text"
         onChange={(event) =>
@@ -115,29 +110,38 @@ const AddProduct = () => {
         }
       />
 
-<TextField id="a-outlined-multiline-flexible" label="Beskrivning" variant="outlined"
+      <TextField
+        id="a-outlined-multiline-flexible"
+        label="Beskrivning"
+        variant="outlined"
         name="description"
         type="text"
-          multiline
-          rowsMax={10}
-          variant="outlined"
+        multiline
+        rowsMax={10}
         onChange={(event) =>
           setProduct({ ...product, description: event.target.value })
         }
       />
-      <TextField id="a-outlined-basic" label="Pris" variant="outlined" 
+      <TextField
+        id="a-outlined-basic"
+        label="Pris"
+        variant="outlined"
         name="price"
         type="number"
         onChange={(event) =>
           setProduct({ ...product, price: event.target.value })
         }
       />
-     
-     <TextField id="a-outlined-basic" label="Antal" variant="outlined" 
+
+      <TextField
+        id="a-outlined-basic"
+        label="Antal"
+        variant="outlined"
         name="quantity"
         type="number"
         onChange={(event) =>
-          setProduct({ ...product, quantity: event.target.value })}
+          setProduct({ ...product, quantity: event.target.value })
+        }
       />
 
       <FormControlLabel
@@ -166,8 +170,7 @@ const AddProduct = () => {
       >
         Lägg till produkt
       </Button>
-      </form>
-    
+    </form>
   );
 };
 

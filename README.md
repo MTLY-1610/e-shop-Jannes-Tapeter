@@ -1,11 +1,13 @@
 # Jannes tapeter
-Janne stora passion i livet är tapeter, därför har han bestämt sig för att skapa en e-handel som säljer dom finaste tapeterna i världen. Dessa exklusiva produkter är indelade i kategorierna: mönstertapeter, fototapeter och barnrum.  
 
+Janne stora passion i livet är tapeter, därför har han bestämt sig för att skapa en e-handel som säljer dom finaste tapeterna i världen. Dessa exklusiva produkter är indelade i kategorierna: mönstertapeter, fototapeter och barnrum.
 
 ## Presentation
-För denna skoluppgift har vi har byggt en webbshops-applikation inkluderande en klient och en server. Servern är kopplad till en mongodb databas via mongoDB atlas och är strukturerad och baserad på ett REST-API med resurser. Klient delen är uppbyggd med React.js. 
+
+För denna skoluppgift har vi har byggt en webbshops-applikation inkluderande en klient och en server. Servern är kopplad till en mongodb databas via mongoDB atlas och är strukturerad och baserad på ett REST-API med resurser. Klient delen är uppbyggd med React.js.
 
 ## Kravlistan
+
 Vi ska skriva en kort kommentar om vilka krav vi har uppfyllt och hur.
 
 Kravspecifikation på projektet:
@@ -32,73 +34,75 @@ Tillgängliga fraktalternativ ska vara hämtade från databasen (G)
 Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)  
 Administratörer ska kunna lägga till och ta bort produkter (VG)  
 Backendapplikationen måste ha en fungerande global felhantering (VG)  
-Checkoutflödet i frontendapplikationen ska ha validering på samtliga fält (G)  
+Checkoutflödet i frontendapplikationen ska ha validering på samtliga fält (G)
 
 ## Hur vi har byggt projektet
+
 Först skapade vi ett ER-diagram och kod-diagram för servern och dess filer. Vi skapade en mockup för de olika sidorna som skulle skapas på klient delen av applikationen.
 Alla filer för backend sparades i en server-mapp, alla filer för forntend sparades i en client-mapp. Vi har en .gitignore fil som ignorerar våra node_modules mappar.
 
 ### Server
+
 Vi har installerat och använt:  
-   "bcrypt": "^4.0.1",  
-    "cookie-session": "^1.4.0",  
-    "express": "^4.17.1",  
-    "express-async-errors": "^3.1.1",  
-    "express-router": "^0.0.1",  
-    "mongoose": "^5.9.15",  
-    "multer": "^1.4.2"  
+ "bcrypt": "^4.0.1",  
+ "cookie-session": "^1.4.0",  
+ "express": "^4.17.1",  
+ "express-async-errors": "^3.1.1",  
+ "express-router": "^0.0.1",  
+ "mongoose": "^5.9.15",  
+ "multer": "^1.4.2"
 
 ### Klient
-Vi har installerat och använt:   
-    "@material-ui/core": "^4.10.1",  
-    "@material-ui/icons": "^4.9.1",  
-    "@testing-library/jest-dom": "^4.2.4",  
-    "@testing-library/react": "^9.5.0",  
-    "@testing-library/user-event": "^7.2.1",  
-    "axios": "^0.19.2",  
-    "dom": "0.0.3",  
-    "fontsource-roboto": "^2.1.3",  
-    "i": "^0.3.6",  
-    "lodash": "^4.17.15",  
-    "material-icons": "^0.3.1",  
-    "material-ui-icons": "^1.0.0-beta.36",  
-    "npm": "^6.14.5",  
-    "react": "^16.13.1",  
-    "react-dom": "^16.13.1",  
-    "react-material-ui-form": "^1.1.7",  
-    "react-router-dom": "^5.2.0",  
-    "react-scripts": "3.4.1",  
-    "react-typekit": "^1.1.4",  
-    "router": "^1.3.5"  
+
+Vi har installerat och använt:  
+ "@material-ui/core": "^4.10.1",  
+ "@material-ui/icons": "^4.9.1",  
+ "@testing-library/jest-dom": "^4.2.4",  
+ "@testing-library/react": "^9.5.0",  
+ "@testing-library/user-event": "^7.2.1",  
+ "axios": "^0.19.2",  
+ "dom": "0.0.3",  
+ "fontsource-roboto": "^2.1.3",  
+ "i": "^0.3.6",  
+ "lodash": "^4.17.15",  
+ "material-icons": "^0.3.1",  
+ "material-ui-icons": "^1.0.0-beta.36",  
+ "npm": "^6.14.5",  
+ "react": "^16.13.1",  
+ "react-dom": "^16.13.1",  
+ "react-material-ui-form": "^1.1.7",  
+ "react-router-dom": "^5.2.0",  
+ "react-scripts": "3.4.1",  
+ "react-typekit": "^1.1.4",  
+ "router": "^1.3.5"
 
 ## Hur projektet körs
-1. Öppna upp terminalen, gå in i server mappen och kör kommando: 
+
+1. Öppna upp terminalen, gå in i server mappen och kör kommando:
 2. "npm install"
 3. Sen installera nodemon med kommando: "npm i nodemon"
 4. Efter det, kör kommando: "npm start"
 5. Nu öppna upp ett annat fönster i terminalen och gå in i klient mappen och kör kommando: "npm install"
-7. Efter det, kör kommando: "npm start"
+6. Efter det, kör kommando: "npm start"
 
 ## Data för att testa applikationen
 
-Uppgifter att testa sidan med (admin & vanlig användare inlogg t.ex.)
+För att fullt kunna utforska applikationen behövs en användare med admin behörighet. Använd någon av dessa:
 
-Inloggningsuppgifter för kund:
-Epost:
-Lösenord:
+Epost: david.jensen@dota.se
+Lösenord: 123456
 
-Inloggningsuppgifter för admin:
-Epost:
-Lösenord:
+Epost: victor.olsson@dota.se
+Lösenord: 123456
 
 ## Gruppmedlemmar som har skapat applicationen
+
 Fredrik Thelin https://github.com/FThelin  
 Mattin Atai Najaf https://github.com/MattinNajafi  
 Mathieu Larrouy https://github.com/MTLY-1610  
 Embla Jonsson https://github.com/emmbla  
-Ellinor Carlberg https://github.com/Ellinor-Carlberg  
-
+Ellinor Carlberg https://github.com/Ellinor-Carlberg
 
 ### Länk till github repot
-https://github.com/Ellinor-Carlberg/jannes-tapeter/graphs/contributors
 
+https://github.com/Ellinor-Carlberg/jannes-tapeter/graphs/contributors

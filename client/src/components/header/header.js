@@ -69,9 +69,10 @@ class Header extends React.Component {
                         </li>
                         <li>{customer.state.loggedInCustomer}</li>
                         <li
-                          onClick={() => (
-                            customer.logoutCustomer(), order.clearCart()
-                          )}
+                          onClick={() => {
+                            customer.logoutCustomer();
+                            order.clearCart();
+                          }}
                         >
                           Logga ut
                         </li>

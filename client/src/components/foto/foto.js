@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import Hero from "../homepage/hero.jpeg";
 import FotoRow from "./FotoRow";
 import "./foto.css";
 
