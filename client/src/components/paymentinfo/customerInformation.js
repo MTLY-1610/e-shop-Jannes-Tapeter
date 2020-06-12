@@ -32,6 +32,18 @@ class CustomerInformation extends React.Component {
     }
   }
 
+  changeAdress = () => {
+    {
+      const adressDiv = document.querySelector(".change-adress-wrapper");
+      const registerDiv = document.querySelector(".register-wrapper");
+      const registerBox = document.querySelector(".register-box");
+
+      adressDiv.style.display = "block";
+
+      document.querySelector(".login-div").scrollIntoView();
+    }
+  };
+
   setAdress(adress) {
     this.setState({ customer: { ...this.state.customer, adress: adress } });
     localStorage.setItem("shippingAdress", JSON.stringify(adress));
@@ -100,28 +112,7 @@ class CustomerInformation extends React.Component {
                       id="formularButton"
                       size="small"
                       variant="contained"
-                      onClick={() => {
-                        // document.querySelector(
-                        //   ".change-adress-wrapper"
-                        // ).style.transition = "all 0.5s";
-                        // document.querySelector(
-                        //   ".register-wrapper"
-                        // ).style.transition = "all 0.5s";
-
-                        document.querySelector(
-                          ".change-adress-wrapper"
-                        ).style.display = "block";
-                        document.querySelector(
-                          ".change-adress-wrapper"
-                        ).style.opacity = "1";
-                        // document.querySelector(
-                        //   ".register-wrapper"
-                        // ).style.opacity = "0.3";
-                        // document.querySelector(
-                        //   ".register-wrapper"
-                        // ).style.pointerEvents = "none";
-                        // document.querySelector(".login-div").scrollIntoView();
-                      }}
+                      onClick={this.changeAdress}
                     >
                       Jag vill ändra adress
                     </Button>

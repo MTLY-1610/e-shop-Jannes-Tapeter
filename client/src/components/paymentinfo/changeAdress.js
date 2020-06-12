@@ -110,15 +110,8 @@ class ChangeAdress extends React.Component {
           <Button
             onClick={() => {
               this.changeAdress();
-              document.querySelector(".change-adress-wrapper").style.transiton =
-                "all 0.5s";
               document.querySelector(".change-adress-wrapper").style.display =
                 "none";
-              document.querySelector(".change-adress-wrapper").style.opacity =
-                "0.3";
-              document.querySelector(".register-wrapper").style.opacity = "1";
-              document.querySelector(".register-wrapper").style.pointerEvents =
-                "auto";
               document.querySelector(".register-div").scrollIntoView();
             }}
             id="Ändra-adress"
