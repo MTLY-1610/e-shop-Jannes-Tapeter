@@ -8,8 +8,6 @@ För denna skoluppgift har vi har byggt en webbshops-applikation inkluderande en
 
 ## Kravlistan
 
-Vi ska skriva en kort kommentar om vilka krav vi har uppfyllt och hur.
-
 Kravspecifikation på projektet:
 Alla sidor skall vara responsiva. (G)  
 Arbetet ska implementeras med en React frontend och en Express backend. (G)  
@@ -35,6 +33,8 @@ Administratörer ska kunna redigera vilka kategorier en produkt tillhör (VG)
 Administratörer ska kunna lägga till och ta bort produkter (VG)  
 Backendapplikationen måste ha en fungerande global felhantering (VG)  
 Checkoutflödet i frontendapplikationen ska ha validering på samtliga fält (G)
+
+Vi i gruppen anser att vi har uppfyllt alla krav, både G och VG. 
 
 ## Hur vi har byggt projektet
 
@@ -78,12 +78,10 @@ Vi har installerat och använt:
 
 ## Hur projektet körs
 
-1. Öppna upp terminalen, gå in i server mappen och kör kommando:
-2. "npm install"
-3. Sen installera nodemon med kommando: "npm i nodemon"
+1. Öppna upp terminalen, gå in i server mappen och kör kommando: "npm install"
+2. Om du har nodemon installerat globalt använd "nodemon server.js". Annars använd "node server.js"
+3. Öppna upp ett annat fönster i terminalen och gå in i klient mappen och kör kommando: "npm install"
 4. Efter det, kör kommando: "npm start"
-5. Nu öppna upp ett annat fönster i terminalen och gå in i klient mappen och kör kommando: "npm install"
-6. Efter det, kör kommando: "npm start"
 
 ## Data för att testa applikationen
 
