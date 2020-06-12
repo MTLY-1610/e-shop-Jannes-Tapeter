@@ -29,7 +29,7 @@ class AdminRequest extends React.Component {
         {(customer) => (
           <React.Fragment>
             <Header />
-            <div className="a-content-container">
+            <div className="aaa-content-container">
               <Sidebar />
               <div className="a-child-content-container">
                 <h3>Förfrågningar om att bli administratör:</h3>

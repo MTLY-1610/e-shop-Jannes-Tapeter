@@ -1,14 +1,17 @@
-.a-content-container {
+.aaa-content-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   width: 95vw;
+  height: calc(100vh - 18rem); 
 }
 
 .a-child-content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   padding: 2rem;
   align-self: center;
   flex-grow: 1;
