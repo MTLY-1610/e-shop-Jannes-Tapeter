@@ -18,7 +18,7 @@ const WelcomeAdmin = () => {
   return (
     <React.Fragment>
       <Header />
-      <div className="a-content-container">
+      <div className="aa-content-container">
         <Sidebar />
         <div className="a-child-content-container">
           <h3>Välkommen Admin!</h3>
