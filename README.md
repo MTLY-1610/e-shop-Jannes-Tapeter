@@ -6,6 +6,9 @@ Janne stora passion i livet är tapeter, därför har han bestämt sig för att 
 
 För denna skoluppgift har vi har byggt en webbshops-applikation inkluderande en klient och en server. Servern är kopplad till en mongodb databas via mongoDB atlas och är strukturerad och baserad på ett REST-API med resurser. Klient delen är uppbyggd med React.js.
 
+### Länk till mockup:
+https://xd.adobe.com/view/5d5f3a56-fc28-4f96-554c-772fbb1a44ec-2b6e/?fullscreen&hints=off
+
 ## Kravlistan
 
 Kravspecifikation på projektet:
