@@ -54,6 +54,7 @@
 @media only screen and (max-width: 992px) {
   .a-admin-request-card {
     flex-direction: column;
+    white-space: wrap;
     padding-bottom: 0.7rem;
   }
 
