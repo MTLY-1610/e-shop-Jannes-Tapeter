@@ -16,6 +16,7 @@ class DeliveryMethods extends React.Component {
               >
                 {order.state.deliveryMethods.map((dm) => (
                   <FormControlLabel
+                    labelPlacement="start"
                     key={dm._id}
                     control={<Radio color="default" size="small" />}
                     value={dm._id}
