@@ -19,43 +19,42 @@ class OrderExport extends React.Component {
             <Header />
 
             <div className="a-content-container">
-        <Sidebar />
-        <div className="a-child-content-container">
-          
-              <h2>Ordrar som ska sändas</h2>
-              <div id="a-not-shipped-order-container">
-                {order.state.allOrders.map(
-                  (ord) =>
-                    !ord.shipped && (
-                      <OrderCard
-                        key={ord._id}
-                        orderNumber={ord.orderNumber}
-                        firstName={ord.customer.firstName}
-                        lastName={ord.customer.lastName}
-                        totalPrice={ord.totalPrice}
-                        shipped={ord.shipped}
-                        id={ord._id}
-                      />
-                    )
-                )}
+              <Sidebar />
+              <div className="a-child-content-container">
+                <h3>Ordrar som ska sändas:</h3>
+                <div id="a-not-shipped-order-container">
+                  {order.state.allOrders.map(
+                    (ord) =>
+                      !ord.shipped && (
+                        <OrderCard
+                          key={ord._id}
+                          orderNumber={ord.orderNumber}
+                          firstName={ord.customer.firstName}
+                          lastName={ord.customer.lastName}
+                          totalPrice={ord.totalPrice}
+                          shipped={ord.shipped}
+                          id={ord._id}
+                        />
+                      )
+                  )}
+                </div>
+                <h3>Utsända ordrar:</h3>
+                <div id="a-shipped-order-container">
+                  {order.state.allOrders.map(
+                    (ord) =>
+                      ord.shipped && (
+                        <OrderCard
+                          key={ord._id}
+                          orderNumber={ord.orderNumber}
+                          firstName={ord.customer.firstName}
+                          lastName={ord.customer.lastName}
+                          totalPrice={ord.totalPrice}
+                          shipped={ord.shipped}
+                        />
+                      )
+                  )}
+                </div>
               </div>
-              <h2>Utsända ordrar</h2>
-              <div id="a-shipped-order-container">
-                {order.state.allOrders.map(
-                  (ord) =>
-                    ord.shipped && (
-                      <OrderCard
-                        key={ord._id}
-                        orderNumber={ord.orderNumber}
-                        firstName={ord.customer.firstName}
-                        lastName={ord.customer.lastName}
-                        totalPrice={ord.totalPrice}
-                        shipped={ord.shipped}
-                      />
-                    )
-                )}
-              </div>
-            </div>
             </div>
             <Footer />
           </React.Fragment>
