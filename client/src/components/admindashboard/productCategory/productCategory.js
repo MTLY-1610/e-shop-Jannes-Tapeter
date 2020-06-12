@@ -75,165 +75,165 @@ class ProductCategory extends React.Component {
           <React.Fragment>
             <Header />
 
-      <div className="a-content-container">
-        <Sidebar />
-        <div className="a-child-content-container">
-            
-  
-              <h2>Redigera kategorier</h2>
+            <div className="a-content-container">
+              <Sidebar />
+              <div className="a-child-content-container">
+                <h3>Redigera kategorier:</h3>
 
-              {products.state.allProducts.map((product) => (
-                <div id="a-product-card" key={product._id}>
-                  <div className="a-product-info">
-                    <img
-                      className="a-sample"
-                      src={`${this.serverUrl}${product.url}`}
-                      alt="product"
-                    />
-                    <div>
-                      <span>Märke</span> {product.brand}
-                    </div>
-                    <div>
-                      <span>Designer</span> {product.designer}
-                    </div>
-                    <div>
-                      <span>Ref</span> {product.ref}
-                    </div>
-                    <div>
-                      <span>Mått</span> {product.dimensions}
-                    </div>
-                    <div>
-                      <span>Antal</span> {product.quantity} st
-                    </div>
-                    <div>
-                      <span>Pris</span> {product.price}kr/st
-                    </div>
-                    <div>
-                      <span>Beskrivning</span> {product.description}
-                    </div>
-                    <div>
-                      <span>Kategori</span>
-                      {product.category.map((category, index) => (
-                        <div className="a-category-inline" key={index}>
+                {products.state.allProducts.map((product) => (
+                  <div id="a-product-card" key={product._id}>
+                    <div className="a-product-info">
+                      <img
+                        className="a-sample"
+                        src={`${this.serverUrl}${product.url}`}
+                        alt="product"
+                      />
+                      <div>
+                        <span>Märke</span> {product.brand}
+                      </div>
+                      <div>
+                        <span>Designer</span> {product.designer}
+                      </div>
+                      <div>
+                        <span>Ref</span> {product.ref}
+                      </div>
+                      <div>
+                        <span>Mått</span> {product.dimensions}
+                      </div>
+                      <div>
+                        <span>Antal</span> {product.quantity} st
+                      </div>
+                      <div>
+                        <span>Pris</span> {product.price}kr/st
+                      </div>
+                      <div>
+                        <span>Beskrivning<br></br></span> {product.description}
+                      </div>
+                      <div className="a-category-inline">
+                        <span>Kategori</span>{product.category.map((category, index) => (
+                          <div key={index}>
                           {category === "pattern" && <>Mönster</>}
                           {category === "photo" && <>Foto</>}
                           {category === "children" && <>Barnrum</>}
-                        </div>
-                      ))}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="a-edit-category-container">
-                    <Modal
-                      open={this.state.openConfirmationWindow}
-                      onClose={() =>
-                        this.setState({
-                          openConfirmationWindow: false,
-                          patternChecked: false,
-                          childrenChecked: false,
-                          photoChecked: false,
-                        })
-                      }
-                      aria-labelledby="simple-modal-title"
-                      aria-describedby="simple-modal-description"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {
-                        <div
-                          style={{
-                            background: "white",
-                            alignItems: "center",
-                            flexDirection: "column",
-                            display: "flex",
-                            padding: "2rem",
-                          }}
-                        >
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                checked={this.state.patternChecked}
-                                name="patternCheckbox"
-                                color="default"
-                                onChange={() =>
-                                  this.setState({
-                                    patternChecked: !this.state.patternChecked,
-                                  })
-                                }
-                              />
-                            }
-                            label="Mönster"
-                            labelPlacement="start"
-                          />
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                name="photoCheckbox"
-                                color="default"
-                                checked={this.state.photoChecked}
-                                onChange={() =>
-                                  this.setState({
-                                    photoChecked: !this.state.photoChecked,
-                                  })
-                                }
-                              />
-                            }
-                            checked={this.state.photoChecked}
-                            label="Foto"
-                            labelPlacement="start"
-                          />
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                name="childCheckbox"
-                                color="default"
-                                checked={this.state.childrenChecked}
-                                onChange={() =>
-                                  this.setState({
-                                    childrenChecked: !this.state
-                                      .childrenChecked,
-                                  })
-                                }
-                              />
-                            }
-                            label="Barnrum"
-                            labelPlacement="start"
-                          />
-                          <Button
-                            id="a-confirmationButton"
-                            size="small"
-                            variant="contained"
-                            onClick={() => {
-                              products.editProduct(this.state.id, {
-                                category: this.getCategoryList(),
-                              });
-                              this.setState({ openConfirmationWindow: false });
+                    <div className="a-edit-category-container">
+                      <Modal
+                        open={this.state.openConfirmationWindow}
+                        onClose={() =>
+                          this.setState({
+                            openConfirmationWindow: false,
+                            patternChecked: false,
+                            childrenChecked: false,
+                            photoChecked: false,
+                          })
+                        }
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {
+                          <div
+                            style={{
+                              background: "white",
+                              alignItems: "center",
+                              flexDirection: "column",
+                              display: "flex",
+                              padding: "2rem",
                             }}
                           >
-                            Spara
-                          </Button>
-                        </div>
-                      }
-                    </Modal>
-                    <Button
-                      id="a-adminButton"
-                      size="small"
-                      variant="contained"
-                      onClick={() => {
-                        this.removeProduct(product._id, product.brand);
-                        this.getCategories(product.category);
-                        this.setId(product._id);
-                      }}
-                    >
-                      Redigera kategori
-                    </Button>
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  checked={this.state.patternChecked}
+                                  name="patternCheckbox"
+                                  color="default"
+                                  onChange={() =>
+                                    this.setState({
+                                      patternChecked: !this.state
+                                        .patternChecked,
+                                    })
+                                  }
+                                />
+                              }
+                              label="Mönster"
+                              labelPlacement="start"
+                            />
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  name="photoCheckbox"
+                                  color="default"
+                                  checked={this.state.photoChecked}
+                                  onChange={() =>
+                                    this.setState({
+                                      photoChecked: !this.state.photoChecked,
+                                    })
+                                  }
+                                />
+                              }
+                              checked={this.state.photoChecked}
+                              label="Foto"
+                              labelPlacement="start"
+                            />
+                            <FormControlLabel
+                              control={
+                                <Checkbox
+                                  name="childCheckbox"
+                                  color="default"
+                                  checked={this.state.childrenChecked}
+                                  onChange={() =>
+                                    this.setState({
+                                      childrenChecked: !this.state
+                                        .childrenChecked,
+                                    })
+                                  }
+                                />
+                              }
+                              label="Barnrum"
+                              labelPlacement="start"
+                            />
+                            <Button
+                              id="a-confirmationButton"
+                              size="small"
+                              variant="contained"
+                              onClick={() => {
+                                products.editProduct(this.state.id, {
+                                  category: this.getCategoryList(),
+                                });
+                                this.setState({
+                                  openConfirmationWindow: false,
+                                });
+                              }}
+                            >
+                              Spara
+                            </Button>
+                          </div>
+                        }
+                      </Modal>
+                      <Button
+                        id="a-adminButton"
+                        size="small"
+                        variant="contained"
+                        onClick={() => {
+                          this.removeProduct(product._id, product.brand);
+                          this.getCategories(product.category);
+                          this.setId(product._id);
+                        }}
+                      >
+                        Redigera kategori
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-           </div>
             <Footer />
           </React.Fragment>
         )}

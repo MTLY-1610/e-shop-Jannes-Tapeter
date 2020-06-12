@@ -7,7 +7,7 @@
 
 
 .a-child-content-container {
-    border: .1rem solid red;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,19 +20,21 @@
 
 
 .a-edit-category-container {
-    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     flex-basis: 30%;
     text-align: center;
+    padding: 1rem;
 }
 
-
 .a-product-info {
-    
+    padding: 1rem;
     flex-basis: 70%;
+}
+.a-product-info > div{
+    padding: .1rem;
 }
 
 .a-product-info > div > span {
@@ -43,12 +45,21 @@
     border: .1rem solid grey;
     display: flex;
     flex-direction: row;
-   
-    
+    margin-top: 1rem;
 }
+
+#a-product-card > div > button {
+    margin: .5rem 0;
+        height: 3rem;
+        width: 13rem;
+}
+
+
 .a-category-inline {
-    display: inline-block;
-    margin-left: .5rem;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    /* display: inline-block; */
+   
 }
 
 @media only screen and (max-width: 768px) {
