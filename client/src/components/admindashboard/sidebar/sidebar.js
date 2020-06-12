@@ -3,6 +3,7 @@ import "./sidebar.css";
 import { CustomerConsumer } from "../../../context/customerContext";
 import { ProductConsumer } from "../../../context/productContext";
 import FaceIcon from "@material-ui/icons/Face";
+import { Link } from "react-router-dom";
 
 //<div id="container-sidebar-admin">  path="/admin/welcome"
 //<h5>Uppdatera lagersaldon</h5> path="/admin/productStockbalance"
@@ -63,19 +64,27 @@ class Sidebar extends React.Component {
                   </h4>
                   <div className="a-dropdown-content-products">
                     <h5>
-                      Uppdatera lagersaldo{" "}
-                      <span
-                        style={{
-                          background: "lightgray",
-                          marginLeft: "0.2rem",
-                          padding: "0.2rem",
-                        }}
-                      >
-                        {product.state.lowQuantityProducts}
-                      </span>
+                      <Link to="/admin/productStockbalance">
+                        Uppdatera lagersaldo{" "}
+                        <span
+                          style={{
+                            background: "lightgray",
+                            marginLeft: "0.2rem",
+                            padding: "0.2rem",
+                          }}
+                        >
+                          {product.state.lowQuantityProducts}
+                        </span>
+                      </Link>
                     </h5>
-                    <h5>Redigera kategorier</h5>
-                    <h5>Lägg till / Ta bort</h5>
+                    <h5>
+                      <Link to="/admin/productCategory">
+                        Redigera kategorier
+                      </Link>
+                    </h5>
+                    <h5>
+                      <Link to="/admin/productEdit">Lägg till / Ta bort</Link>
+                    </h5>
                   </div>
                 </div>
                 <div className="a-orders-sidebar">
@@ -102,7 +111,9 @@ class Sidebar extends React.Component {
                     Beställningar{" "}
                   </h4>
                   <div className="a-dropdown-content-orders">
-                    <h5>Uppdatera exporter</h5>
+                    <h5>
+                      <Link to="/admin/orderExport">Uppdatera exporter</Link>
+                    </h5>
                   </div>
                 </div>
                 <div className="a-admin-sidebar">
@@ -130,16 +141,18 @@ class Sidebar extends React.Component {
                   </h4>
                   <div className="a-dropdown-content-admin">
                     <h5>
-                      Nya förfrågningar
-                      <span
-                        style={{
-                          background: "lightgray",
-                          marginLeft: "0.5rem",
-                          padding: "0.2rem",
-                        }}
-                      >
-                        {customer.state.wantsToBeAdmin}
-                      </span>
+                      <Link to="/admin/adminRequest">
+                        Nya förfrågningar
+                        <span
+                          style={{
+                            background: "lightgray",
+                            marginLeft: "0.5rem",
+                            padding: "0.2rem",
+                          }}
+                        >
+                          {customer.state.wantsToBeAdmin}
+                        </span>
+                      </Link>
                     </h5>
                   </div>
                 </div>
