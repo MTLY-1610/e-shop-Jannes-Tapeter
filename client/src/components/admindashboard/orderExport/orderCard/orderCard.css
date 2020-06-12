@@ -1,12 +1,15 @@
-#a-order-card {
-    max-width: 19rem;
-    margin: .5rem;
-    padding: .5rem;
-    background-color: rgb(245, 245, 245);
-   
+.a-order-card {
+  /* max-width: 19rem; */
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 0.1rem solid lightgray;
 }
 
-#a-order-card > div {
-    white-space: nowrap;
+.a-order-card > div {
+  padding-bottom: 0.2rem;
+  /*  white-space: nowrap; */
 }
 
+.a-order-card > div > span {
+  color: grey;
+}

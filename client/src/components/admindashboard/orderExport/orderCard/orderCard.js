@@ -12,22 +12,33 @@ class OrderCard extends React.Component {
       <OrderConsumer>
         {(order) => (
           <React.Fragment>
-            <div id="a-order-card">
-              <div>{this.props.orderNumber}</div>
-              <div>{this.props.firstName}</div>
-              <div>{this.props.lastName}</div>
-              <div>{this.props.totalPrice + "kr"}</div>
+            <div className="a-order-card">
               <div>
+                <span>Ordernummer </span>
+                {this.props.orderNumber}
+              </div>
+              <div>
+                {" "}
+                <span>Kund </span>
+                {this.props.firstName} {this.props.lastName}
+              </div>
+              <div>
+                <span>Summa </span>
+                {this.props.totalPrice + "kr"}
+              </div>
+              <div>
+                {" "}
+                <span>Status </span>
                 {this.props.shipped ? (
-                  <p style={{ color: "green" }}>Skickad!</p>
+                  <span style={{ color: "darkgreen" }}> Utsänd</span>
                 ) : (
-                  <p style={{ color: "red" }}>Ej skickad!</p>
+                  <span style={{ color: "darkred" }}> Ej utsänd</span>
                 )}
               </div>
               {!this.props.shipped && (
                 <FormControlLabel
                   control={<Checkbox name="orderSend" color="default" />}
-                  label="Skickad"
+                  label="Utsänd"
                   labelPlacement="start"
                   onChange={() => order.editOrder(this.props.id)}
                 />
