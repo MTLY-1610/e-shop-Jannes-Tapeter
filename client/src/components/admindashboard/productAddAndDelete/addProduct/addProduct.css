@@ -1,5 +1,19 @@
 #a-form {
     display: flex;
     flex-direction: column;
+    align-items: baseline;
+    margin: 1rem;
+}
 
+#a-form :nth-child(2){
+
+    margin: 0rem;
+}
+
+#a-form > button {
+    margin: .5rem 0;
+        height: 3rem;
+        width: 13rem;
+       
+      
 }

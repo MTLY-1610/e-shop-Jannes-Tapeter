@@ -4,7 +4,7 @@ import Header from "../../header/header";
 import Footer from "../../footer/footer";
 import Sidebar from "../sidebar/sidebar";
 import { ProductConsumer } from "../../../context/productContext";
-
+import { Button, Modal } from "@material-ui/core";
 //Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)
 
 class ProductStockBalance extends React.Component {
@@ -27,23 +27,24 @@ class ProductStockBalance extends React.Component {
         <div className="a-child-content-container">
 
 
-              <h3>Lager saldo:</h3>
+              <h3>Produkters Lagersaldo:</h3>
+              <div className="a-quantity-card-container">
               {products.state.allProducts.map(
                 (product) =>
                   product.quantity <= 10 && (
-                    <div className="a-card-container" key={product._id}>
+                    <div className="a-quantity-card" key={product._id}>
                       <img
                         className="a-sample"
                         src={`${this.serverUrl}${product.url}`}
                         alt="product"
                       />
-                      <span className="a-quantity">Namn: {product.ref}</span>
-                      <span className="a-quantity">
-                        Pris: {product.price}kr/st
-                      </span>
+                      <div className="a-quantity"><span>Namn </span>{product.ref}</div>
+                      <div className="a-quantity"><span>
+                        Pris </span>{product.price}kr/st
+                      </div>
                       {/* <span class="quantity">Antal: {product.quantity}</span> */}
-                      <div>
-                        <label htmlFor="quantity">Antal: </label>
+                      <div className="a-quantity">
+                        <label htmlFor="quantity">Antal </label>
                         <input
                           type="number"
                           id="quantity"
@@ -56,7 +57,10 @@ class ProductStockBalance extends React.Component {
                           }
                         ></input>
                       </div>
-                      <button
+                      <Button
+                      id="a-adminButton"
+                      size="small"
+                      variant="contained"
                         onClick={() =>
                           products.editProduct(product._id, {
                             quantity: this.state.quantity,
@@ -64,7 +68,7 @@ class ProductStockBalance extends React.Component {
                         }
                       >
                         Uppdatera antal
-                      </button>
+                      </Button>
                       {products.state.updateQuantity.success &&
                         product.quantity <= 10 &&
                         product._id === products.state.updateQuantity.id && (
@@ -75,6 +79,7 @@ class ProductStockBalance extends React.Component {
                     </div>
                   )
               )}
+              </div>
             </div>
             </div>
             <Footer />

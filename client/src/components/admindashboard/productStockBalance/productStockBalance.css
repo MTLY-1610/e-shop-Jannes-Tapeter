@@ -7,7 +7,6 @@
 
 
 .a-child-content-container {
-    border: .1rem solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,17 +17,41 @@
     flex-grow: 1;
 }
 
-#a-welcome-text {
-    text-align: center;
-    padding-bottom: 3rem;
+
+.a-quantity-card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.a-list-welcome {
+.a-quantity-card {
     border: .1rem solid lightgray;
-    align-self: center;
-    
+    margin: .5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+width: 15rem;
+max-width: 20rem;
 }
 
+
+.a-quantity-card > .a-quantity {
+    padding: .1rem;
+   
+}
+
+.a-quantity-card > .a-quantity > span, label{
+    color: grey;
+}
+
+.a-quantity-card > button{
+    margin: .5rem 0;
+    height: 3rem;
+    width: 13rem;
+   
+}
 @media only screen and (max-width: 768px) {
     .a-content-container {
         flex-direction: column;

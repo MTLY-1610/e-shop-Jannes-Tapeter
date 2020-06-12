@@ -4,7 +4,7 @@
   width: 15rem;
   min-width: 15rem;
   height: 100%;
-  background-color: whitesmoke;
+  
   /* margin-top: 1rem; */
 }
 
@@ -43,6 +43,7 @@
   padding-top: 1rem;
 }
 
+
 .a-menu-header:hover {
   font-weight: 400;
   cursor: pointer;
@@ -59,11 +60,20 @@
 }
 
 /* MEDIA QUERYS 768PX */
+
 @media only screen and (max-width: 768px) {
+
+
+#a-container-sidebar {
+  padding-bottom: .5rem;
+  background-color: whitesmoke;
+}
+
   #a-container-sidebar-admin {
     display: flex;
     flex-direction: row;
     grid-area: adminRole;
+    
   }
   .a-menu-header {
     display: flex;

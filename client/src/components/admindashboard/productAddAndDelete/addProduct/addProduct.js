@@ -54,10 +54,10 @@ const AddProduct = () => {
 
   return (
     <form id="a-form" noValidate autoComplete="off">
-      <Input name="image" type="file" onChange={fileSelectedHandler} />
-      <Button
+      <Input style={{ margin: ".5rem 0" }} className="a-form-input-image" name="image" type="file" onChange={fileSelectedHandler} />
+      <Button style={{ margin: ".5rem 0" }}
         onClick={fileUploadHandler}
-        id="adminButton"
+        id="a-adminButton"
         size="small"
         variant="contained"
       >
@@ -68,7 +68,7 @@ const AddProduct = () => {
         <img alt="" src={`http://localhost:5000/${product.url}`} />
       )}
 
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Märke"
         variant="outlined"
@@ -79,7 +79,7 @@ const AddProduct = () => {
           setProduct({ ...product, brand: event.target.value })
         }
       />
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Designer"
         variant="outlined"
@@ -89,7 +89,7 @@ const AddProduct = () => {
           setProduct({ ...product, designer: event.target.value })
         }
       />
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Ref"
         variant="outlined"
@@ -99,7 +99,7 @@ const AddProduct = () => {
           setProduct({ ...product, ref: event.target.value })
         }
       />
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Mått"
         variant="outlined"
@@ -110,8 +110,8 @@ const AddProduct = () => {
         }
       />
 
-      <TextField
-        id="a-outlined-multiline-flexible"
+      <TextField style={{ margin: ".5rem 0" }}
+        className="a-outlined-multiline-flexible"
         label="Beskrivning"
         variant="outlined"
         name="description"
@@ -122,7 +122,7 @@ const AddProduct = () => {
           setProduct({ ...product, description: event.target.value })
         }
       />
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Pris"
         variant="outlined"
@@ -133,7 +133,7 @@ const AddProduct = () => {
         }
       />
 
-      <TextField
+      <TextField style={{ margin: ".5rem 0" }}
         id="a-outlined-basic"
         label="Antal"
         variant="outlined"
