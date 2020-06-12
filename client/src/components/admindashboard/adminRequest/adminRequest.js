@@ -39,11 +39,11 @@ class AdminRequest extends React.Component {
                       <div className="a-admin-request-card" key={user._id}>
                         <div className="a-admin-request-card-name">
                           <h4>
-                            <span>Namn: </span>
+                            <span>Namn </span>
                             {user.firstName} {user.lastName}
                           </h4>
                           <h4>
-                            <span>Melj: </span>
+                            <span>Mejl </span>
                             {user.email}
                           </h4>
                         </div>
@@ -67,7 +67,7 @@ class AdminRequest extends React.Component {
                             />
                           </RadioGroup>
                           <Button
-                            id="a-adminButton"
+                            id="a-admin-reguest-button"
                             size="small"
                             variant="contained"
                             onClick={() =>
@@ -80,7 +80,6 @@ class AdminRequest extends React.Component {
                             Sänd
                           </Button>
                         </div>
-                       
                       </div>
                     )
                 )}
