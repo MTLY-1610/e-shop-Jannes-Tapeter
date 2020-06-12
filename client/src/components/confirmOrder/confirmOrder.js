@@ -38,7 +38,7 @@ class ConfirmOrder extends React.Component {
                   <div id="confirm-order-container">
                     <h1>Bekräfta Order</h1>
                     {this.state.showSummary && (
-                      <p>
+                      <p id="b-order-text">
                         Dina betalningsuppgifter ser ut att stämma och vi är
                         redo att skicka din order!
                       </p>
@@ -90,6 +90,7 @@ class ConfirmOrder extends React.Component {
                     )}
 
                     {!order.state.orderPlaced ? (
+                      <div id="laggtill">
                       <Button
                         onClick={() => {
                           order.placeOrder();
@@ -99,14 +100,16 @@ class ConfirmOrder extends React.Component {
                         id="formularButton"
                         size="small"
                         variant="contained"
+                        
                       >
                         LÄGG ORDER
                       </Button>
+                      </div>
                     ) : (
-                      <p>
+                      <p id="b-order-text">
                         {`Order inskickad. Spara ditt ordernummer som är bra att ha vid kontakt med oss. 
                         Ordernummer:`}{" "}
-                        <span style={{ fontSize: "1.5rem", color: "gray" }}>
+                        <span style={{ fontSize: ".8rem", color: "gray" }}>
                           {order.state.orderNumber}
                         </span>
                       </p>

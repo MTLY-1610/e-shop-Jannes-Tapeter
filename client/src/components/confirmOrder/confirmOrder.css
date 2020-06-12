@@ -1,6 +1,7 @@
 #confirm-order-container{
   display: flex;
   flex-direction: column;
+
   width: 80%;
   margin-bottom: 2rem;
   
@@ -13,8 +14,10 @@
   text-align: right;
   border: 1px solid lightgray;
   padding: 0.5rem;
+  padding-left: 2rem;
   height: 20rem;
-
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .orderSummary h5 {
@@ -27,4 +30,39 @@
 .orderSummary p {
   font-size: 0.8rem;
   
+}
+#b-order-text{
+  font-size: .8rem;
+  width: 90%;
+}
+
+#laggtill{
+  display: flex;
+  width: 12rem;
+  align-items: center;
+}
+@media only screen and (max-width: 829px) {
+  #confirm-order-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 2rem;
+    
+  }
+  .orderSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:80%;
+  }
+  #laggtill{
+    display: flex;
+    width: 12rem;
+    align-items: center;
+    
+  }
+ 
+
 }
