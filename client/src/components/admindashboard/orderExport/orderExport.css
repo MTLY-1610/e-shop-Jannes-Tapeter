@@ -8,7 +8,7 @@
 
 
 .a-child-content-container {
-    border: .1rem solid red;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
