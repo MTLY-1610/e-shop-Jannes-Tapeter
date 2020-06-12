@@ -1,5 +1,4 @@
 #a-container-sidebar {
-  border: 0.1rem solid green;
   display: flex;
   flex-direction: column;
   width: 15rem;
@@ -10,36 +9,23 @@
 }
 
 #a-container-sidebar-admin {
-  border: 0.1rem solid darkblue;
   color: rgb(139, 139, 139);
   vertical-align: bottom;
   vertical-align: text-bottom;
   /* column-span: all; */
-  
-  
 }
 
 #a-container-sidebar-admin > h5 {
-  border: 0.1rem solid red;
   padding-left: 1rem;
   padding-top: 1rem;
   /* display: block; */
-display: flex;
-align-items: center;
-}
-
-#a-container-sidebar-admin > h5 > .a-face-icon {
-  border: 0.1rem solid purple;
-}
-#a-container-sidebar-admin > h5 > .a-admin-name {
-  border: 0.1rem solid green;
-  
+  display: flex;
+  align-items: center;
 }
 
 .a-products-sidebar,
 .a-orders-sidebar,
 .a-admin-sidebar {
-  border: 0.1rem solid pink;
   display: flex;
   flex-direction: column;
 }
@@ -47,16 +33,14 @@ align-items: center;
 .a-products-sidebar > div > h5,
 .a-orders-sidebar > div > h5,
 .a-admin-sidebar > div > h5 {
-  border: 0.1rem solid paleturquoise;
   padding-left: 1rem;
-  padding-top: 1rem; 
+  padding-top: 1rem;
 }
 
 .a-products-sidebar > h4,
 .a-orders-sidebar > h4,
 .a-admin-sidebar > h4 {
   padding-top: 1rem;
-  border: 0.1rem solid yellow;
 }
 
 .a-menu-header:hover {
@@ -76,7 +60,6 @@ align-items: center;
 
 /* MEDIA QUERYS 768PX */
 @media only screen and (max-width: 768px) {
- 
   #a-container-sidebar-admin {
     display: flex;
     flex-direction: row;
@@ -92,13 +75,12 @@ align-items: center;
   .a-orders-sidebar > h4,
   .a-admin-sidebar > h4 {
     padding-top: 0rem;
-    
   }
   #a-container-sidebar-admin > h5 {
     padding-left: 1rem;
-    padding-bottom: 1rem; 
-    }
-  
+    padding-bottom: 1rem;
+  }
+
   .a-products-sidebar {
     justify-self: center;
     grid-area: products;
