@@ -79,7 +79,7 @@ class ProductCategory extends React.Component {
               <Sidebar />
               <div className="a-child-content-container">
                 <h3>Redigera kategorier:</h3>
-
+                <div className="a-product-card-container">
                 {products.state.allProducts.map((product) => (
                   <div id="a-product-card" key={product._id}>
                     <div className="a-product-info">
@@ -107,14 +107,18 @@ class ProductCategory extends React.Component {
                         <span>Pris</span> {product.price}kr/st
                       </div>
                       <div>
-                        <span>Beskrivning<br></br></span> {product.description}
+                        <span>
+                          Beskrivning<br></br>
+                        </span>{" "}
+                        {product.description}
                       </div>
                       <div className="a-category-inline">
-                        <span>Kategori</span>{product.category.map((category, index) => (
+                        <span>Kategori</span>
+                        {product.category.map((category, index) => (
                           <div key={index}>
-                          {category === "pattern" && <>Mönster</>}
-                          {category === "photo" && <>Foto</>}
-                          {category === "children" && <>Barnrum</>}
+                            {category === "pattern" && <>Mönster</>}
+                            {category === "photo" && <>Foto</>}
+                            {category === "children" && <>Barnrum</>}
                           </div>
                         ))}
                       </div>
@@ -199,21 +203,23 @@ class ProductCategory extends React.Component {
                               label="Barnrum"
                               labelPlacement="start"
                             />
-                            <Button
-                              id="a-confirmationButton"
-                              size="small"
-                              variant="contained"
-                              onClick={() => {
-                                products.editProduct(this.state.id, {
-                                  category: this.getCategoryList(),
-                                });
-                                this.setState({
-                                  openConfirmationWindow: false,
-                                });
-                              }}
-                            >
-                              Spara
-                            </Button>
+                            <div>
+                              <Button
+                                id="a-confirmationButton"
+                                size="small"
+                                variant="contained"
+                                onClick={() => {
+                                  products.editProduct(this.state.id, {
+                                    category: this.getCategoryList(),
+                                  });
+                                  this.setState({
+                                    openConfirmationWindow: false,
+                                  });
+                                }}
+                              >
+                                Spara
+                              </Button>
+                            </div>
                           </div>
                         }
                       </Modal>
@@ -232,6 +238,7 @@ class ProductCategory extends React.Component {
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
             <Footer />
